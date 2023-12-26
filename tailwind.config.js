@@ -7,6 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        marquee: "marquee 50s linear infinite"
+      },
+      keyframes: {
+        marquee: {
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(calc(-100% - 2.5rem))',
+          },
+        },
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -14,5 +27,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
