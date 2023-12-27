@@ -43,7 +43,9 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="div-3d shadow-violet-950 shadow-2xl bg-black h-4/6 w-9/12 rounded-xl  mt-10 "></div>
+        <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-7/12 mt-10">
+          <video src="/video.mp4" className="w-12/12 rounded-xl" autoPlay playsInline loop muted/>
+        </div>
       </div>
 
       <div className="min-h-screen">
