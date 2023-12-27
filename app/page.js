@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         </div>
         <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-7/12 mt-10">
-          <video src="/video.mp4" className="w-12/12 rounded-xl" autoPlay playsInline loop muted/>
+          <video src="/video.mp4" className="w-12/12 rounded-xl"  controls autoPlay playsInline loop muted/>
         </div>
       </div>
 
