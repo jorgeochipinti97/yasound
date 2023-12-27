@@ -43,12 +43,12 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-7/12 mt-10">
+        <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-7/12 mt-5">
           <video src="/video.mp4" className="w-12/12 rounded-xl"  controls autoPlay playsInline loop muted/>
         </div>
       </div>
 
-      <div className="min-h-screen">
+      <div className="min-h-screen pt-20">
         <div className="flex">
           <div className="w-5/12  mt-20 flex justify-end mr-10">
             <img
