@@ -65,7 +65,7 @@ const page = () => {
       </div>
 
       <div className="">
-        <p className="text-center text-black text-3xl ">🔥Tendencias 🔥</p>
+        <p className="text-center text-black text-3xl ">🔥 Tendencias 🔥</p>
 
           <Marquee className="py-10" pauseOnHover>
             <CardMusic />
