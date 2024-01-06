@@ -9,7 +9,7 @@ const page = () => {
   return (
     <>
       <div className="pt-20 min-h-screen mx-5">
-        <p className="text-center text-slate-black text-5xl">
+        <p className="text-center text-slate-black font-bold text-5xl">
           El Latido de Tu Música
         </p>
         <p className="text-center text-slate-black text-2xl mt-2">
@@ -65,7 +65,7 @@ const page = () => {
       </div>
 
       <div className="">
-        <p className="text-center text-black text-3xl ">🔥 Tendencias 🔥</p>
+        <p className="text-center text-black text-5xl font-bold ">🔥 Tendencias 🔥</p>
 
           <Marquee className="py-10" pauseOnHover>
             <CardMusic />

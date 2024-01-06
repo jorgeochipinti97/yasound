@@ -20,38 +20,38 @@ export function Ranking() {
           <TableHeader>
             <TableRow>
               <TableHead
-                className="px-6 py-3 text-xs font-medium uppercase tracking-wider cursor-pointer">
-                <Button variant="ghost">Rank</Button>
+                className=" py-3 text-xs font-medium uppercase tracking-wider flex justify-center cursor-pointer">
+                <Button variant="ghost">Top</Button>
               </TableHead>
               <TableHead
-                className="px-6 py-3 text-xs font-medium uppercase tracking-wider cursor-pointer">
-                <Button variant="ghost">Name</Button>
+                className=" py-3 text-xs font-medium uppercase   tracking-wider cursor-pointer">
+                <Button variant="ghost">Nombre</Button>
               </TableHead>
               <TableHead
-                className="px-6 py-3 text-xs font-medium uppercase tracking-wider cursor-pointer">
-                <Button variant="ghost">Score</Button>
+                className=" py-3 text-xs font-medium uppercase text-center  tracking-wider cursor-pointer">
+                <Button variant="ghost">Impresiones</Button>
               </TableHead>
               <TableHead
-                className="px-6 py-3 text-xs font-medium uppercase tracking-wider cursor-pointer">
-                <Button variant="ghost">Country</Button>
+                className=" py-3 text-xs font-medium uppercase tracking-wider flex justify-center cursor-pointer">
+                <Button variant="ghost">País</Button>
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody className="bg-white divide-y divide-gray-200">
             <TableRow>
-              <TableCell className="px-6 py-4">
+              <TableCell className=" text-center py-4">
                 <Badge>1</Badge>
               </TableCell>
-              <TableCell className="px-6 py-4">
+              <TableCell className=" py-4">
                 <Link className="text-sm font-medium text-gray-900" href="#">
                   Jane Doe
                 </Link>
               </TableCell>
-              <TableCell className="px-6 py-4">
+              <TableCell className=" py-4 text-center">
                 <span className="text-sm text-gray-500">879</span>
               </TableCell>
-              <TableCell className="px-6 py-4 text-2xl">
-              🇦🇷 
+              <TableCell className=" py-4 text-2xl  text-center ">
+🇦🇷 
               </TableCell>
             </TableRow>
           </TableBody>

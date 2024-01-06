@@ -12,6 +12,7 @@ export const Navbar = () => {
   const tabsComponents = pillTabs.map((text, i) => {
     return (
       <button
+className='p-2 text-xs border-2 text-black bg-slate-500/10 font-semibold  rounded-full '
         onClick={() =>
           (text == "Home" && router.push("/")) ||
           (text == "Beats" && router.push("/beats"))||
@@ -21,10 +22,10 @@ export const Navbar = () => {
         onMouseEnter={() => setHoveredIndex(i)}
         style={{
           position: "relative",
-          padding: "0.65rem 0.75rem",
-          backgroundColor: "black",
-          color: "white",
-          border: 0,
+
+
+
+
           borderRadius: "999px",
         }}
       >
@@ -44,7 +45,7 @@ export const Navbar = () => {
                 zIndex: 10,
                 backgroundColor: "violet",
                 padding: 2,
-                mixBlendMode: "multiply",
+opacity:0.5
               }}
             />
           </MagicTabSelect>
@@ -55,7 +56,7 @@ export const Navbar = () => {
   });
 
   return (
-    <div style={{ display: "flex", gap: "0.75rem", margin: "0.75rem 0" }}>
+    <div style={{ display: "flex", gap: "0.75rem", margin: "0.75rem 0" }} className=''>
       {tabsComponents}
     </div>
   );

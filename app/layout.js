@@ -15,6 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <link rel="icon" href="/logo.png" type="image/x-icon" />
+      </head>
       <body className={inter.className}>
         <nav
           style={{ backdropFilter: "blur(4px)" }}
@@ -26,25 +29,6 @@ export default function RootLayout({ children }) {
           <div>
           <Navbar/>
           </div>
-          {/* <div className="flex">
-            <div className="mx-1 cursor-pointer">
-              <a href="/">
-
-              <p>Home</p>
-              </a>
-            </div>
-            <div className="mx-1 cursor-pointer">
-              <a href="/beats">
-              <p>Beats</p>
-              </a>
-            </div>
-            <div className="mx-1 cursor-pointer">
-              <p>Comunidad</p>
-            </div>
-            <div className="mx-1 cursor-pointer">
-              <p>Conocenos</p>
-            </div>
-          </div> */}
           <div className="flex-1"></div>
           <div className="flex mr-5">
             <div className="mx-1 cursor-pointer">
@@ -56,7 +40,7 @@ export default function RootLayout({ children }) {
           </div>
         </nav>
         {children}
-        <footer className="border-2 border-black bg-slate-800 py-10 flex justify-center mt-10">
+        <footer className="border-2 Standalone components tailored to your needs and easily integrated. Perfect for website elements or sections.border-black bg-slate-800 py-10 flex justify-center mt-10">
           <div className="icons flex">
             <a href="#" className="icon instagram rounded-full mx-1">
               <svg

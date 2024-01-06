@@ -1,6 +1,9 @@
 "use client";
+import { CardMusic } from "@/components/CardMusic";
+import { Ranking } from "@/components/ranking";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
   useEffect(() => {
@@ -44,7 +47,15 @@ export default function Home() {
           </div>
         </div>
         <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-7/12 mt-5">
-          <video src="/video.mp4" className="w-12/12 rounded-xl"  controls autoPlay playsInline loop muted/>
+          <video
+            src="/video.mp4"
+            className="w-12/12 rounded-xl"
+            controls
+            autoPlay
+            playsInline
+            loop
+            muted
+          />
         </div>
       </div>
 
@@ -170,11 +181,39 @@ export default function Home() {
                     <path d="M21 14v4c0 2-.667 3-2 3h-5"></path>
                   </g>
                 </svg>
-                Soporte diario 
+                Soporte diario
               </div>
             </div>
           </div>
-          <div className="w-screen grid grid-cols-2 mt-36 ">
+
+          <div className="flex flex-col items-center">
+            <p className="mt-20 text-5xl font-bold font-geist">
+              🔥 TENDENCIAS 🔥
+            </p>
+            <Marquee className="pb-20 mt-10 " pauseOnHover>
+              <CardMusic />
+              <CardMusic />
+              <CardMusic />
+              <CardMusic />
+              <CardMusic />
+              <CardMusic />
+              <CardMusic />
+            </Marquee>
+            <div><p className="text-5xl font-bold mb-5 mt-10">Confian en nosotros</p></div>
+            <Marquee className="pb-20 mt-10  " direction="right" autoFill >
+              <div >
+                <img src="/redbull.svg" className="w-6/12" />
+              </div>
+              <div >
+                <img src="/jhon.png" className="w-6/12" />
+              </div>
+              <div className="">
+                <img src="/lider2.jpeg " className="w-6/12"  />
+              </div>
+            </Marquee>
+          </div>
+
+          <div className="w-screen grid grid-cols-2 mt-10 ">
             <div className="flex justify-start items-center flex-col">
               <p className="text-center text-4xl font-extrabold">
                 Contamos con asistencia en
@@ -195,6 +234,9 @@ export default function Home() {
                   className="mx-1"
                   style={{ width: "50px" }}
                 />{" "}
+              </div>
+              <div className="flex justify-center mt-20">
+                <Ranking />
               </div>
             </div>
             <div className=" flex justify-center items-start">
@@ -262,7 +304,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-     
     </div>
   );
 }
