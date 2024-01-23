@@ -214,7 +214,7 @@ const Page = () => {
           <div className="h-full   flex-col items-center py-10 flex justify-center w-11/12  mr-1 rounded-xl  md:w-[100%]  ">
             <p className="font-geist text-4xl font-bold text-center">Reservar una llamada</p>
             <DatePicker
-            className='bg-transparent text-center border-2 text-xl border-black rounded-xl mt-5'
+            className='bg-transparent z-50 text-center border-2 text-xl border-black rounded-xl mt-5'
               selected={startDate}
               onChange={(date) => setStartDate(date)}
             />
