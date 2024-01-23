@@ -19,11 +19,13 @@ export default function Home() {
       <div className="h-screen flex flex-col items-center">
         <div className=" flex items-center flex-col justiyf-center">
           <p className="text-center pt-24  text-5xl font-extrabold ">
-            ¡Haz que tus Beats Resuenen en Latinoamérica!
+            {/* ¡Haz que tus Beats Resuenen en Latinoamérica! */}
+            Conectando Productores con el Mundo
           </p>
           <p className="text-center  text-md ">
-            Explora, conecta y colabora con una comunidad vibrante de creadores
-            musicales en toda Latinoamérica.
+            {/* Explora, conecta y colabora con una comunidad vibrante de creadores
+            musicales en toda Latinoamérica. */}
+            Tu Escenario Digital para Crear, Compartir y Prosperar
           </p>
           <div className="mt-5">
             <button class="animated-button">
@@ -93,9 +95,10 @@ export default function Home() {
           </p>
           <div className="flex justify-center">
             <p className="text-center text-md mt-2 font-light w-6/12">
-              Transforma cada beat en una oportunidad global. En Yasound, vendes
+              {/* Transforma cada beat en una oportunidad global. En Yasound, vendes
               tu música de manera sencilla y segura, abriendo puertas a un mundo
-              de posibilidades.{" "}
+              de posibilidades.{" "} */}
+              Perfiles Únicos, Beats Inolvidables
             </p>
           </div>
           <div className="flex justify-around mt-20">
@@ -149,7 +152,7 @@ export default function Home() {
                     <path d="M39.22 42.63l-2-3.78L39.05 35l-1.87-.56-2.1-2.11-4.66-1L28.88 28v1.92h-.68l-4-5.44V20l-2.94-4.78-4.67.83h-3.16l-1.59-1 2-1.6-2 .46A28 28 0 0036 56a29 29 0 003.51-.25l-.29-3.39s1.29-5 1.29-5.2-1.29-4.53-1.29-4.53zM18.41 9l5-.7 2.29-1.25 2.58.74 4.12-.23 1.42-2.22 2.05.34 5-.47 1.38-1.52 2-1.29 2.74.41 1-.15a27.91 27.91 0 00-33.51 7.49h0zm18.77-6.22L40 1.21l1.84 1.06-2.66 2-2.54.26-1.14-.74zM28.71 3l1.29.54L31.63 3l.9 1.56-3.82 1-1.83-1.06s1.79-1.15 1.83-1.5z"></path>
                   </g>
                 </svg>
-                Visibilidad global
+Vende en todo el mundo
               </div>
             </div>
             <div className="e-card playing">
@@ -186,7 +189,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
             <p className="mt-20 text-5xl font-bold font-geist">
               🔥 TENDENCIAS 🔥
             </p>
@@ -211,34 +214,10 @@ export default function Home() {
                 <img src="/lider2.jpeg " className="w-6/12"  />
               </div>
             </Marquee>
-          </div>
+          </div> */}
 
-          <div className="w-screen grid grid-cols-2 mt-10 ">
-            <div className="flex justify-start items-center flex-col">
-              <p className="text-center text-4xl font-extrabold">
-                Contamos con asistencia en
-              </p>
-              <div className="flex justify-center my-5">
-                <img
-                  src="/spotify.svg"
-                  className="mx-1 bg-black rounded-full border border-black"
-                  style={{ width: "50px" }}
-                />
-                <img
-                  src="/applemusic.svg"
-                  className="mx-1"
-                  style={{ width: "50px" }}
-                />{" "}
-                <img
-                  src="/deezer.svg"
-                  className="mx-1"
-                  style={{ width: "50px" }}
-                />{" "}
-              </div>
-              <div className="flex justify-center mt-20">
-                <Ranking />
-              </div>
-            </div>
+          {/* <div className="w-screen grid grid-cols-1 mt-10 ">
+     
             <div className=" flex justify-center items-start">
               <div class="form-container">
                 <form class="form">
@@ -301,7 +280,7 @@ export default function Home() {
                 </form>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
