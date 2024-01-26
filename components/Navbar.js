@@ -25,8 +25,8 @@ export const Navbar = () => {
         className="p-2 text-xs border-2 text-black  font-semibold  rounded-full bg-white"
         onClick={() =>
           (text == "Home" && push("/")) ||
-          (text == "Beats" && push("/beats")) ||
-          (text == "Comunidad" && push("/comunidad"))
+          (text == "Beats" && push("#")) ||
+          (text == "Comunidad" && push("#"))
         }
         key={text}
         onMouseEnter={() => setHoveredIndex(i)}
