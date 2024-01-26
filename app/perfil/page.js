@@ -208,7 +208,7 @@ const Page = () => {
               <div className="h-full bg-slate-200/50   mr-1 rounded-xl w-11/12 md:w-[100%]  ">
                 <LicenseSlider />
               </div>
-            </div>
+            </div> 
             <div className="w-12/12 rounded-xl  h-full ">
               <div className="w-12/12  rounded-xl  h-[100%] py-10 flex justify-center">
                 <div className="h-full   flex-col items-center py-10 flex justify-center w-11/12  mr-1 rounded-xl  md:w-[100%]  ">
