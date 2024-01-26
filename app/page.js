@@ -16,13 +16,13 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <div className="h-screen flex flex-col items-center">
+      <div className="h-fit md:min-h-screen flex flex-col items-center">
         <div className=" flex items-center flex-col justiyf-center">
-          <p className="text-center pt-24  text-5xl font-extrabold ">
+          <p className="text-center pt-24 text-3xl  md:text-5xl font-extrabold ">
             {/* ¡Haz que tus Beats Resuenen en Latinoamérica! */}
             Conectando Productores con el Mundo
           </p>
-          <p className="text-center  text-md ">
+          <p className="text-center  text-md mt-5 md:mt-0 ">
             {/* Explora, conecta y colabora con una comunidad vibrante de creadores
             musicales en toda Latinoamérica. */}
             Tu Escenario Digital para Crear, Compartir y Prosperar
@@ -48,7 +48,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-7/12 mt-5">
+        <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-11/12 md:w-7/12 mt-5">
           <video
             src="/video.mp4"
             className="w-12/12 rounded-xl"
@@ -61,23 +61,23 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="min-h-screen pt-20">
-        <div className="flex">
-          <div className="w-5/12  mt-20 flex justify-end mr-10">
+      <div className="h-fit md:min-h-screen pt-20">
+        <div className="flex md:flex-row flex-col justify-center items-center">
+          <div className="md:w-5/12 w-12/12  mr-0 md:mt-20 flex justify-center md:justify-end md:mr-10">
             <img
               src="/chica.png"
               className="w-8/12 rounded-xl shadow-xl shadow-violet-200"
               alt=""
             />
           </div>
-          <div className="w-7/12  flex justify-center items-start flex-col ">
+          <div className="mt-5 md:mt-0 w-10/12 md:w-7/12  flex justify-center items-start flex-col ">
             <p className="text-center text-2xl  font-light">
               Mostra tu musica y conectate con artistas de todo el mundo.
             </p>
-            <p className="text-center text-xl  mt-2 font-bold">
+            <p className="text-center text-xl mt-10  md:mt-2 font-bold">
               Unite a nuestra comunidad.
             </p>
-            <div className="flex justify-center mt-5  ">
+            <div className="flex justify-center  md:mt-5  ">
               <button className="boton-unico">
                 <span class="circle1"></span>
                 <span class="circle2"></span>
@@ -90,7 +90,7 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <p className="text-center text-4xl mt-36 font-extrabold">
+          <p className="text-center text-4xl pt-20 md:mt-36 font-extrabold">
             Eleva Tus Beats a un Nivel Global{" "}
           </p>
           <div className="flex justify-center">
@@ -101,8 +101,8 @@ export default function Home() {
               Perfiles Únicos, Beats Inolvidables
             </p>
           </div>
-          <div className="flex justify-around mt-20">
-            <div className="e-card playing">
+          <div className="flex justify-around mt-10 md:my-20 md:flex-row flex-col  items-center">
+            <div className="e-card playing md:my-0 my-5">
               <div className="image"></div>
 
               <div className="wave"></div>
@@ -130,7 +130,7 @@ export default function Home() {
                 Pago seguro
               </div>
             </div>
-            <div className="e-card playing">
+            <div className="e-card playing md:my-0 my-5">
               <div className="image"></div>
 
               <div className="wave"></div>
@@ -152,10 +152,10 @@ export default function Home() {
                     <path d="M39.22 42.63l-2-3.78L39.05 35l-1.87-.56-2.1-2.11-4.66-1L28.88 28v1.92h-.68l-4-5.44V20l-2.94-4.78-4.67.83h-3.16l-1.59-1 2-1.6-2 .46A28 28 0 0036 56a29 29 0 003.51-.25l-.29-3.39s1.29-5 1.29-5.2-1.29-4.53-1.29-4.53zM18.41 9l5-.7 2.29-1.25 2.58.74 4.12-.23 1.42-2.22 2.05.34 5-.47 1.38-1.52 2-1.29 2.74.41 1-.15a27.91 27.91 0 00-33.51 7.49h0zm18.77-6.22L40 1.21l1.84 1.06-2.66 2-2.54.26-1.14-.74zM28.71 3l1.29.54L31.63 3l.9 1.56-3.82 1-1.83-1.06s1.79-1.15 1.83-1.5z"></path>
                   </g>
                 </svg>
-Vende en todo el mundo
+                Vende en todo el mundo
               </div>
             </div>
-            <div className="e-card playing">
+            <div className="e-card playing md:my-0 my-5">
               <div className="image"></div>
 
               <div className="wave"></div>

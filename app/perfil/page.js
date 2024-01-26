@@ -210,9 +210,9 @@ const Page = () => {
               </div>
             </div>
             <div className="w-12/12 rounded-xl  h-full ">
-              <div className="w-12/12 bg-slate-200/50 rounded-xl  h-[100%] py-10 flex justify-center">
+              <div className="w-12/12  rounded-xl  h-[100%] py-10 flex justify-center">
                 <div className="h-full   flex-col items-center py-10 flex justify-center w-11/12  mr-1 rounded-xl  md:w-[100%]  ">
-                  <p className="font-geist text-4xl font-bold text-center">
+                  <p className="font-geist text-2xl font-bold text-center">
                     Reservar una llamada
                   </p>
                   <DatePicker
