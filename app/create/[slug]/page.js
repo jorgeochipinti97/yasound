@@ -20,6 +20,8 @@ import useUsuarios from "../../hook/useUsers";
 import { useParams, useRouter } from "next/navigation";
 
 import { generosList } from "@/utils/generos";
+import { Label } from "@radix-ui/react-label";
+import { Input } from "@/components/ui/input";
 
 const Page = () => {
   const { push } = useRouter();
@@ -65,7 +67,7 @@ const Page = () => {
   const { user } = useAuth0();
   const [colors, setColors] = useState([]);
   const [usuario, setUsurio] = useState();
-  const generoInput = watch("generos");
+
   const [redirect, setRedirect] = useState();
   const { usuarios, isLoading, isError } = useUsuarios();
   useEffect(() => {
@@ -148,7 +150,7 @@ const Page = () => {
     setImages((prevImages) => prevImages.filter((url) => url !== urlToRemove));
   };
   return (
-    <div className="py-20 min-h-screen">
+    <div className="py-20 min-h-screen bg-gray-200">
       <div
         className={`h-fit z-50 w-fit fixed bottom-5 right-5 ${
           mostrarAlerta ? "block" : "hidden"
@@ -210,14 +212,13 @@ const Page = () => {
       <div className="flex justify-center w-screen ">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6 bg-white p-8 rounded-xl border-2 border-black w-10/12 "
+          className="space-y-6 bg-white p-8 rounded-xl border-2 grid grid-cols-2 w-6/12 "
         >
-          <div className="flex justify-around flex-wrap">
             <div className="flex flex-col">
-              <label className="font-bold text-center">Nombre de usuario</label>
-              <input
+              <Label >Nombre de usuario</Label>
+              <Input
                 placeholder="Nombre de usuario"
-                className="border p-2  w-fit rounded-xl focus:border-violet-500 transition-all duration-400"
+                className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
                 {...register("username", {
                   required: "Este campo es obligatorio",
                 })}
@@ -227,10 +228,10 @@ const Page = () => {
               )}
             </div>
             <div className="flex flex-col">
-              <label className="font-bold text-center">Celular</label>
-              <input
+              <Label >Celular</Label>
+              <Input
                 placeholder="Celular"
-                className="border p-2  w-fit rounded-xl focus:border-violet-500 transition-all duration-400"
+                className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
                 {...register("celular", {
                   required: "Este campo es obligatorio",
                 })}
@@ -240,11 +241,11 @@ const Page = () => {
               )}
             </div>
             <div className="flex flex-col">
-              <label className="font-bold text-center">
+              <Label >
                 País de residencia
-              </label>
+              </Label>
               <select
-                className="border p-2  w-fit rounded-xl focus:border-violet-500 transition-all duration-400"
+                className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
                 {...register("pais", { required: "Este campo es obligatorio" })}
               >
                 <option value="">Seleccione un país</option>
@@ -258,10 +259,10 @@ const Page = () => {
                 <span className="text-red-500">{errors.pais.message}</span>
               )}
             </div>
-          </div>
+
           <div className="flex flex-col">
-            <div className="flex flex-col items-center">
-              <label className="font-bold text-center">Descripción</label>
+            <div className="flex flex-col items-start justify-start">
+              <Label>Descripción</Label>
 
               <textarea
                 placeholder="Descripción"
@@ -283,11 +284,10 @@ const Page = () => {
             </div>
           </div>
           <div className="flex w-full justify-around ">
-            <div className="flex flex-col   w-6/12">
-              <p className="text-xl font-sans font-bold text-center">
+            <div className="flex flex-col   ">
+              <Label >
                 Generos{" "}
-              </p>
-              <p className="text-md font-sans text-center mb-5">Máximo 5 </p>
+              </Label>
               <div className="mt-2 flex justify-start flex-wrap  ">
                 <div className="flex ">
                   <select
@@ -305,7 +305,9 @@ const Page = () => {
                   </select>
                 </div>
               </div>
-              <div className=" flex-wrap mt-4 w-6/12">
+            </div>
+          </div>
+              <div className=" flex-wrap flex mt-4 max-w-6/12">
                 <ul className="mt-2 flex ">
                   {selectedGenres.map((genre, index) => (
                     <li
@@ -323,13 +325,24 @@ const Page = () => {
                   ))}
                 </ul>
               </div>
-            </div>
             <div className="flex  flex-col w-fit justify-around">
               <label className="mt-5  font-semibold text-xl">
                 Personalizá tus ondas
               </label>
               <p>Máximo 5 </p>
-              <div className="flex justify-around ">
+          
+              <div>
+                <button
+                  type="button"
+                  onClick={addColor}
+                  disabled={colors.length == 5 ? true : false}
+                  className="px-2 py-1 text-white mt-5 bg-blue-500 rounded hover:bg-blue-700 transition duration-150 ease-in-out"
+                >
+                  Agregar Color
+                </button>
+              </div>
+            </div>
+            <div className="flex justify-around ">
                 {colors.map((color, index) => (
                   <div
                     key={index}
@@ -367,21 +380,8 @@ const Page = () => {
                   </div>
                 ))}
               </div>
-              <div>
-                <button
-                  type="button"
-                  onClick={addColor}
-                  disabled={colors.length == 5 ? true : false}
-                  className="px-2 py-1 text-white mt-5 bg-blue-500 rounded hover:bg-blue-700 transition duration-150 ease-in-out"
-                >
-                  Agregar Color
-                </button>
-              </div>
-            </div>
-          </div>
-
           {/* Campos para los links */}
-          <div className="grid grid-cols-4 w-full ">
+          <div className="flex flex-wrap ">
             <InputField
               label="Instagram"
               name="linkInstagram"

@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 export const BeatForm = ({ autor }) => {
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
@@ -160,8 +161,9 @@ export const BeatForm = ({ autor }) => {
               <Select
                 onValueChange={(value) => handleSelectChange(value)}
                 defaultValue={""}
+                className='border-2'
               >
-                <SelectTrigger className="w-[180px] mt-4">
+                <SelectTrigger className="w-[180px] my-4">
                   <SelectValue placeholder={`Elige el tuyo `} />
                 </SelectTrigger>
                 <SelectContent>
@@ -271,12 +273,12 @@ export const BeatForm = ({ autor }) => {
         Agregar Licencia
       </button>
       <br />
-      <button
-        className="bg-black text-white mt-10  p-2 rounded-xl text-2xl"
+      <Button
+        className="mt-10"
         type="submit"
       >
         Enviar
-      </button>
+      </Button>
     </form>
   );
 };

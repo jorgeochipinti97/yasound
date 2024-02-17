@@ -36,6 +36,7 @@ export const Navbar = () => {
           (text == "Beats" && push("#")) ||
           (text == "Tu música" && push("/upload")) ||
           (text == "Comunidad" && push("/comunidad")) ||
+          (text == "Conocenos" && push("/conocenos")) ||
           (text == "Modifica tu perfil" && push(`/create/${usuario.username}`))
         }
         key={text}
@@ -117,10 +118,10 @@ export const Navbar = () => {
             <DropdownMenuContent>
               <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Editar Perfil</DropdownMenuItem>
-              <DropdownMenuItem>Ver perfil</DropdownMenuItem>
-              <DropdownMenuItem>Tu musica</DropdownMenuItem>
-              <DropdownMenuItem>Suscripción</DropdownMenuItem>
+              <DropdownMenuItem onClick={()=> push(`/create/${usuario.username}`)}>Editar Perfil</DropdownMenuItem>
+              <DropdownMenuItem onClick={()=> push(`/perfil/${usuario.username}`)}>Ver perfil</DropdownMenuItem>
+              <DropdownMenuItem onClick={()=> push(`/upload`)}>Tu musica</DropdownMenuItem>
+              <DropdownMenuItem >Suscripción</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         )}

@@ -166,11 +166,11 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen max-w-screen    pt-28">
+    <div className="min-h-screen max-w-screen    py-28">
       <div className="flex justify-center">
         <Tabs defaultValue="beats" className="w-[500px]">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="crearbeats">Create Beats</TabsTrigger>
+            <TabsTrigger value="crearbeats">Subir Beat</TabsTrigger>
             <TabsTrigger value="beats">Beats</TabsTrigger>
           </TabsList>
 
@@ -190,19 +190,145 @@ const Page = () => {
                 </TableHeader>
                 {beats.length >= 1 &&
                   beats.map((e, index) => (
-                    <div key={index}>
-                      <TableBody key={e._id}>
-                        <TableRow>
-                          <TableCell className="font-medium">
-                            {e.nombre}
-                          </TableCell>
-                          <TableCell className="text-right">
-                            ${e.precio}
-                          </TableCell>
-                          <TableCell className="text-right">
-                            {" "}
-                            <DropdownMenu onOpenChange={() => setParams(e)}>
-                              <DropdownMenuTrigger>
+                    <TableBody key={e._id}>
+                      <TableRow>
+                        <TableCell className="font-medium">
+                          {e.nombre}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          ${e.precio}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {" "}
+                          <DropdownMenu onOpenChange={() => setParams(e)}>
+                            <DropdownMenuTrigger>
+                              {" "}
+                              <svg
+                                className="ml-5 md:mt-0 mt-2 cursor-pointer hover:scale-[1.2] hover:opacity-[.5]"
+                                width={35}
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <g
+                                  stroke="#000"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="1.5"
+                                >
+                                  <path d="M21.28 6.4l-9.54 9.54c-.95.95-3.77 1.39-4.4.76-.63-.63-.2-3.45.75-4.4l9.55-9.55a2.58 2.58 0 113.64 3.65v0z"></path>
+                                  <path d="M11 4H6a4 4 0 00-4 4v10a4 4 0 004 4h11c2.21 0 3-1.8 3-4v-5"></path>
+                                </g>
+                              </svg>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                              <DropdownMenuLabel>Nombre</DropdownMenuLabel>
+                              <input
+                                value={nombre}
+                                className="border-2 p-2 rounded-xl"
+                                onChange={(event) =>
+                                  setNombre(event.target.value)
+                                }
+                                placeholder={e.nombre}
+                              />
+                              <DropdownMenuSeparator />
+                              <DropdownMenuLabel>Precio</DropdownMenuLabel>
+                              <input
+                                className="border-2 p-2 rounded-xl"
+                                value={precio}
+                                type="number"
+                                onChange={(event) =>
+                                  setPrecio(event.target.value)
+                                }
+                                placeholder={e.precio}
+                              />
+                              <DropdownMenuSeparator />
+                              <DropdownMenuLabel>Licencias</DropdownMenuLabel>
+
+                              {e.licenses.map((l, index) => (
+                                <DropdownMenu key={index}>
+                                  <DropdownMenuTrigger>
+                                    <div className="flex flex-col items-start ">
+                                      <button className=" bg-black rounded-xl  text-white cursor-pointer m-1 p-2">
+                                        {l.titulo}
+                                      </button>
+                                    </div>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent>
+                                    <DropdownMenuLabel>
+                                      Nombre
+                                    </DropdownMenuLabel>
+                                    <input
+                                      value={l.titulo}
+                                      className="border-2 p-2 rounded-xl"
+                                      // onChange={(event) =>
+                                      //   setNombre(event.target.value)
+                                      // }
+                                      placeholder={e.nombre}
+                                    />
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuLabel>
+                                      Precio
+                                    </DropdownMenuLabel>
+                                    <input
+                                      className="border-2 p-2 rounded-xl"
+                                      value={l.precio}
+                                      type="number"
+                                      // onChange={(event) =>
+                                      //   setPrecio(event.target.value)
+                                      // }
+                                      placeholder={l.precio}
+                                    />
+                                    <DropdownMenuLabel>
+                                      Descripción
+                                    </DropdownMenuLabel>
+                                    <input
+                                      className="border-2 p-2 rounded-xl"
+                                      value={l.descripcion}
+                                      type="number"
+                                      // onChange={(event) =>
+                                      //   setPrecio(event.target.value)
+                                      // }
+                                      placeholder={l.descripcion}
+                                    />
+                                    <DropdownMenuLabel>
+                                      Formatos
+                                    </DropdownMenuLabel>
+                                    <input
+                                      className="border-2 p-2 rounded-xl"
+                                      value={l.formatos}
+                                      type="number"
+                                      // onChange={(event) =>
+                                      //   setPrecio(event.target.value)
+                                      // }
+                                      placeholder={l.formatos}
+                                    />
+                                    <DropdownMenuSeparator />
+                                    <button
+                                      onClick={() => actualizarDatosBeat(e)}
+                                      className="bg-black text-white  px-2 py-1 rounded-xl m-2"
+                                    >
+                                      Enviar
+                                    </button>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              ))}
+
+                              <DropdownMenuSeparator className="my-5" />
+                              <button
+                                onClick={() => actualizarDatosBeat(e)}
+                                className="bg-black text-white  px-2 py-1 rounded-xl m-2"
+                              >
+                                Enviar
+                              </button>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {" "}
+                          <AlertDialog className="">
+                            <AlertDialogTrigger asChild>
+                              <button variant="outline">
                                 {" "}
                                 <svg
                                   className="ml-5 md:mt-0 mt-2 cursor-pointer hover:scale-[1.2] hover:opacity-[.5]"
@@ -215,167 +341,37 @@ const Page = () => {
                                     stroke="#000"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    strokeWidth="1.5"
+                                    strokeWidth="2"
                                   >
-                                    <path d="M21.28 6.4l-9.54 9.54c-.95.95-3.77 1.39-4.4.76-.63-.63-.2-3.45.75-4.4l9.55-9.55a2.58 2.58 0 113.64 3.65v0z"></path>
-                                    <path d="M11 4H6a4 4 0 00-4 4v10a4 4 0 004 4h11c2.21 0 3-1.8 3-4v-5"></path>
+                                    <path d="M4 7h16M6 7v11a3 3 0 003 3h6a3 3 0 003-3V7M9 5a2 2 0 012-2h2a2 2 0 012 2v2H9V5z"></path>
                                   </g>
                                 </svg>
-                              </DropdownMenuTrigger>
-                              <DropdownMenuContent>
-                                <DropdownMenuLabel>Nombre</DropdownMenuLabel>
-                                <input
-                                  value={nombre}
-                                  className="border-2 p-2 rounded-xl"
-                                  onChange={(event) =>
-                                    setNombre(event.target.value)
-                                  }
-                                  placeholder={e.nombre}
-                                />
-                                <DropdownMenuSeparator />
-                                <DropdownMenuLabel>Precio</DropdownMenuLabel>
-                                <input
-                                  className="border-2 p-2 rounded-xl"
-                                  value={precio}
-                                  type="number"
-                                  onChange={(event) =>
-                                    setPrecio(event.target.value)
-                                  }
-                                  placeholder={e.precio}
-                                />
-                                <DropdownMenuSeparator />
-                                <DropdownMenuLabel>Licencias</DropdownMenuLabel>
-
-                                {e.licenses.map((l,index) => (
-                                  <DropdownMenu key={index}>
-                                    <DropdownMenuTrigger>
-                                      <div className="flex flex-col items-start ">
-                                        <button className=" bg-black rounded-xl  text-white cursor-pointer m-1 p-2">
-                                          {l.titulo}
-                                        </button>
-                                      </div>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent>
-                                      <DropdownMenuLabel>
-                                        Nombre
-                                      </DropdownMenuLabel>
-                                      <input
-                                        value={l.titulo}
-                                        className="border-2 p-2 rounded-xl"
-                                        // onChange={(event) =>
-                                        //   setNombre(event.target.value)
-                                        // }
-                                        placeholder={e.nombre}
-                                      />
-                                      <DropdownMenuSeparator />
-                                      <DropdownMenuLabel>
-                                        Precio
-                                      </DropdownMenuLabel>
-                                      <input
-                                        className="border-2 p-2 rounded-xl"
-                                        value={l.precio}
-                                        type="number"
-                                        // onChange={(event) =>
-                                        //   setPrecio(event.target.value)
-                                        // }
-                                        placeholder={l.precio}
-                                      />
-                                      <DropdownMenuLabel>
-                                        Descripción
-                                      </DropdownMenuLabel>
-                                      <input
-                                        className="border-2 p-2 rounded-xl"
-                                        value={l.descripcion}
-                                        type="number"
-                                        // onChange={(event) =>
-                                        //   setPrecio(event.target.value)
-                                        // }
-                                        placeholder={l.descripcion}
-                                      />
-                                      <DropdownMenuLabel>
-                                        Formatos
-                                      </DropdownMenuLabel>
-                                      <input
-                                        className="border-2 p-2 rounded-xl"
-                                        value={l.formatos}
-                                        type="number"
-                                        // onChange={(event) =>
-                                        //   setPrecio(event.target.value)
-                                        // }
-                                        placeholder={l.formatos}
-                                      />
-                                      <DropdownMenuSeparator />
-                                      <button
-                                        onClick={() => actualizarDatosBeat(e)}
-                                        className="bg-black text-white  px-2 py-1 rounded-xl m-2"
-                                      >
-                                        Enviar
-                                      </button>
-                                    </DropdownMenuContent>
-                                  </DropdownMenu>
-                                ))}
-
-                                <DropdownMenuSeparator className="my-5" />
-                                <button
-                                  onClick={() => actualizarDatosBeat(e)}
-                                  className="bg-black text-white  px-2 py-1 rounded-xl m-2"
-                                >
-                                  Enviar
-                                </button>
-                              </DropdownMenuContent>
-                            </DropdownMenu>
-                          </TableCell>
-                          <TableCell className="text-right">
-                            {" "}
-                            <AlertDialog className="">
-                              <AlertDialogTrigger asChild>
-                                <button variant="outline">
-                                  {" "}
-                                  <svg
-                                    className="ml-5 md:mt-0 mt-2 cursor-pointer hover:scale-[1.2] hover:opacity-[.5]"
-                                    width={35}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <g
-                                      stroke="#000"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth="2"
-                                    >
-                                      <path d="M4 7h16M6 7v11a3 3 0 003 3h6a3 3 0 003-3V7M9 5a2 2 0 012-2h2a2 2 0 012 2v2H9V5z"></path>
-                                    </g>
-                                  </svg>
-                                </button>
-                              </AlertDialogTrigger>
-                              <AlertDialogContent>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>
-                                    ¿Estás seguro?
-                                  </AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    La decision de eliminar el beat será
-                                    permanente.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                  <AlertDialogCancel>
-                                    Cancelar
-                                  </AlertDialogCancel>
-                                  <AlertDialogAction>
-                                    <span onClick={() => onDeleteBeat(e)}>
-                                      {" "}
-                                      Continuar
-                                    </span>
-                                  </AlertDialogAction>
-                                </AlertDialogFooter>
-                              </AlertDialogContent>
-                            </AlertDialog>
-                          </TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </div>
+                              </button>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent>
+                              <AlertDialogHeader>
+                                <AlertDialogTitle>
+                                  ¿Estás seguro?
+                                </AlertDialogTitle>
+                                <AlertDialogDescription>
+                                  La decision de eliminar el beat será
+                                  permanente.
+                                </AlertDialogDescription>
+                              </AlertDialogHeader>
+                              <AlertDialogFooter>
+                                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                                <AlertDialogAction>
+                                  <span onClick={() => onDeleteBeat(e)}>
+                                    {" "}
+                                    Continuar
+                                  </span>
+                                </AlertDialogAction>
+                              </AlertDialogFooter>
+                            </AlertDialogContent>
+                          </AlertDialog>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
                   ))}
               </Table>
             </div>

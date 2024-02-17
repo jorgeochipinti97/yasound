@@ -32,6 +32,17 @@ const Page = () => {
             ¡Podemos llevar tu música al siguiente nivel!
           </p>
           <div class="shadowSeparator bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[1vh] rounded-full  w-4/12 my-2"></div>
+
+          <div className="h-fit mt-5 w-screen flex items-center justify-center">
+
+<img src="/twitter.png" className=" rounded-full bg-black p-2 border-black w-[55px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/discord.png" className=" rounded-full bg-violet-200 p-2 border-black w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/instagram.svg" className="w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/wpp.svg" className="w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/telegram.svg" className="w-[60px]  hover:scale-[1.2] grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+
+</div>
+
           <div className=" flex flex-col items-center justify-center  ">
             <p
               className="font-sans font-bold text-6xl mt-20"
@@ -61,6 +72,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+     
     </div>
   );
 };

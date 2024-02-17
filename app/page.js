@@ -140,10 +140,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="mb-20 ">
             <p
-              className="text-center z-50 text-7xl my-5 font-bold text-black"
-              style={{ mixBlendMode: "saturation", opacity: 0.4 }}
+              className="text-center z-50 text-7xl mt-28 mb-10 font-bold text-black"
+              style={{ mixBlendMode: "saturation", opacity: 0.4,letterSpacing:-4 }}
             >
               Beats & Tracks
             </p>
@@ -158,7 +158,7 @@ export default function Home() {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className=" rounded-t-3xl flex w-screen  justify-center py-10 min-h-[70vh]"
+        className=" rounded-t-3xl flex w-screen  justify-center py-10  mt-28  min-h-[70vh]"
       >
         <div className="grid grid-cols-2 w-10/12">
           <div className="flex flex-col items-center justify-center">
@@ -224,7 +224,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full rounded-xl  flex justify-center flex-col items-center   h-full ">
-            <p className="font-extrabold mb-20 font-sans  text-white text-7xl">
+            <p className="font-extrabold mb-20 font-sans  text-white text-7xl" style={{letterSpacing:-3}}>
               Contactanos
             </p>
             <form className="flex flex-col ">
