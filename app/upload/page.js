@@ -166,9 +166,9 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen max-w-screen    py-28">
+    <div className="min-h-screen max-w-screen  bg-slate-200  py-28">
       <div className="flex justify-center">
-        <Tabs defaultValue="beats" className="w-[500px]">
+        <Tabs defaultValue="beats" className="w-[500px] bg-white rounded-xl p-3">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="crearbeats">Subir Beat</TabsTrigger>
             <TabsTrigger value="beats">Beats</TabsTrigger>

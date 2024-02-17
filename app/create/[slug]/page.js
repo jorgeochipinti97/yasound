@@ -212,204 +212,210 @@ const Page = () => {
       <div className="flex justify-center w-screen ">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6 bg-white p-8 rounded-xl border-2 grid grid-cols-2 w-6/12 "
+          className=" bg-white p-8 rounded-xl border-2 w-6/12 "
         >
-            <div className="flex flex-col">
-              <Label >Nombre de usuario</Label>
-              <Input
-                placeholder="Nombre de usuario"
-                className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
-                {...register("username", {
-                  required: "Este campo es obligatorio",
-                })}
-              />
-              {errors.username && (
-                <span className="text-red-500">{errors.username.message}</span>
-              )}
+          <div className=" grid grid-cols-2 ">
+            <div className="flex flex-col  h-full  items-center justify-center">
+              <div className="w-full justify-start">
+                <Label>Nombre de usuario</Label>
+                <Input
+                  placeholder="Nombre de usuario"
+                  className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
+                  {...register("username", {
+                    required: "Este campo es obligatorio",
+                  })}
+                />
+                {errors.username && (
+                  <span className="text-red-500">
+                    {errors.username.message}
+                  </span>
+                )}
+              </div>
             </div>
-            <div className="flex flex-col">
-              <Label >Celular</Label>
-              <Input
-                placeholder="Celular"
-                className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
-                {...register("celular", {
-                  required: "Este campo es obligatorio",
-                })}
-              />
-              {errors.celular && (
-                <span className="text-red-500">{errors.celular.message}</span>
-              )}
+            <div className="flex flex-col  h-full items-center justify-center">
+              <div className="w-full justify-start">
+                <Label>Celular</Label>
+                <Input
+                  placeholder="Celular"
+                  className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
+                  {...register("celular", {
+                    required: "Este campo es obligatorio",
+                  })}
+                />
+                {errors.celular && (
+                  <span className="text-red-500">{errors.celular.message}</span>
+                )}
+              </div>
             </div>
-            <div className="flex flex-col">
-              <Label >
-                País de residencia
-              </Label>
-              <select
-                className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
-                {...register("pais", { required: "Este campo es obligatorio" })}
-              >
-                <option value="">Seleccione un país</option>
-                {paises.map((pais) => (
-                  <option key={pais.code} value={pais.code}>
-                    {pais.country} {pais.emoji}
-                  </option>
-                ))}
-              </select>
-              {errors.pais && (
-                <span className="text-red-500">{errors.pais.message}</span>
-              )}
+            <div className="flex flex-col  h-full  items-center justify-center">
+              <div className="w-full justify-start">
+                <Label>País de residencia</Label>
+                <select
+                  className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
+                  {...register("pais", {
+                    required: "Este campo es obligatorio",
+                  })}
+                >
+                  <option value="">Seleccione un país</option>
+                  {paises.map((pais) => (
+                    <option key={pais.code} value={pais.code}>
+                      {pais.country} {pais.emoji}
+                    </option>
+                  ))}
+                </select>
+                {errors.pais && (
+                  <span className="text-red-500">{errors.pais.message}</span>
+                )}
+              </div>
             </div>
 
-          <div className="flex flex-col">
-            <div className="flex flex-col items-start justify-start">
-              <Label>Descripción</Label>
+            <div className="flex flex-col  h-full  items-center justify-center">
+              <div className="flex flex-col items-start justify-start">
+                <div className="w-full mt-10 justify-start">
+                  <Label className="mt-5">Descripción</Label>
 
-              <textarea
-                placeholder="Descripción"
-                className=" p-2 border-2 border-200-gray h-[100px] w-6/12 rounded-xl"
-                {...register("descripcion", {
-                  required: "Este campo es obligatorio",
-                  maxLength: {
-                    value: 180,
-                    message:
-                      "La descripción no puede superar los 180 caracteres",
-                  },
-                })}
-              />
-              {errors.descripcion && (
-                <span className="text-red-500">
-                  {errors.descripcion.message}
-                </span>
-              )}
-            </div>
-          </div>
-          <div className="flex w-full justify-around ">
-            <div className="flex flex-col   ">
-              <Label >
-                Generos{" "}
-              </Label>
-              <div className="mt-2 flex justify-start flex-wrap  ">
-                <div className="flex ">
-                  <select
-                    style={{ opacity: selectedGenres.length >= 5 ? 0.2 : 1 }}
-                    disabled={selectedGenres.length >= 5 ? true : false}
-                    onChange={(e) => handleSelectChange(e.target.value)}
-                    className="border-2 border-gray-300 p-2 rounded-lg"
-                  >
-                    <option value="">Selecciona los géneros</option>
-                    {generosList.map((genre) => (
-                      <option key={genre} value={genre}>
-                        {genre}
-                      </option>
-                    ))}
-                  </select>
+                  <textarea
+                    placeholder="Descripción"
+                    className=" p-2 border-2 border-200-gray w-full  rounded-xl"
+                    {...register("descripcion", {
+                      required: "Este campo es obligatorio",
+                      maxLength: {
+                        value: 180,
+                        message:
+                          "La descripción no puede superar los 180 caracteres",
+                      },
+                    })}
+                  />
+                  {errors.descripcion && (
+                    <span className="text-red-500">
+                      {errors.descripcion.message}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
-              <div className=" flex-wrap flex mt-4 max-w-6/12">
-                <ul className="mt-2 flex ">
-                  {selectedGenres.map((genre, index) => (
-                    <li
-                      className="p-1  border-black rounded-md w-fit m-1 font-semibold uppercase text-xs flex items-center"
-                      key={index}
+
+            <div className="flex flex-col   ">
+              <div className="flex flex-col items-start justify-start">
+                <Label>Generos </Label>
+                <div className="mt-2 flex justify-start flex-wrap  ">
+                  <div className="flex ">
+                    <select
+                      style={{ opacity: selectedGenres.length >= 5 ? 0.2 : 1 }}
+                      disabled={selectedGenres.length >= 5 ? true : false}
+                      onChange={(e) => handleSelectChange(e.target.value)}
+                      className="border-2 border-gray-300 p-2 rounded-lg"
                     >
-                      {genre}
-                      <button
-                        onClick={() => handleRemoveGenre(index)}
-                        className="ml-2 bg-red-500 hover:bg-red-700 text-xs text-white font-bold py-1 px-2 rounded"
-                      >
-                        X
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            <div className="flex  flex-col w-fit justify-around">
-              <label className="mt-5  font-semibold text-xl">
-                Personalizá tus ondas
-              </label>
-              <p>Máximo 5 </p>
-          
-              <div>
-                <button
-                  type="button"
-                  onClick={addColor}
-                  disabled={colors.length == 5 ? true : false}
-                  className="px-2 py-1 text-white mt-5 bg-blue-500 rounded hover:bg-blue-700 transition duration-150 ease-in-out"
-                >
-                  Agregar Color
-                </button>
+                      <option value="">Selecciona los géneros</option>
+                      {generosList.map((genre) => (
+                        <option key={genre} value={genre}>
+                          {genre}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex justify-around ">
-                {colors.map((color, index) => (
-                  <div
+
+            <div className=" flex-wrap flex max-w-6/12">
+              <ul className="mt-2 flex jusity-around flex-wrap">
+                {selectedGenres.map((genre, index) => (
+                  <li
+                    className="p-1 text-center border-black flex-col justify-center rounded-md w-fit m-1 font-semibold uppercase text-xs flex items-center"
                     key={index}
-                    className="flex items-center  space-x-2 mb-2 flex-col mx-2"
                   >
-                    <input
-                      type="color"
-                      value={color}
-                      onChange={(e) => handleColorChange(e.target.value, index)}
-                      className="h-[30px] w-[30px] border border-gray-300 rounded cursor-pointer"
-                    />
-                    <div className="rounded-xl mt-2 hover:bg-red-200 border-2 border-black hover:border-red-500 cursor-pointer hover:scale-[1.1] transition-all duration-400 hover:opacity-[.9] w-fit flex p-1 justify-center">
-                      <button
-                        className="border-2 text-center  rounded-xl"
-                        onClick={() => removeColor(index)}
-                      >
-                        <svg
-                          className=" cursor-pointer "
-                          width={15}
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <g
-                            stroke="#000"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                          >
-                            <path d="M4 7h16M6 7v11a3 3 0 003 3h6a3 3 0 003-3V7M9 5a2 2 0 012-2h2a2 2 0 012 2v2H9V5z"></path>
-                          </g>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
+                    {genre}
+                    <button
+                      onClick={() => handleRemoveGenre(index)}
+                      className="ml-2 bg-red-500 hover:bg-red-700 text-xs text-white font-bold py-1 px-2 rounded"
+                    >
+                      X
+                    </button>
+                  </li>
                 ))}
+              </ul>
+            </div>
+            <div className="flex mt-10  flex-col w-fit justify-around">
+              <div className="flex flex-col   ">
+                <label className="mt-5  font-semibold text-xl">
+                  Personalizá tus ondas
+                </label>
+                <p>Máximo 5 </p>
+
+                <div>
+                  <button
+                    type="button"
+                    onClick={addColor}
+                    disabled={colors.length == 5 ? true : false}
+                    className="px-2 py-1 text-white mt-5 bg-blue-500 rounded hover:bg-blue-700 transition duration-150 ease-in-out"
+                  >
+                    Agregar Color
+                  </button>
+                </div>
               </div>
-          {/* Campos para los links */}
-          <div className="flex flex-wrap ">
-            <InputField
-              label="Instagram"
-              name="linkInstagram"
-              register={register}
-            />
-            <InputField
-              label="Facebook"
-              name="linkFacebook"
-              register={register}
-            />
-            <InputField label="TikTok" name="linkTikTok" register={register} />
-            <InputField
-              label="YouTube"
-              name="linkYouTube"
-              register={register}
-            />
-            <InputField label="Web" name="linkWeb" register={register} />
-            <InputField
-              label="Twitter"
-              name="linkTwitter"
-              register={register}
-            />
-            <InputField
-              label="Spotify"
-              name="linkSpotify"
-              register={register}
-            />
-            <InputField label="Apple" name="linkApple" register={register} />
+            </div>
+            <div className="flex mt-10 justify-around items-center ">
+              {colors.map((color, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center  flex-col mx-2"
+                >
+                  <input
+                    type="color"
+                    value={color}
+                    onChange={(e) => handleColorChange(e.target.value, index)}
+                    className="h-[30px] w-[30px] rounded cursor-pointer"
+                  />
+                  <div className="rounded-xl   cursor-pointer hover:scale-[1.1] transition-all duration-400 hover:opacity-[.9] w-fit flex  justify-center">
+                    <button
+                      className=" bg-red-500 hover:bg-red-700 text-xs text-white font-bold py-1 px-2 rounded"
+                      onClick={() => removeColor(index)}
+                    >
+                X
+                    </button>
+                  </div>
+                </div>
+              ))} 
+            </div>
+            {/* Campos para los links */}
+            <div className="flex flex-wrap  justify-center mt-10 ">
+              <InputField
+                label="Instagram"
+                name="linkInstagram"
+                register={register}
+              />
+              <InputField
+                label="Facebook"
+                name="linkFacebook"
+                register={register}
+              />
+              <InputField
+                label="TikTok"
+                name="linkTikTok"
+                register={register}
+              />
+              <InputField
+                label="YouTube"
+                name="linkYouTube"
+                register={register}
+              />
+            </div>
+
+            <div className="flex flex-col justify-center  mt-10">
+              <InputField label="Web" name="linkWeb" register={register} />
+              <InputField
+                label="Twitter"
+                name="linkTwitter"
+                register={register}
+              />
+              <InputField
+                label="Spotify"
+                name="linkSpotify"
+                register={register}
+              />
+              <InputField label="Apple" name="linkApple" register={register} />
+            </div>
           </div>
           <div className="flex flex-col mt-10">
             <div className=" my-2">
@@ -438,12 +444,12 @@ const Page = () => {
                 </CldUploadButton>
               </div>
             </div>
-            <div className="flex flex-wrap mt-5">
+            <div className="grid grid-cols-3 mt-5">
               {images.length > 0 &&
                 images.map((e) => (
                   <div
                     key={e}
-                    className="flex justify-center items-center flex-col border-2 mx-2 p-2 rounded-xl"
+                    className="flex justify-center items-center flex-col border-2 m-2 p-2 rounded-xl"
                   >
                     <img src={e} alt="" width={100} height={100} />
 
@@ -477,7 +483,7 @@ const Page = () => {
 
           <button
             type="submit"
-            className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700 transition duration-150 ease-in-out"
+            className="px-4 mt-10 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700 transition duration-150 ease-in-out"
           >
             Guardar
           </button>
