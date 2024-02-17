@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito:wght@300;500;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,7 +19,10 @@
 
 body {
   color: black;
-  background: white
+}
+
+.fuenteGotica {
+  font-family: "Dela Gothic One", sans-serif;
 }
 .animated-button {
   position: relative;
@@ -109,23 +113,18 @@ body {
 }
 
 .div-3d {
-
-
   transition: transform 2s;
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(45deg); /* Comienza inclinado */
 }
 
-
-
 .boton-unico {
-
   font-weight: bold;
   color: white;
   background-color: #171717;
   padding: 1em 2em;
   border: none;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   position: relative;
   cursor: pointer;
   overflow: hidden;
@@ -140,7 +139,7 @@ body {
   width: 50px;
   background-color: #581c87;
   border-radius: 50%;
-  transition: .6s ease;
+  transition: 0.6s ease;
 }
 
 .boton-unico span:nth-child(6) {
@@ -156,7 +155,7 @@ body {
 }
 
 .boton-unico span:nth-child(3) {
-  transform: translate(-.2em, 1.8em);
+  transform: translate(-0.2em, 1.8em);
 }
 
 .boton-unico span:nth-child(4) {
@@ -172,11 +171,9 @@ body {
   transition: 1.5s ease;
 }
 
-
 .e-card {
-
   background: transparent;
-  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
   position: relative;
   width: 250px;
   height: 250px;
@@ -193,7 +190,7 @@ body {
   top: 0;
   margin-left: -50%;
   margin-top: -70%;
-  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+  background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
 }
 
 .icon {
@@ -265,8 +262,8 @@ body {
 .form-container {
   width: 400px;
   background: linear-gradient(white, white) padding-box,
-              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
-  border: 2px solid rgba(0,0,0,0.3);
+    linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+  border: 2px solid rgba(0, 0, 0, 0.3);
   padding: 32px 24px;
   font-size: 14px;
   font-family: inherit;
@@ -309,7 +306,6 @@ body {
   flex-direction: column;
   gap: 2px;
 }
-
 
 .form-container .form-group input {
   width: 100%;
@@ -370,30 +366,31 @@ body {
   border-color: #fff;
 }
 
-
-
-
 :root {
   --facebook: #3b5998;
-    --instagram: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    --youtube: #FF0000;
-    --x: #333;
-    --linkedin: #0072b1;
-    --whatsapp: #25d366;
-    --tiktok: black;
+  --instagram: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  --youtube: #ff0000;
+  --x: #333;
+  --linkedin: #0072b1;
+  --whatsapp: #25d366;
+  --tiktok: black;
 }
-
 
 .icons {
   transform: scale(0.6);
-
-
 }
 
 .icons .icon {
   width: 80px;
   height: 80px;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -440,17 +437,11 @@ body {
   transform: scale(1.1);
 }
 
-
-
-
-
-
 .audio-player {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 80px;
+  min-width: 100%;
   background-color: #282828;
   border-radius: 8px;
   padding: 8px;
@@ -458,8 +449,6 @@ body {
 }
 
 .album-cover {
-  width: 64px;
-  height: 64px;
   background-color: #fff;
   border-radius: 50%;
   margin-right: 12px;
@@ -537,10 +526,6 @@ button {
   }
 }
 
-
-
-
-
 .swiper-slide {
   background-position: center;
   background-size: cover;
@@ -554,12 +539,153 @@ button {
   height: 100%;
 }
 
-
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   background-color: violet !important;
-  border: .1px solid rgba(0,0,0,0.5);
-
+  border: 0.1px solid rgba(0, 0, 0, 0.5);
 }
-.swiper-pagination-bullet{
-opacity: .9 !important;
+.swiper-pagination-bullet {
+  opacity: 0.9 !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input:focus {
+  outline: none; /* Considera reemplazar esto por un estilo más accesible */
+}
+textarea::-webkit-outer-spin-button,
+textarea::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea:focus {
+  outline: none; /* Considera reemplazar esto por un estilo más accesible */
+}
+
+.degradado-texto {
+  background: linear-gradient(
+    to bottom,
+    #f022ab,
+    #9d00ab
+  ); /* Ajusta aquí para vertical */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* nav{
+  z-index: 100;
+  position: absolute;
+top: 0;
+} */
+
+.gradiente-personalizado {
+  background: linear-gradient(to bottom, #75b7ed, #ef21aa);
+}
+
+.indexz {
+  z-index: 100;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: fit-content;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 500px;
+}
+
+.pack-container {
+  
+  background-color: #212121;
+
+  padding: 1.6rem;
+  color: #fff;
+}
+
+.header {
+  position: relative;
+  margin: 0;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.price-container span:first-child {
+  margin-top: 10px;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.price-container span:last-child {
+  align-self: flex-end;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.button-container {
+  margin-top: 20px;
+  padding: 0;
+}
+
+.button-container button {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  color: #000;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+}
+
+
+.vertical-marquee {
+  overflow: hidden;
+  position: relative;
+  height: 200px; /* Ajusta según sea necesario */
+}
+
+.marquee-content {
+  position: absolute;
+  top: 0;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% { top: 100%; }
+  100% { top: -100%; } /* Ajusta estos valores según el contenido y el efecto deseado */
+}
+
+.shadowSeparator{
+  box-shadow: 0px 0px 90px 32px rgba(147,51,234,0.33);
+  -webkit-box-shadow: 0px 0px 90px 32px rgba(147,51,234,0.33);
+  -moz-box-shadow: 0px 0px 90px 32px rgba(147,51,234,0.33);
 }

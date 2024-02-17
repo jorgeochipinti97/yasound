@@ -1,45 +1,33 @@
-'use client'
-import React, { useRef, useState } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-flip';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { EffectFlip, Pagination, Navigation } from 'swiper/modules';
+import "swiper/css";
+import "swiper/css/effect-flip";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { EffectFlip, Pagination, Navigation } from "swiper/modules";
 
-export const SliderFlipComponent = () => {
+export const SliderFlipComponent = ({imgs}) => {
+
   return (
     <>
-    <Swiper
-      effect={'flip'}
-      grabCursor={true}
-      pagination={true}
-
-      modules={[EffectFlip, Pagination, Navigation]}
-      className="mySwiper roudned-xl"
-    >
-      <SwiperSlide className='rounded-xl'>
-        <img className='rounded-xl' src="https://swiperjs.com/demos/images/nature-1.jpg" />
-      </SwiperSlide>
-      <SwiperSlide className='rounded-xl'>
-        <img className='rounded-xl' src="https://swiperjs.com/demos/images/nature-2.jpg" />
-      </SwiperSlide>
-      <SwiperSlide className='rounded-xl'>
-        <img className='rounded-xl' src="https://swiperjs.com/demos/images/nature-3.jpg" />
-      </SwiperSlide>
-      <SwiperSlide className='rounded-xl'>
-        <img className='rounded-xl' src="https://swiperjs.com/demos/images/nature-4.jpg" />
-      </SwiperSlide>
-      <SwiperSlide className='rounded-xl'>
-        <img className='rounded-xl' src="https://swiperjs.com/demos/images/nature-5.jpg" />
-      </SwiperSlide>
-      <SwiperSlide className='rounded-xl'>
-        <img className='rounded-xl' src="https://swiperjs.com/demos/images/nature-6.jpg" />
-      </SwiperSlide>
-    </Swiper>
-  </>
-);
-}
+      <Swiper
+        effect={"flip"}
+        grabCursor={true}
+        pagination={true}
+        modules={[EffectFlip, Pagination, Navigation]}
+        className="mySwiper roudned-xl"
+      >
+        {imgs &&
+          imgs.map((e, index) => ( 
+            <SwiperSlide key={index} className="rounded-xl">
+              <div style={{backgroundImage:`url('${e}')`,backgroundSize:'cover', backgroundPosition:'center'}} className="rounded-xl h-[50vh]"/>
+            </SwiperSlide>
+          ))}
+      </Swiper>
+    </>
+  );
+};

@@ -18,44 +18,44 @@ const page = () => {
         <div className="flex justify-center mt-10">
           <div className="flex justify-center mt-5  ">
             <button className="boton-unico  mx-2">
-              <span class="circle1"></span>
-              <span class="circle2"></span>
-              <span class="circle3"></span>
-              <span class="circle4"></span>
-              <span class="circle5"></span>
-              <span class="text">R&B</span>
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">R&B</span>
             </button>
             <button className="boton-unico  mx-2">
-              <span class="circle1"></span>
-              <span class="circle2"></span>
-              <span class="circle3"></span>
-              <span class="circle4"></span>
-              <span class="circle5"></span>
-              <span class="text">Reggaeton</span>
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">Reggaeton</span>
             </button>
             <button className="boton-unico  mx-2">
-              <span class="circle1"></span>
-              <span class="circle2"></span>
-              <span class="circle3"></span>
-              <span class="circle4"></span>
-              <span class="circle5"></span>
-              <span class="text">Hip-Hop</span>
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">Hip-Hop</span>
             </button>
             <button className="boton-unico  mx-2">
-              <span class="circle1"></span>
-              <span class="circle2"></span>
-              <span class="circle3"></span>
-              <span class="circle4"></span>
-              <span class="circle5"></span>
-              <span class="text">Pop</span>
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">Pop</span>
             </button>
             <button className="boton-unico mx-2 ">
-              <span class="circle1"></span>
-              <span class="circle2"></span>
-              <span class="circle3"></span>
-              <span class="circle4"></span>
-              <span class="circle5"></span>
-              <span class="text">Trap</span>
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">Trap</span>
             </button>
           </div>
         </div>

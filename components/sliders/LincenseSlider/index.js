@@ -29,12 +29,12 @@ export const LicenseSlider = () => {
             <p className="text-center text-2xl font-bold my-5">$16,00</p>
             <div className="flex justify-center">
                            <button className="boton-unico my-5 md:mt-0 ">
-                  <span class="circle1"></span>
-                  <span class="circle2"></span>
-                  <span class="circle3"></span>
-                  <span class="circle4"></span>
-                  <span class="circle5"></span>
-                  <span class="text">Comprar</span>
+                  <span className="circle1"></span>
+                  <span className="circle2"></span>
+                  <span className="circle3"></span>
+                  <span className="circle4"></span>
+                  <span className="circle5"></span>
+                  <span className="text">Comprar</span>
                 </button>
             </div>
           </div>
@@ -48,12 +48,12 @@ export const LicenseSlider = () => {
             <p className="text-center text-2xl font-bold my-5">$16,00</p>
             <div className="flex justify-center">
                            <button className="boton-unico my-5 md:mt-0 ">
-                  <span class="circle1"></span>
-                  <span class="circle2"></span>
-                  <span class="circle3"></span>
-                  <span class="circle4"></span>
-                  <span class="circle5"></span>
-                  <span class="text">Comprar</span>
+                  <span className="circle1"></span>
+                  <span className="circle2"></span>
+                  <span className="circle3"></span>
+                  <span className="circle4"></span>
+                  <span className="circle5"></span>
+                  <span className="text">Comprar</span>
                 </button>
             </div>
           </div>

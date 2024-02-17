@@ -19,7 +19,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <Providers>
-          <Navbar />
+          <div className="indexz">
+            <Navbar />
+          </div>
 
           {children}
           <FooterComponent />

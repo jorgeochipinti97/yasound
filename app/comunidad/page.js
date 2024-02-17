@@ -1,46 +1,68 @@
+"use client";
 import React from "react";
+import useBlogs from "../hook/useBlogs";
+import { BlogCard } from "@/components/blogCard";
+import { Button } from "@/components/ui/button";
 
-const page = () => {
+const Page = () => {
+  const { blogs } = useBlogs();
+
   return (
     <div>
       <div className="min-h-screen pt-10">
         <div className="flex justify-center">
-        <p className="text-center text-4xl mt-10 w-10/12">Comunicate con otros artistas y mantenete informado de las ultimas tendencias musciales</p>
-        </div>
-        <div className="flex justify-center my-5">
-        <div className="h-[60vh] bg-black w-10/12 rounded-xl"></div>
+          <p
+            style={{ letterSpacing: -2 }}
+            className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto"
+          >
+            Comunidad Yasound
+          </p>
         </div>
         <div className="flex justify-center items-center flex-col mt-10 text-2xl">
-            <p className="w-8/12 text-center">Ingresa a la comunidad de Discord de Yasound y encuentra un espacio para <span className="font-bold">conocer</span> e<span className="font-bold"> interactuar </span>con otros artistas. Conéctate, comparte y aprende con músicos y productores en un ambiente colaborativo.</p>
-        <button class="animated-button mt-5">
-        <svg
-          viewBox="0 0 24 24"
-          class="arr-2"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-        </svg>
-        <span class="text">Ser parte</span>
-        <span class="circle"></span>
-        <svg
-          viewBox="0 0 24 24"
-          class="arr-1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-        </svg>
-      </button>
-        </div>
-        <p className="text-center text-3xl mt-20">Noticias</p>
-        <div className="flex justify-around mt-10 flex-wrap">
-        <div className="w-5/12 border-2 m-2 h-[300px] rounded-xl shadow-md" />
-        <div className="w-5/12 border-2 m-2 h-[300px] rounded-xl shadow-md" />
-        <div className="w-5/12 border-2 m-2 h-[300px] rounded-xl shadow-md" />
-        <div className="w-5/12 border-2 m-2 h-[300px] rounded-xl shadow-md" />
+          <p
+            className="w-9/12 text-justify text-md font-light font-sans"
+            style={{ letterSpacing: -1 }}
+          >
+            No solo vendemos beats, ¡También creamos conexiones y fomentamos la
+            colaboración! Descubre características que te permiten interactuar,
+            colaborar en proyectos, recibir retroalimentación valiosa y
+            compartir tus conocimientos con otros apasionados de la música.
+          </p>
+          <p className="mt-5 font-sans font-bold opacity-[80%]">
+            ¡Podemos llevar tu música al siguiente nivel!
+          </p>
+          <div class="shadowSeparator bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[1vh] rounded-full  w-4/12 my-2"></div>
+          <div className=" flex flex-col items-center justify-center  ">
+            <p
+              className="font-sans font-bold text-6xl mt-20"
+              style={{ letterSpacing: -2 }}
+            >
+              Nuestras noticias
+            </p>
+            {blogs && (
+              <div className="w-screen mt-5  flex justify-center ">
+                <div className=" grid grid-cols-2 w-10/12 ">
+                  {blogs.map((e,index) => (
+                    <div className="flex w-full justify-center" key={index}>
+                  
+                      <BlogCard
+                        title={e.titulo}
+                        subtitle={e.subtitulo}
+                        descripcion={e.cuerpo}
+                        img={e.imagenes[0] ? e.imagenes[0] : ""}
+                        _id={e._id}
+                        comentarios={e.comentarios}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;

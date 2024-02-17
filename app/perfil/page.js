@@ -3,12 +3,34 @@ import { ReproductorComponent } from "@/components/cards/reproductorCard";
 import { SliderFlipComponent } from "@/components/sliders/Flip";
 import { LicenseSlider } from "@/components/sliders/LincenseSlider";
 import { WavyBackground } from "@/components/ui/Wavy";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useUsuarios from "../hook/useUsers";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Page = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [beats, setBeats] = useState([]);
+  const { user } = useAuth0();
+
+  const { usuarios } = useUsuarios();
+
+  const [usuario, setUsuario] = useState();
+
+  useEffect(() => {
+    const createuser = usuarios.filter((e) => e.email == user.email);
+    createuser && setUsuario(createuser[0]);
+  }, [user && usuarios]);
+
+  const chargeBeats = async () => {
+    const data = await axios.get("/api/beats");
+    setBeats(data.data.data.filter((e) => e.autor == usuario.username));
+  };
+
+  useEffect(() => {
+    usuario && chargeBeats();
+  }, [usuario]);
 
   return (
     <WavyBackground className=" mx-auto pb-40">
@@ -69,7 +91,7 @@ const Page = () => {
               fill="black"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
                 id="SVGRepo_tracerCarrier"
                 strokeLinecap="round"
@@ -130,19 +152,19 @@ const Page = () => {
                   placeholder="Hola! Me interesaria coordinar una llamada..."
                 />
               </div>
-              <button class="animated-button my-5">
+              <button className="animated-button my-5">
                 <svg
                   viewBox="0 0 24 24"
-                  class="arr-2"
+                  className="arr-2"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
                 </svg>
-                <span class="text">Enviar</span>
-                <span class="circle"></span>
+                <span className="text">Enviar</span>
+                <span className="circle"></span>
                 <svg
                   viewBox="0 0 24 24"
-                  class="arr-1"
+                  className="arr-1"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -152,23 +174,28 @@ const Page = () => {
           </div>
           <div className="w-12/12 md:w-10/12 my-5 m-1 h-full grid grid-cols-1">
             <div className="h-full  bg-white md:bg-slate-200/50 rounded-xl w-full  flex justify-around flex-col items-start ">
-              <div className="w-full flex justify-around md:flex-row my-5 flex-col items-center ">
-                <ReproductorComponent
-                  precio={"9,00"}
-                  img={"/1.jpg"}
-                  artist={"Fede Medina"}
-                  title={"Reggaeton #1"}
-                />
+              {beats &&
+                beats.map((e,index) => (
+                  <div className="w-full flex justify-around  " key={index}>
+                    <ReproductorComponent
+                      precio={e.precio}
+                      img={e.image}
+                      artist={e.autor}
+                      title={e.nombre}
+                      audio={e.link}
+                    />
 
-                <button className="boton-unico my-5 md:mt-0 ">
-                  <span class="circle1"></span>
-                  <span class="circle2"></span>
-                  <span class="circle3"></span>
-                  <span class="circle4"></span>
-                  <span class="circle5"></span>
-                  <span class="text">Comprar</span>
-                </button>
-              </div>
+                    <button className="boton-unico my-5 md:mt-0 ">
+                      <span className="circle1"></span>
+                      <span className="circle2"></span>
+                      <span className="circle3"></span>
+                      <span className="circle4"></span>
+                      <span className="circle5"></span>
+                      <span className="text">Comprar</span>
+                    </button>
+                  </div>
+                ))}
+              
               <div className="w-full flex justify-around md:flex-row my-5 flex-col items-center ">
                 <ReproductorComponent
                   precio={"9,00"}
@@ -177,12 +204,12 @@ const Page = () => {
                   title={"Trap #1"}
                 />
                 <button className="boton-unico my-5 md:mt-0 ">
-                  <span class="circle1"></span>
-                  <span class="circle2"></span>
-                  <span class="circle3"></span>
-                  <span class="circle4"></span>
-                  <span class="circle5"></span>
-                  <span class="text">Comprar</span>
+                  <span className="circle1"></span>
+                  <span className="circle2"></span>
+                  <span className="circle3"></span>
+                  <span className="circle4"></span>
+                  <span className="circle5"></span>
+                  <span className="text">Comprar</span>
                 </button>
               </div>
               <div className="w-full flex justify-around md:flex-row my-5 flex-col items-center ">
@@ -193,12 +220,12 @@ const Page = () => {
                   title={"Rap #1"}
                 />{" "}
                 <button className="boton-unico my-5 md:mt-0 ">
-                  <span class="circle1"></span>
-                  <span class="circle2"></span>
-                  <span class="circle3"></span>
-                  <span class="circle4"></span>
-                  <span class="circle5"></span>
-                  <span class="text">Comprar</span>
+                  <span className="circle1"></span>
+                  <span className="circle2"></span>
+                  <span className="circle3"></span>
+                  <span className="circle4"></span>
+                  <span className="circle5"></span>
+                  <span className="text">Comprar</span>
                 </button>
               </div>
             </div>
@@ -208,7 +235,7 @@ const Page = () => {
               <div className="h-full bg-slate-200/50   mr-1 rounded-xl w-11/12 md:w-[100%]  ">
                 <LicenseSlider />
               </div>
-            </div> 
+            </div>
             <div className="w-12/12 rounded-xl  h-full ">
               <div className="w-12/12  rounded-xl  h-[100%] py-10 flex justify-center">
                 <div className="h-full   flex-col items-center py-10 flex justify-center w-11/12  mr-1 rounded-xl  md:w-[100%]  ">
@@ -220,19 +247,19 @@ const Page = () => {
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                   />
-                  <button class="animated-button mt-10">
+                  <button className="animated-button mt-10">
                     <svg
                       viewBox="0 0 24 24"
-                      class="arr-2"
+                      className="arr-2"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
                     </svg>
-                    <span class="text">Enviar</span>
-                    <span class="circle"></span>
+                    <span className="text">Enviar</span>
+                    <span className="circle"></span>
                     <svg
                       viewBox="0 0 24 24"
-                      class="arr-1"
+                      className="arr-1"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>

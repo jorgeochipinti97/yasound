@@ -1,288 +1,287 @@
 "use client";
-import { CardMusic } from "@/components/CardMusic";
-import { Ranking } from "@/components/ranking";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { BackgroundGradientAnimation } from "@/components/Background";
+import { BackgroundGradient } from "@/components/BackgroundGradient";
+import { FeaturedCard } from "@/components/cards/FeaturedCard";
+import { SliderCoverFlow } from "@/components/sliders/CoverflowSlider";
+import { useEffect } from "react";
 import Marquee from "react-fast-marquee";
-
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { CardPricing } from "@/components/CardPricing";
 export default function Home() {
+  const featureData = [
+    {
+      title: "Conexiones Musicales",
+      description:
+        "Oportunidad de colaboracion conectando con músicos, productores y amantes de la música de todo el mundo. Colabora, inspira y crea juntos.",
+    },
+    {
+      title: "Descubre Talentos Únicos",
+      description:
+        "Explora una amplia variedad de beats e instrumentales de productores talentosos. Encuentra la inspiración que necesitas para tus proyectos musicales.",
+    },
+    {
+      title: "Promoción de tu Música",
+      description:
+        "Destaca tu talento mostrando tus creaciones en un perfil personalizado. ¡Haz que tu música sea escuchada!",
+    },
+    {
+      title: "Asesoramiento y Recursos",
+      description:
+        "Accede a recursos educativos, asesoramiento en producción musical, herramientas y consejos de expertos para impulsar tu carrera musical.",
+    },
+    {
+      title: "Perfil Avanzado",
+      description:
+        "Los usuarios premium disfrutarán de perfiles más destacados y personalizables, lo que les permitirá destacar aún más su trabajo. Tendrán la opción de cargar una cantidad ilimitada de beats e instrumentales.",
+    },
+    {
+      title: "Soporte VIP",
+      description:
+        "Los usuarios premium recibirán un servicio de soporte al cliente prioritario, con tiempos de respuesta más rápidos.",
+    },
+    {
+      title: "Beneficios y descuentos exclusivos",
+      description: "",
+    },
+  ];
+
   useEffect(() => {
     const div3d = document.querySelector(".div-3d");
 
-    // Temporizador para enderezar el div automáticamente
     setTimeout(() => {
       div3d.style.transform = "perspective(1000px) rotateX(0deg)";
     }, 500); // Ajusta este tiempo según necesites
   }, []);
   return (
     <div>
-      <div className="h-fit md:min-h-screen flex flex-col items-center">
-        <div className=" flex items-center flex-col justiyf-center">
-          <p className="text-center pt-24 text-3xl  md:text-5xl font-extrabold ">
-            {/* ¡Haz que tus Beats Resuenen en Latinoamérica! */}
-            Conectando Productores con el Mundo
-          </p>
-          <p className="text-center  text-md mt-5 md:mt-0 ">
-            {/* Explora, conecta y colabora con una comunidad vibrante de creadores
-            musicales en toda Latinoamérica. */}
-            Tu Escenario Digital para Crear, Compartir y Prosperar
-          </p>
-          <div className="mt-5">
-            <button class="animated-button">
-              <svg
-                viewBox="0 0 24 24"
-                class="arr-2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-              </svg>
-              <span class="text">Empezar</span>
-              <span class="circle"></span>
-              <svg
-                viewBox="0 0 24 24"
-                class="arr-1"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-11/12 md:w-7/12 mt-5">
-          <video
-            src="/video.mp4"
-            className="w-12/12 rounded-xl"
-            controls
-            autoPlay
-            playsInline
-            loop
-            muted
-          />
-        </div>
-      </div>
+      <BackgroundGradientAnimation>
+        <div className="absolute indexz inset-0">
+          <div className="h-fit md:min-h-screen flex flex-col items-center">
+            <div className=" flex items-center flex-col justiyf-center">
+              <p className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto">
+                Yasound
+              </p>
+              <p className="text-center  text-md mt-5  text-fuchsia-800 md:mt-0 ">
+             El sonidode tu historia.
+             {/* Donde la musica y la creatividad se encuentran.{" "} */}
+              </p>
 
-      <div className="h-fit md:min-h-screen pt-20">
-        <div className="flex md:flex-row flex-col justify-center items-center">
-          <div className="md:w-5/12 w-12/12  mr-0 md:mt-20 flex justify-center md:justify-end md:mr-10">
-            <img
-              src="/chica.png"
-              className="w-8/12 rounded-xl shadow-xl shadow-violet-200"
-              alt=""
-            />
-          </div>
-          <div className="mt-5 md:mt-0 w-10/12 md:w-7/12  flex justify-center items-start flex-col ">
-            <p className="text-center text-2xl  font-light">
-              Mostra tu musica y conectate con artistas de todo el mundo.
-            </p>
-            <p className="text-center text-xl mt-10  md:mt-2 font-bold">
-              Unite a nuestra comunidad.
-            </p>
-            <div className="flex justify-center  md:mt-5  ">
-              <button className="boton-unico">
-                <span class="circle1"></span>
-                <span class="circle2"></span>
-                <span class="circle3"></span>
-                <span class="circle4"></span>
-                <span class="circle5"></span>
-                <span class="text">Forma parte</span>
-              </button>
+              <p className="text-center text-3xl uppercase w-10/12  mt-10 font-sans  font-semibold ">
+              La tienda virutal de instrumentales NUMERO 1 de habla hispana.
+              </p>
+      
             </div>
-          </div>
-        </div>
-        <div>
-          <p className="text-center text-4xl pt-20 md:mt-36 font-extrabold">
-            Eleva Tus Beats a un Nivel Global{" "}
-          </p>
-          <div className="flex justify-center">
-            <p className="text-center text-md mt-2 font-light w-6/12">
-              {/* Transforma cada beat en una oportunidad global. En Yasound, vendes
-              tu música de manera sencilla y segura, abriendo puertas a un mundo
-              de posibilidades.{" "} */}
-              Perfiles Únicos, Beats Inolvidables
-            </p>
-          </div>
-          <div className="flex justify-around mt-10 md:my-20 md:flex-row flex-col  items-center">
-            <div className="e-card playing md:my-0 my-5">
-              <div className="image"></div>
-
-              <div className="wave"></div>
-              <div className="wave"></div>
-              <div className="wave"></div>
-
-              <div className="infotop flex flex-col items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  height={50}
-                  width={50}
-                >
-                  <g
-                    stroke="#f5f5f7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  >
-                    <rect width="18" height="13" x="3" y="6" rx="2"></rect>
-                    <path d="M3 10h17.5M7 15h2"></path>
-                  </g>
-                </svg>
-                Pago seguro
-              </div>
-            </div>
-            <div className="e-card playing md:my-0 my-5">
-              <div className="image"></div>
-
-              <div className="wave"></div>
-              <div className="wave"></div>
-              <div className="wave"></div>
-
-              <div className="infotop flex flex-col items-center">
-                <svg
-                  height={50}
-                  width={50}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="#f5f5f7"
-                  stroke="#f5f5f7"
-                  data-name="Layer 1"
-                  viewBox="0 -8 72 72"
-                >
-                  <g>
-                    <path d="M59.25 12.42l-.83.27-4.42.39-1.27 2-.91-.29-3.59-3.19-.52-1.66L47 8.16l-2.23-2-2.63-.51-.06 1.2 2.58 2.52 1.26 1.48-1.42.75-1.15-.34-1.73-.73V9.14l-2.2-.94-.75 3.29-2.29.51.23 1.84 3 .57.52-2.93 2.46.37 1.14.67h1.84L46.8 15l3.34 3.38-.25 1.32-2.69-.34-4.64 2.34-3.34 4-.43 1.78h-1.21l-2.23-1-2.17 1 .54 2.29.94-1.09h1.67l-.12 2 1.38.4L39 32.67l2.2-.67 2.57.4 3 .8 1.48.18 2.52 2.86 4.87 2.86-3.15 6-3.32 1.54-1.26 3.44-4.81 3.21-.51 1.85a28 28 0 0016.66-42.72z"></path>
-                    <path d="M39.22 42.63l-2-3.78L39.05 35l-1.87-.56-2.1-2.11-4.66-1L28.88 28v1.92h-.68l-4-5.44V20l-2.94-4.78-4.67.83h-3.16l-1.59-1 2-1.6-2 .46A28 28 0 0036 56a29 29 0 003.51-.25l-.29-3.39s1.29-5 1.29-5.2-1.29-4.53-1.29-4.53zM18.41 9l5-.7 2.29-1.25 2.58.74 4.12-.23 1.42-2.22 2.05.34 5-.47 1.38-1.52 2-1.29 2.74.41 1-.15a27.91 27.91 0 00-33.51 7.49h0zm18.77-6.22L40 1.21l1.84 1.06-2.66 2-2.54.26-1.14-.74zM28.71 3l1.29.54L31.63 3l.9 1.56-3.82 1-1.83-1.06s1.79-1.15 1.83-1.5z"></path>
-                  </g>
-                </svg>
-                Vende en todo el mundo
-              </div>
-            </div>
-            <div className="e-card playing md:my-0 my-5">
-              <div className="image"></div>
-
-              <div className="wave"></div>
-              <div className="wave"></div>
-              <div className="wave"></div>
-
-              <div className="infotop flex flex-col items-center">
-                <svg
-                  height={50}
-                  width={50}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  stroke="#f5f5f7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  ariaLabelledby="supportIconTitle"
-                  color="#000"
-                  viewBox="0 0 24 24"
-                >
-                  <g>
-                    <path
-                      d="M18 9h-2a2 2 0 00-2 2v2a2 2 0 002 2h0a2 2 0 002-2V9A9 9 0 000 9v4a2 2 0 002 2h0a2 2 0 002-2v-2a2 2 0 00-2-2H0"
-                      transform="translate(3 3)"
-                    ></path>
-                    <path d="M21 14v4c0 2-.667 3-2 3h-5"></path>
-                  </g>
-                </svg>
-                Soporte diario
-              </div>
-            </div>
-          </div>
-
-          {/* <div className="flex flex-col items-center">
-            <p className="mt-20 text-5xl font-bold font-geist">
-              🔥 TENDENCIAS 🔥
-            </p>
-            <Marquee className="pb-20 mt-10 " pauseOnHover>
-              <CardMusic />
-              <CardMusic />
-              <CardMusic />
-              <CardMusic />
-              <CardMusic />
-              <CardMusic />
-              <CardMusic />
-            </Marquee>
-            <div><p className="text-5xl font-bold mb-5 mt-10">Confian en nosotros</p></div>
-            <Marquee className="pb-20 mt-10  " direction="right" autoFill >
-              <div >
-                <img src="/redbull.svg" className="w-6/12" />
-              </div>
-              <div >
-                <img src="/jhon.png" className="w-6/12" />
-              </div>
-              <div className="">
-                <img src="/lider2.jpeg " className="w-6/12"  />
-              </div>
-            </Marquee>
-          </div> */}
-
-          {/* <div className="w-screen grid grid-cols-1 mt-10 ">
-     
-            <div className=" flex justify-center items-start">
-              <div class="form-container">
-                <form class="form">
-                  <div class="form-group">
-                    <label
-                      className="text-slate-800 font-bold mb-2"
-                      for="email"
-                    >
-                      Nombre
-                    </label>
-                    <input required="" name="email" id="email" type="text" />
-                  </div>
-                  <div class="form-group">
-                    <label
-                      className="text-slate-800 font-bold mb-2"
-                      for="email"
-                    >
-                      Celular
-                    </label>
-                    <input required="" name="email" id="email" type="text" />
-                  </div>
-                  <div class="form-group">
-                    <label
-                      className="text-slate-800 font-bold mb-2"
-                      for="email"
-                    >
-                      E-mail
-                    </label>
-                    <input required="" name="email" id="email" type="text" />
-                  </div>
-                  <div class="form-group">
-                    <label
-                      className="text-slate-800 font-bold mb-2"
-                      for="textarea"
-                    >
-                      Mensaje
-                    </label>
-                    <textarea
-                      required=""
-                      cols="50"
-                      rows="10"
-                      id="textarea"
-                      name="textarea"
-                    >
+            <div className="grid grid-cols-2 mt-10">
+              <div className="flex items-center flex-col justify-center ">
+                <div className=" bg-sky-950  w-10/12 p-10  rounded-xl">
+                  <p className="text-center text-[#f5f5f7] font-sans  text-2xl font-light">
+                    {" "}
+                    Únete, colabora, promociona y gestiona tu carrera en{" "}
+                    <span className="font-semibold">
                       {" "}
-                    </textarea>
+                      la comunidad líder
+                    </span>{" "}
+                    de habla hispana para la compra y venta de beats e
+                    instrumentales.
+                  </p>
+                  <p className="text-center text-[#f5f5f7]  text-2xl font-bold mt-10">
+                    {" "}
+                    ¡Transforma tu creatividad en oportunidades!
+                  </p>
+                  <div className="flex justify-center">
+                    <button className="  md:mt-10 md:mb-0 mt-2 mb-5 flex items-center bg-white text-black p-2 rounded-xl text-xl hover:bg-violet-950 hover:scale-[1.1] transition-all duration-200  hover:text-white ">
+                      {" "}
+                      <svg
+                        width={25}
+                        className="mr-2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <g stroke="#ef21aa" strokeWidth="1.5">
+                          <path
+                            strokeLinecap="round"
+                            d="M8 16c0 2.828 0 4.243.879 5.121C9.757 22 11.172 22 14 22h1c2.828 0 4.243 0 5.121-.879C21 20.243 21 18.828 21 16V8c0-2.828 0-4.243-.879-5.121C19.243 2 17.828 2 15 2h-1c-2.828 0-4.243 0-5.121.879C8 3.757 8 5.172 8 8"
+                          ></path>
+                          <path
+                            d="M8 19.5c-2.357 0-3.536 0-4.268-.732C3 18.035 3 16.857 3 14.5v-5c0-2.357 0-3.536.732-4.268C4.464 4.5 5.643 4.5 8 4.5"
+                            opacity="0.5"
+                          ></path>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 12h9m0 0l-2.5 2.5M15 12l-2.5-2.5"
+                          ></path>
+                        </g>
+                      </svg>
+                      Empezar
+                    </button>
                   </div>
-                  <div>
-                    <div className="flex justify-center mt-5  ">
-                      <button className="boton-unico ">
-                        <span class="circle1"></span>
-                        <span class="circle2"></span>
-                        <span class="circle3"></span>
-                        <span class="circle4"></span>
-                        <span class="circle5"></span>
-                        <span class="text">Enviar</span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                </div>
+              </div>
+              <div className="flex justify-center items-center">
+                <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-11/12 md:w-12/12 ">
+                  <video
+                    src="/video.mp4"
+                    className="w-12/12 rounded-xl"
+                    controls
+                    autoPlay
+                    playsInline
+                    loop
+                    muted
+                  />
+                </div>
               </div>
             </div>
-          </div> */}
+          </div>
+          <div>
+            <p
+              className="text-center z-50 text-7xl my-5 font-bold text-black"
+              style={{ mixBlendMode: "saturation", opacity: 0.4 }}
+            >
+              Beats & Tracks
+            </p>
+            <SliderCoverFlow />
+          </div>
+        </div>
+      </BackgroundGradientAnimation>
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient(to bottom, transparent 30%, black),linear-gradient(to bottom,rgba(0, 0, 0, 0.9),rgba(239, 33, 170, .5)), url('./party.jpg')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+        className=" rounded-t-3xl flex w-screen  justify-center py-10 min-h-[70vh]"
+      >
+        <div className="grid grid-cols-2 w-10/12">
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-full  flex justify-center ">
+              <div className="w-fit ">
+                <p className="font-bold w-fit text-start text-6xl  fuenteGotica text-white  ">
+                  Comunidad <br /> Yasound
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              {featureData.map((feature, index) => (
+                <FeaturedCard
+                  key={index}
+                  title={feature.title}
+                  description={feature.description}
+                />
+              ))}
+
+              <div className="w-full flex justify-center items-start">
+                <Drawer className="w-full ">
+                  <DrawerTrigger asChild>
+                    <div className="flex items-center">
+                      <div className="h-fit  ">
+                        <button className="  md:mt-5 md:mb-0 mt-2 mb-5 flex items-center font-bold uppercase bg-white text-black p-3 rounded-xl text-2xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-800 ">
+                          <img
+                            src="/diversity.svg"
+                            className="mr-2 w-[35px]"
+                            alt=""
+                          />
+                          ¡Únete!
+                        </button>
+                      </div>
+                    </div>
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <div className="mx-auto w-full flex justify-center">
+                      <DrawerHeader className="w-11/12">
+                        <DrawerDescription className="text-justify text-xl">
+                          <div className="grid grid-cols-2">
+                            <div className="w-full flex justify-center">
+                              <div className="w-9/12">
+                                {/* <BackgroundGradient className="rounded-xl"> */}
+                                <CardPricing isPremium={false} />
+                                {/* </BackgroundGradient> */}
+                              </div>
+                            </div>
+                            <div className="w-full flex justify-center">
+                              <div className="w-11/12">
+                                <BackgroundGradient className="rounded-[22px]   ">
+                                  <CardPricing isPremium={true} />
+                                </BackgroundGradient>
+                              </div>
+                            </div>
+                          </div>
+                        </DrawerDescription>
+                      </DrawerHeader>
+                    </div>
+                  </DrawerContent>
+                </Drawer>
+              </div>
+            </div>
+          </div>
+          <div className="w-full rounded-xl  flex justify-center flex-col items-center   h-full ">
+            <p className="font-extrabold mb-20 font-sans  text-white text-7xl">
+              Contactanos
+            </p>
+            <form className="flex flex-col ">
+              <input
+                className="my-2 p-2 rounded-xl w-[500px]"
+                type="text"
+                placeholder="Nombre"
+              />
+              <input
+                className="my-2 p-2 rounded-xl w-[500px]"
+                type="text"
+                placeholder="Email"
+              />
+              <input
+                className="my-2 p-2 rounded-xl w-[500px]"
+                type="text"
+                placeholder="Celular"
+              />
+              <textarea
+                className="w-[500px] rounded-xl my-2 p-2"
+                placeholder="Mensaje"
+              />
+              <div>
+                <button className="  md:mt-10 md:mb-0 mt-2 mb-5 flex items-center bg-white text-black p-2 rounded-xl text-xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-800 ">
+                  <svg
+                    className="mr-2"
+                    width={30}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="#000"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M11.5 12H5.42m-.173.797L4.242 15.8c-.55 1.643-.826 2.465-.628 2.971.171.44.54.773.994.9.523.146 1.314-.21 2.894-.92l10.135-4.561c1.543-.695 2.314-1.042 2.553-1.524a1.5 1.5 0 000-1.33c-.239-.482-1.01-.83-2.553-1.524L7.485 5.243c-1.576-.71-2.364-1.064-2.887-.918a1.5 1.5 0 00-.994.897c-.198.505.074 1.325.618 2.966l1.026 3.091c.094.282.14.423.159.567a1.5 1.5 0 010 .385c-.02.144-.066.285-.16.566z"
+                    ></path>
+                  </svg>
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+      <Marquee className="  py-20" direction="right" autoFill>
+        <div className="flex items-center justify-c">
+          <img src="/redbull.svg" className=" w-[200px] mx-2 " />
+        </div>
+        <div className="flex items-center justify-c">
+          <img src="/jhon.png" className="  w-[200px] mx-2" />
+        </div>
+        <div className="flexitems-center justify-c ">
+          <img src="/lider2.jpeg " className=" w-[200px] mx-2 " />
+        </div>
+      </Marquee>
     </div>
   );
 }
