@@ -4,24 +4,26 @@ const Page = () => {
   return (
     <div className="min-h-screen">
       <div className="pt-20">
-        <img src="/shade.png" className="w-screen absolute top-20" />
-        <div className="flex justify-center rounded-b-xl flex-col items-start  pt-52 ">
+        <div className="flex w-full flex-col items-center justify-center">
+          <div class="shadowSeparator bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[10vh]   w-screen my-2"></div>
           <p
             style={{ letterSpacing: -2 }}
-            className="font-semibold ml-36   font-sans text-start  capitalize text-7xl degradado-texto"
+            className="font-semibold    font-sans text-start  capitalize text-7xl degradado-texto"
           >
             Sobre nosotros
           </p>
+        </div>
 
+        <div className="flex justify-center rounded-b-xl flex-col items-center  ">
           <p
             style={{ letterSpacing: -1 }}
-            className="font-semibold ml-5   flex items-center  font-sans text-start mt-20  capitalize text-4xl "
+            className="font-semibold    flex items-center  font-sans text-start mt-20  capitalize text-4xl "
           >
             ¿Qué es Yasound?
           </p>
           <p
             style={{ letterSpacing: -0.5 }}
-            className="text-justify font-mono mt-5 w-10/12 ml-5"
+            className="text-justify font-mono mt-5 w-10/12 "
           >
             Es una plataforma digital en habla hispana que se especializa en la
             compra y venta de beats e instrumentales, así como en la creación de
@@ -39,8 +41,7 @@ const Page = () => {
             una gran comunidad.
           </p>
         </div>
-
-        <div className="flex mt-10 items-center">
+        <div className="flex mt-10 items-center justify-center">
           <div>
             <svg
               width={60}

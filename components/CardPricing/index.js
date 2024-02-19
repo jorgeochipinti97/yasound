@@ -99,7 +99,7 @@ export const CardPricing = ({ isPremium }) => {
           </div>
         </div>
         <div>
-          <ul className="grid grid-cols-2 mt-10">
+          <ul className="grid grid-cols-2 md:mt-10">
             {isPremium
               ? premiumFeatures.map((e,index) => (
                   <li className="list flex items-start w-9/12" key={index}>
@@ -124,9 +124,7 @@ export const CardPricing = ({ isPremium }) => {
                     </div>
                     <div className="flex-col flex">
                       <p className="font-bold text-md text-white">{e.titulo}</p>
-                      <p className="font-light text-xs text-gray-200">
-                        {e.body}
-                      </p>
+          
                     </div>
                   </li>
                 ))

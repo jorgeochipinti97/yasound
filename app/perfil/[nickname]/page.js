@@ -295,12 +295,12 @@ const Page = () => {
             <div className="md:w-[40vw] "></div>
             <div className="flex-1 flex justify-start   flex-col">
               <div className="w-12/12 md:w-10/12   h-fit grid  grid-cols-1 md:grid-cols-2">
-                <div className="w-full flex justify-center">
-                  <div className="h-full bg-white md:bg-slate-200/20   mr-1 rounded-xl w-11/12 md:w-[100%]  ">
+                <div className="w-full flex justify-center items-center">
+                  <div className="h-full bg-white md:bg-slate-200/20 mr-0 mt-10 md:mt-0 md:mr-1 rounded-xl w-11/12 md:w-[100%]  ">
                     <SliderFlipComponent imgs={images} />
                   </div>
                 </div>
-                <div className="h-full flex flex-col  items-center ml-1 justify-center  bg-slate-800/50 rounded-xl w-[100%]  ">
+                <div className=" flex h-full flex-col md:mt-0 my-0 md:my-10 py-5  items-center ml-0 md:ml-1 justify-center  bg-slate-800/50 rounded-xl w-[100%]  ">
                   <p className="text-center font-sans text-black font-extrabold text-5xl">
                     Contacto
                   </p>
@@ -332,9 +332,9 @@ const Page = () => {
                 </div>
               </div>
 
-              <div className="mt-10 w-10/12 ">
+              <div className="mt-5 w-full md:w-10/12 ">
                 <BackgroundGradient className="rounded-[22px]   ">
-                  <div className="grid grid-cols-3">
+                  <div className="grid grid-cols-1 md:grid-cols-3">
                     {beats.map((e) => (
                       <div
                         key={`${e.precio}-${e.nombre}-${e.autor}`}

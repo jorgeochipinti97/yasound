@@ -13,14 +13,14 @@ const Page = () => {
         <div className="flex justify-center">
           <p
             style={{ letterSpacing: -2 }}
-            className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto"
+            className="font-semibold pt-20 font-sans  text-center  capitalize text-4xl md:text-7xl degradado-texto"
           >
             Comunidad Yasound
           </p>
         </div>
-        <div className="flex justify-center items-center flex-col mt-10 text-2xl">
+        <div className="flex justify-center items-center flex-col mt-10 text-md md:text-2xl">
           <p
-            className="w-9/12 text-justify text-md font-light font-sans"
+            className="text-11/12 text-center md:w-9/12  md:text-justify text-md font-light font-sans"
             style={{ letterSpacing: -1 }}
           >
             No solo vendemos beats, ¡También creamos conexiones y fomentamos la
@@ -28,31 +28,31 @@ const Page = () => {
             colaborar en proyectos, recibir retroalimentación valiosa y
             compartir tus conocimientos con otros apasionados de la música.
           </p>
-          <p className="mt-5 font-sans font-bold opacity-[80%]">
+          <p className="mt-5 font-sans text-center font-bold opacity-[80%]">
             ¡Podemos llevar tu música al siguiente nivel!
           </p>
-          <div class="shadowSeparator bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[1vh] rounded-full  w-4/12 my-2"></div>
+          <div class="shadowSeparator bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[1vh] rounded-full w-9/12 md:w-4/12 my-2"></div>
 
-          <div className="h-fit mt-5 w-screen flex items-center justify-center">
+          <div className="h-fit mt-5 w-screen flex items-center justify-center flex-wrap">
 
-<img src="/twitter.png" className=" rounded-full bg-black p-2 border-black w-[55px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
-<img src="/discord.png" className=" rounded-full bg-violet-200 p-2 border-black w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
-<img src="/instagram.svg" className="w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
-<img src="/wpp.svg" className="w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
-<img src="/telegram.svg" className="w-[60px]  hover:scale-[1.2] grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/twitter.png" className=" rounded-full bg-black p-2 border-black w-[40px] md:w-[55px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/discord.png" className=" rounded-full bg-violet-200 p-2 border-black w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/instagram.svg" className="w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/wpp.svg" className="w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
+<img src="/telegram.svg" className="w-[45px] md:w-[60px]  hover:scale-[1.2] grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2" alt=""/>
 
 </div>
 
           <div className=" flex flex-col items-center justify-center  ">
             <p
-              className="font-sans font-bold text-6xl mt-20"
+              className="font-sans font-bold text-center md:text-6xl mt-10 text-4xl md:mt-20"
               style={{ letterSpacing: -2 }}
             >
               Nuestras noticias
             </p>
             {blogs && (
               <div className="w-screen mt-5  flex justify-center ">
-                <div className=" grid grid-cols-2 w-10/12 ">
+                <div className="grid-cols-1  grid md:grid-cols-2 w-10/12 ">
                   {blogs.map((e,index) => (
                     <div className="flex w-full justify-center" key={index}>
                   

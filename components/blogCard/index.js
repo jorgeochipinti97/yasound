@@ -62,7 +62,7 @@ export const BlogCard = ({
 
   return (
     <div
-      className="w-10/12 my-2 rounded-xl flex flex-col items-center justify-around ]"
+      className="w-full md:w-10/12 my-2 rounded-xl flex flex-col items-center justify-around ]"
       style={{
         backgroundImage: `linear-gradient(to bottom, transparent 40%, black),linear-gradient(to bottom,rgba(0,0,0,0.8),rgba(0, 0, 0, 0.1)), url(${img})`,
         backgroundRepeat: "none",

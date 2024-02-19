@@ -187,34 +187,13 @@ const Page = () => {
         </Alert>
       </div>
 
-      <button
-        onClick={() => push(`/perfil/${redirect}`)}
-        className="fixed bg-black flex items-center justify-center rounded-xl text-white p-2 right-5"
-      >
-        {" "}
-        <svg
-          className="mr-2"
-          width={20}
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="#fff"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M11.5 12H5.42m-.173.797L4.242 15.8c-.55 1.643-.826 2.465-.628 2.971.171.44.54.773.994.9.523.146 1.314-.21 2.894-.92l10.135-4.561c1.543-.695 2.314-1.042 2.553-1.524a1.5 1.5 0 000-1.33c-.239-.482-1.01-.83-2.553-1.524L7.485 5.243c-1.576-.71-2.364-1.064-2.887-.918a1.5 1.5 0 00-.994.897c-.198.505.074 1.325.618 2.966l1.026 3.091c.094.282.14.423.159.567a1.5 1.5 0 010 .385c-.02.144-.066.285-.16.566z"
-          ></path>
-        </svg>
-        Ver Perfil
-      </button>
+
       <div className="flex justify-center w-screen ">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className=" bg-white p-8 rounded-xl border-2 w-6/12 "
+          className=" bg-white p-8 rounded-xl border-2 w-11/12 md:w-6/12 "
         >
-          <div className=" grid grid-cols-2 ">
+          <div className=" grid grid-cols-1 md:grid-cols-2 ">
             <div className="flex flex-col  h-full  items-center justify-center">
               <div className="w-full justify-start">
                 <Label>Nombre de usuario</Label>
@@ -247,11 +226,11 @@ const Page = () => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col  h-full  items-center justify-center">
-              <div className="w-full justify-start">
+            <div className="flex flex-col mt-2 h-full w-12/12  items-center justify-center">
+              <div className="w-fit justify-start">
                 <Label>País de residencia</Label>
                 <select
-                  className="border p-2  w-fit rounded-xl  focus:border-violet-500 transition-all duration-200"
+                  className="border p-2  w-10/12 rounded-xl  focus:border-violet-500 transition-all duration-200"
                   {...register("pais", {
                     required: "Este campo es obligatorio",
                   })}
@@ -304,7 +283,7 @@ const Page = () => {
                       style={{ opacity: selectedGenres.length >= 5 ? 0.2 : 1 }}
                       disabled={selectedGenres.length >= 5 ? true : false}
                       onChange={(e) => handleSelectChange(e.target.value)}
-                      className="border-2 border-gray-300 p-2 rounded-lg"
+                      className="border-2 border-gray-300 p-2 w-11/12 rounded-lg"
                     >
                       <option value="">Selecciona los géneros</option>
                       {generosList.map((genre) => (
@@ -444,14 +423,14 @@ const Page = () => {
                 </CldUploadButton>
               </div>
             </div>
-            <div className="grid grid-cols-3 mt-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 mt-5">
               {images.length > 0 &&
                 images.map((e) => (
                   <div
                     key={e}
-                    className="flex justify-center items-center flex-col border-2 m-2 p-2 rounded-xl"
+                    className="flex justify-start items-center flex-col border-2 m-2 p-2 rounded-xl"
                   >
-                    <img src={e} alt="" width={100} height={100} />
+                    <img src={e} alt="" width={200} height={200} />
 
                     <div className="rounded-xl hover:bg-red-200 border-2 mt-5 border-black hover:border-red-500 cursor-pointer hover:scale-[1.1] transition-all duration-400 hover:opacity-[.9] w-fit flex p-1 justify-center">
                       <button

@@ -13,6 +13,19 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { CardPricing } from "@/components/CardPricing";
+import { useAuth0 } from "@auth0/auth0-react";
+import useUsuarios from "./hook/useUsers";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+
 export default function Home() {
   const featureData = [
     {
@@ -50,7 +63,8 @@ export default function Home() {
       description: "",
     },
   ];
-
+  const { user } = useAuth0();
+  const { usuario } = useUsuarios();
   useEffect(() => {
     const div3d = document.querySelector(".div-3d");
 
@@ -62,25 +76,23 @@ export default function Home() {
     <div>
       <BackgroundGradientAnimation>
         <div className="absolute indexz inset-0">
-          <div className="h-fit md:min-h-screen flex flex-col items-center">
+          <div className="h-fit md:min-h-fit flex flex-col items-center">
             <div className=" flex items-center flex-col justiyf-center">
               <p className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto">
                 Yasound
               </p>
-              <p className="text-center  text-md mt-5  text-fuchsia-800 md:mt-0 ">
-             El sonidode tu historia.
-             {/* Donde la musica y la creatividad se encuentran.{" "} */}
+              <p className="text-center  text-md mt-5  text-fuchsia-1000 md:mt-0 ">
+                El sonido de tu historia.
               </p>
 
-              <p className="text-center text-3xl uppercase w-10/12  mt-10 font-sans  font-semibold ">
-              La tienda virutal de instrumentales NUMERO 1 de habla hispana.
+              <p className="text-center text-2xl md:text-3xl uppercase w-10/12  mt-10 font-sans  font-semibold ">
+                La tienda virutal de instrumentales NUMERO 1 de habla hispana.
               </p>
-      
             </div>
-            <div className="grid grid-cols-2 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 mt-10 indexz">
               <div className="flex items-center flex-col justify-center ">
-                <div className=" bg-sky-950  w-10/12 p-10  rounded-xl">
-                  <p className="text-center text-[#f5f5f7] font-sans  text-2xl font-light">
+                <div className=" bg-sky-950  w-11/12 md:w-10/12 p-10  rounded-xl">
+                  <p className="text-center text-[#f5f5f7] font-sans  text-xl md:text-2xl font-light">
                     {" "}
                     Únete, colabora, promociona y gestiona tu carrera en{" "}
                     <span className="font-semibold">
@@ -125,7 +137,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center mt-10 md:mt-0 items-center">
                 <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-11/12 md:w-12/12 ">
                   <video
                     src="/video.mp4"
@@ -140,10 +152,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="mb-20 ">
+          <div className="md:mb-20 ">
             <p
-              className="text-center z-50 text-7xl mt-28 mb-10 font-bold text-black"
-              style={{ mixBlendMode: "saturation", opacity: 0.4,letterSpacing:-4 }}
+              className="text-center z-50 text-5xl md:text-7xl mt-0  md:mt-28 mb-0 md:mb-10 font-bold text-black"
+              style={{
+                mixBlendMode: "saturation",
+                opacity: 0.4,
+                letterSpacing: -4,
+              }}
             >
               Beats & Tracks
             </p>
@@ -158,13 +174,13 @@ export default function Home() {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className=" rounded-t-3xl flex w-screen  justify-center py-10  mt-28  min-h-[70vh]"
+        className=" rounded-t-3xl flex w-screen  justify-center py-10  md:mt-28  min-h-[70vh]"
       >
-        <div className="grid grid-cols-2 w-10/12">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-10/12">
           <div className="flex flex-col items-center justify-center">
             <div className="w-full  flex justify-center ">
               <div className="w-fit ">
-                <p className="font-bold w-fit text-start text-6xl  fuenteGotica text-white  ">
+                <p className="font-bold w-fit text-start text-4xl md:text-6xl  fuenteGotica text-white  ">
                   Comunidad <br /> Yasound
                 </p>
               </div>
@@ -180,11 +196,21 @@ export default function Home() {
               ))}
 
               <div className="w-full flex justify-center items-start">
-                <Drawer className="w-full ">
+              <button className="  md:mt-5 md:mb-0 mt-2 mb-5 flex items-center font-bold uppercase bg-white text-black p-3 rounded-xl text-2xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-1000 ">
+                          <img
+                            src="/diversity.svg"
+                            className="mr-2 w-[35px]"
+                            alt=""
+                          />
+                          ¡Únete!
+                        </button>
+
+                        
+                {/* <Drawer className="w-full ">
                   <DrawerTrigger asChild>
                     <div className="flex items-center">
                       <div className="h-fit  ">
-                        <button className="  md:mt-5 md:mb-0 mt-2 mb-5 flex items-center font-bold uppercase bg-white text-black p-3 rounded-xl text-2xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-800 ">
+                        <button className="  md:mt-5 md:mb-0 mt-2 mb-5 flex items-center font-bold uppercase bg-white text-black p-3 rounded-xl text-2xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-1000 ">
                           <img
                             src="/diversity.svg"
                             className="mr-2 w-[35px]"
@@ -199,12 +225,12 @@ export default function Home() {
                     <div className="mx-auto w-full flex justify-center">
                       <DrawerHeader className="w-11/12">
                         <DrawerDescription className="text-justify text-xl">
-                          <div className="grid grid-cols-2">
+                          <div className="grid  md:grid-cols-2">
                             <div className="w-full flex justify-center">
                               <div className="w-9/12">
-                                {/* <BackgroundGradient className="rounded-xl"> */}
+                                <BackgroundGradient className="rounded-xl">
                                 <CardPricing isPremium={false} />
-                                {/* </BackgroundGradient> */}
+                                </BackgroundGradient>
                               </div>
                             </div>
                             <div className="w-full flex justify-center">
@@ -219,36 +245,39 @@ export default function Home() {
                       </DrawerHeader>
                     </div>
                   </DrawerContent>
-                </Drawer>
+                </Drawer> */}
               </div>
             </div>
           </div>
           <div className="w-full rounded-xl  flex justify-center flex-col items-center   h-full ">
-            <p className="font-extrabold mb-20 font-sans  text-white text-7xl" style={{letterSpacing:-3}}>
+            <p
+              className="font-extrabold mb-5 mt-10 md:mb-20 font-sans  text-white text-5xl md:text-7xl"
+              style={{ letterSpacing: -3 }}
+            >
               Contactanos
             </p>
-            <form className="flex flex-col ">
+            <form className="flex flex-col   w-full ">
               <input
-                className="my-2 p-2 rounded-xl w-[500px]"
+                className="my-2 p-2 rounded-xl w-[100%] md:w-[500px]"
                 type="text"
                 placeholder="Nombre"
               />
               <input
-                className="my-2 p-2 rounded-xl w-[500px]"
+                className="my-2 p-2 rounded-xl w-[100%] md:w-[500px]"
                 type="text"
                 placeholder="Email"
               />
               <input
-                className="my-2 p-2 rounded-xl w-[500px]"
+                className="my-2 p-2 rounded-xl w-[100%] md:w-[500px]"
                 type="text"
                 placeholder="Celular"
               />
               <textarea
-                className="w-[500px] rounded-xl my-2 p-2"
+                className="w-[100%] md:w-[500px] rounded-xl my-2 p-2"
                 placeholder="Mensaje"
               />
               <div>
-                <button className="  md:mt-10 md:mb-0 mt-2 mb-5 flex items-center bg-white text-black p-2 rounded-xl text-xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-800 ">
+                <button className="  md:mt-10 md:mb-0 mt-2 mb-5 flex items-center bg-white text-black p-2 rounded-xl text-xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-1000 ">
                   <svg
                     className="mr-2"
                     width={30}
@@ -282,6 +311,7 @@ export default function Home() {
           <img src="/lider2.jpeg " className=" w-[200px] mx-2 " />
         </div>
       </Marquee>
+   
     </div>
   );
 }
