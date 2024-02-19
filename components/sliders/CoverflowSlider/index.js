@@ -55,7 +55,7 @@ export const SliderCoverFlow = () => {
           slideShadows: false,
         }}
         modules={[EffectCoverflow]}
-        className="mySwiper "
+        className="mySwiper indexz"
         style={{ zIndex: 500 }}
       >
         {beats &&

@@ -144,8 +144,8 @@ export const ReproductorComponent = ({
               </div>
             </div>
             <div className=" flex items-center">
-              <Drawer className="w-full  ">
-                <DrawerTrigger asChild>
+              <Drawer className="w-full indexz_  ">
+                <DrawerTrigger asChild className="indexz_">
                   <div className="flex items-center">
                     <div className="h-fit  ">
                       <button className="  my-2  flex items-center bg-black p-2 rounded-xl text-xl hover:bg-violet-800  transition-all duration-200 text-white hover:text-[#f5f5f7]">
@@ -186,10 +186,11 @@ export const ReproductorComponent = ({
                         <span className="uppercase">{title}</span> -{" "}
                         <span className="uppercase"> {artist}</span>
                       </DrawerTitle>
-                      <DrawerDescription className="text-justify flex justify-around mt-10 text-xl">
+                      <DrawerDescription className="text-justify grid grid-cols-1 md:grid-cols-2  mt-10 text-xl">
                         {licenses &&
                           licenses.map((e,index) => (
-                            <div className="border-2 w-fit my-5 p-4 border-black rounded-xl" key={index}>
+                            <div className="  w-full flex justify-center my-5  rounded-xl" key={index}>
+                            <div className="border  w-10/12 justify-center   p-4 rounded-xl" key={index}>
                               <div className="flex flex-col justify-center mb-5 ">
                                 <p className="text-2xl text-black uppercase font-bold mr-5">{e.titulo}</p>
                                 <p className="font-sans text-xl font-bold">
@@ -212,6 +213,7 @@ export const ReproductorComponent = ({
                                   />
                                 </div>
                               </div>
+                            </div>
                             </div>
                           ))}
                       </DrawerDescription>

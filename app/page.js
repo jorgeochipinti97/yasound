@@ -150,7 +150,7 @@ export default function Home() {
         </div>
         <div className="md:mb-20 ">
           <p
-            className="text-center z-50 text-5xl md:text-7xl mt-10  md:mt-28 mb-0 md:mb-10 font-bold text-black"
+            className="text-center indexz  text-5xl md:text-7xl mt-10  md:mt-28 mb-0 md:mb-10 font-bold text-black"
             style={{
               mixBlendMode: "saturation",
               opacity: 0.4,
