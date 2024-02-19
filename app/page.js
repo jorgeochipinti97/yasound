@@ -73,9 +73,9 @@ export default function Home() {
     }, 500); // Ajusta este tiempo según necesites
   }, []);
   return (
-    <div>
-      <BackgroundGradientAnimation>
-        <div className="absolute indexz inset-0">
+    <div className="h-fit">
+      {/* <BackgroundGradientAnimation> */}
+        <div className=" indexz ">
           <div className="h-fit md:min-h-fit flex flex-col items-center">
             <div className=" flex items-center flex-col justiyf-center">
               <p className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto">
@@ -154,7 +154,7 @@ export default function Home() {
           </div>
           <div className="md:mb-20 ">
             <p
-              className="text-center z-50 text-5xl md:text-7xl mt-0  md:mt-28 mb-0 md:mb-10 font-bold text-black"
+              className="text-center z-50 text-5xl md:text-7xl mt-10  md:mt-28 mb-0 md:mb-10 font-bold text-black"
               style={{
                 mixBlendMode: "saturation",
                 opacity: 0.4,
@@ -166,7 +166,7 @@ export default function Home() {
             <SliderCoverFlow />
           </div>
         </div>
-      </BackgroundGradientAnimation>
+      {/* </BackgroundGradientAnimation> */}
       <div
         style={{
           backgroundImage:
@@ -174,7 +174,7 @@ export default function Home() {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className=" rounded-t-3xl flex w-screen  justify-center py-10  md:mt-28  min-h-[70vh]"
+        className=" rounded-t-3xl mt-10 flex w-screen  justify-center py-10  md:mt-28  min-h-[70vh]"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-10/12">
           <div className="flex flex-col items-center justify-center">
