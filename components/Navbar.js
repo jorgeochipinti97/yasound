@@ -36,7 +36,7 @@ export const Navbar = () => {
           (text == "Beats" && push("#")) ||
           (text == "Tu música" && push("/upload")) ||
           (text == "Comunidad" && push("/comunidad")) ||
-          (text == "Conocenos" && push("/conocenos")) ||
+          // (text == "Conocenos" && push("/conocenos")) ||
           (text == "Modifica tu perfil" && push(`/create/${usuario.username}`))
         }
         key={text}
