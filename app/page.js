@@ -25,9 +25,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-
 export default function Home() {
-
   const featureData = [
     {
       title: "Conexiones Musicales",
@@ -76,97 +74,94 @@ export default function Home() {
   return (
     <div className="h-fit">
       {/* <BackgroundGradientAnimation> */}
-        <div className=" indexz ">
-          <div className="h-fit md:min-h-fit flex flex-col items-center">
-            <div className=" flex items-center flex-col justiyf-center">
-              <p className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto">
-                Yasound
-              </p>
-              <p className="text-center  text-md mt-5  text-fuchsia-1000 md:mt-0 ">
-                El sonido de tu historia.
-              </p>
-
-              <p className="text-center text-2xl md:text-3xl uppercase w-10/12  mt-10 font-sans  font-semibold ">
-                La tienda virutal de instrumentales NUMERO 1 de habla hispana.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 mt-10 indexz">
-              <div className="flex items-center flex-col justify-center ">
-                <div className=" bg-sky-950  w-11/12 md:w-10/12 p-10  rounded-xl">
-                  <p className="text-center text-[#f5f5f7] font-sans  text-xl md:text-2xl font-light">
-                    {" "}
-                    Únete, colabora, promociona y gestiona tu carrera en{" "}
-                    <span className="font-semibold">
-                      {" "}
-                      la comunidad líder
-                    </span>{" "}
-                    de habla hispana para la compra y venta de beats e
-                    instrumentales.
-                  </p>
-                  <p className="text-center text-[#f5f5f7]  text-2xl font-bold mt-10">
-                    {" "}
-                    ¡Transforma tu creatividad en oportunidades!
-                  </p>
-                  <div className="flex justify-center">
-                    <button className="  md:mt-10 md:mb-0 mt-2 mb-5 flex items-center bg-white text-black p-2 rounded-xl text-xl hover:bg-violet-950 hover:scale-[1.1] transition-all duration-200  hover:text-white ">
-                      {" "}
-                      <svg
-                        width={25}
-                        className="mr-2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <g stroke="#ef21aa" strokeWidth="1.5">
-                          <path
-                            strokeLinecap="round"
-                            d="M8 16c0 2.828 0 4.243.879 5.121C9.757 22 11.172 22 14 22h1c2.828 0 4.243 0 5.121-.879C21 20.243 21 18.828 21 16V8c0-2.828 0-4.243-.879-5.121C19.243 2 17.828 2 15 2h-1c-2.828 0-4.243 0-5.121.879C8 3.757 8 5.172 8 8"
-                          ></path>
-                          <path
-                            d="M8 19.5c-2.357 0-3.536 0-4.268-.732C3 18.035 3 16.857 3 14.5v-5c0-2.357 0-3.536.732-4.268C4.464 4.5 5.643 4.5 8 4.5"
-                            opacity="0.5"
-                          ></path>
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6 12h9m0 0l-2.5 2.5M15 12l-2.5-2.5"
-                          ></path>
-                        </g>
-                      </svg>
-                      Empezar
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center mt-10 md:mt-0 items-center">
-                <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-11/12 md:w-12/12 ">
-                  <video
-                    src="/video.mp4"
-                    className="w-12/12 rounded-xl"
-                    controls
-                    autoPlay
-                    playsInline
-                    loop
-                    muted
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="md:mb-20 ">
-            <p
-              className="text-center z-50 text-5xl md:text-7xl mt-10  md:mt-28 mb-0 md:mb-10 font-bold text-black"
-              style={{
-                mixBlendMode: "saturation",
-                opacity: 0.4,
-                letterSpacing: -4,
-              }}
-            >
-              Beats & Tracks
+      <div className=" indexz ">
+        <div className="h-fit md:min-h-fit flex flex-col items-center">
+          <div className=" flex items-center flex-col justiyf-center">
+            <p className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto">
+              Yasound
             </p>
-            <SliderCoverFlow />
+            <p className="text-center  text-md mt-5  text-fuchsia-1000 md:mt-0 ">
+              El sonido de tu historia.
+            </p>
+
+            <p className="text-center text-2xl md:text-3xl uppercase w-10/12  mt-10 font-sans  font-semibold ">
+              La tienda virutal de instrumentales NUMERO 1 de habla hispana.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:mt-10 indexz">
+            <div className="flex justify-center mt-10 md:mt-0 items-center">
+              <div className="div-3d shadow-violet-950 shadow-2xl rounded-xl  w-11/12 md:w-12/12 ">
+                <video
+                  src="/video.mp4"
+                  className="w-12/12 rounded-xl"
+                  controls
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                />
+              </div>
+            </div>
+            <div className="flex items-center flex-col md:mt-0 mt-10 justify-center ">
+              <div className=" bg-sky-950  w-11/12 md:w-10/12 p-10  rounded-xl">
+                <p className="text-center text-[#f5f5f7] font-sans  text-xl md:text-2xl font-light">
+                  {" "}
+                  Únete, colabora, promociona y gestiona tu carrera en{" "}
+                  <span className="font-semibold"> la comunidad líder</span> de
+                  habla hispana para la compra y venta de beats e
+                  instrumentales.
+                </p>
+                <p className="text-center text-[#f5f5f7]  text-2xl font-bold mt-10">
+                  {" "}
+                  ¡Transforma tu creatividad en oportunidades!
+                </p>
+                <div className="flex justify-center">
+                  <button className="  md:mt-10 md:mb-0 mt-2 mb-5 flex items-center bg-white text-black p-2 rounded-xl text-xl hover:bg-violet-950 hover:scale-[1.1] transition-all duration-200  hover:text-white ">
+                    {" "}
+                    <svg
+                      width={25}
+                      className="mr-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <g stroke="#ef21aa" strokeWidth="1.5">
+                        <path
+                          strokeLinecap="round"
+                          d="M8 16c0 2.828 0 4.243.879 5.121C9.757 22 11.172 22 14 22h1c2.828 0 4.243 0 5.121-.879C21 20.243 21 18.828 21 16V8c0-2.828 0-4.243-.879-5.121C19.243 2 17.828 2 15 2h-1c-2.828 0-4.243 0-5.121.879C8 3.757 8 5.172 8 8"
+                        ></path>
+                        <path
+                          d="M8 19.5c-2.357 0-3.536 0-4.268-.732C3 18.035 3 16.857 3 14.5v-5c0-2.357 0-3.536.732-4.268C4.464 4.5 5.643 4.5 8 4.5"
+                          opacity="0.5"
+                        ></path>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 12h9m0 0l-2.5 2.5M15 12l-2.5-2.5"
+                        ></path>
+                      </g>
+                    </svg>
+                    Empezar
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div className="md:mb-20 ">
+          <p
+            className="text-center z-50 text-5xl md:text-7xl mt-10  md:mt-28 mb-0 md:mb-10 font-bold text-black"
+            style={{
+              mixBlendMode: "saturation",
+              opacity: 0.4,
+              letterSpacing: -4,
+            }}
+          >
+            Beats & Tracks
+          </p>
+          <SliderCoverFlow />
+        </div>
+      </div>
       {/* </BackgroundGradientAnimation> */}
       <div
         style={{
@@ -197,16 +192,11 @@ export default function Home() {
               ))}
 
               <div className="w-full flex justify-center items-start">
-              <button className="  md:mt-5 md:mb-0 mt-2 mb-5 flex items-center font-bold uppercase bg-white text-black p-3 rounded-xl text-2xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-1000 ">
-                          <img
-                            src="/diversity.svg"
-                            className="mr-2 w-[35px]"
-                            alt=""
-                          />
-                          ¡Únete!
-                        </button>
+                <button className="  md:mt-5 md:mb-0 mt-2 mb-5 flex items-center font-bold uppercase bg-white text-black p-3 rounded-xl text-2xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-1000 ">
+                  <img src="/diversity.svg" className="mr-2 w-[35px]" alt="" />
+                  ¡Únete!
+                </button>
 
-                        
                 {/* <Drawer className="w-full ">
                   <DrawerTrigger asChild>
                     <div className="flex items-center">
@@ -312,7 +302,6 @@ export default function Home() {
           <img src="/lider2.jpeg " className=" w-[200px] mx-2 " />
         </div>
       </Marquee>
-   
     </div>
   );
 }
