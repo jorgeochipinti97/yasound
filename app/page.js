@@ -27,6 +27,7 @@ import {
 
 
 export default function Home() {
+
   const featureData = [
     {
       title: "Conexiones Musicales",

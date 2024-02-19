@@ -69,9 +69,6 @@ const Page = () => {
     usuario && chargeBeats();
   }, [usuario]);
 
-  useEffect(() => {
-    beats && console.log(beats);
-  }, [beats]);
 
   const setParams = (e) => {
     setPrecio(e.precio);

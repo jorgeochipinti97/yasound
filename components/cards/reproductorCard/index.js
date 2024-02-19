@@ -21,9 +21,7 @@ export const ReproductorComponent = ({
   const [isPlay, setIsPlay] = useState(null);
   console.log(licenses);
 
-  useEffect(() => {
-    licenses && console.log(licenses);
-  }, [licenses]);
+
 
   const togglePlayPause = () => {
     if (isPlay) {
