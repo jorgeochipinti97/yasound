@@ -61,9 +61,9 @@ export const SliderCoverFlow = () => {
       >
         {beats &&
           beats.map((e) => (
-            <SwiperSlide>
+            <SwiperSlide                 key={`${e.precio}-${e.nombre}-${e.autor}`}
+            >
               <div
-                key={`${e.precio}-${e.nombre}-${e.autor}`}
                 className="w-full flex  md:flex-row flex-col justify-center items-start py-10  md:justify-around "
               >
                 <ReproductorComponent
