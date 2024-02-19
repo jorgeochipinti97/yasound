@@ -44,7 +44,6 @@ export const SliderCoverFlow = () => {
     <div>
       <Swiper
         effect={"coverflow"}
-        grabCursor={true}
         centeredSlides={true}
         initialSlide={3}
         slidesPerView={esMovil ? 1.5 : 3.5}
