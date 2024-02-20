@@ -6,7 +6,6 @@ const Page = () => {
     <div className="min-h-screen">
       <div className="pt-20">
         <div className="flex w-full flex-col items-center justify-center">
-
           <p
             style={{ letterSpacing: -2 }}
             className="font-semibold    font-sans text-start  capitalize text-7xl degradado-texto"
@@ -38,12 +37,10 @@ const Page = () => {
               </div>
             </BackgroundGradient>
             <div className="flex justify-center items-center flex-col">
-            <h2 className="font-sans my-2 text-2xl font-bold">
-Yasound
-                  </h2>
+              <h2 className="font-sans my-2 text-2xl font-bold">Yasound</h2>
               <p
                 style={{ letterSpacing: -0.5 }}
-                className="text-center font-sans py-5 font-semibold  text-black w-10/12  "
+                className="text-start font-sans py-5  text-black w-10/12  "
               >
                 Es una plataforma digital en habla hispana que se especializa en
                 la compra y venta de beats e instrumentales, así como en la
@@ -71,27 +68,16 @@ Yasound
                   <h2 className="font-sans my-2 text-2xl font-bold">
                     Nuestra Misión
                   </h2>
-                  <ul className="font-sans my-2">
-                    <li className="font-sans my-2">
-                      Queremos ser líderes en la venta, distribución y
-                      colaboración musical en línea, centrándonos en:
-                    </li>
-                    <li className="font-sans my-2">
-                      <strong>Herramientas para Artistas:</strong>{" "}
-                      Proporcionamos herramientas para que los artistas expresen
-                      su creatividad y alcancen nuevas audiencias.
-                    </li>
-                    <li className="font-sans my-2">
-                      <strong>Monetización del Talento:</strong> Ayudamos a los
-                      artistas a monetizar su música a través de la venta de
-                      producciones y colaboraciones.
-                    </li>
-                    <li className="font-sans my-2">
-                      <strong>Conexión Global:</strong> Conectamos a nuestra
-                      comunidad con otros apasionados por la música, fomentando
-                      la colaboración y el intercambio de conocimientos.
-                    </li>
-                  </ul>
+                  <p>
+                    {" "}
+                    YASOUND aspira a liderar la venta y colaboración musical en
+                    línea. Nos enfocamos en proporcionar herramientas para que
+                    los artistas expresen su creatividad, facilitar la
+                    monetización del talento a través de la venta de
+                    producciones y conectar globalmente a nuestra comunidad,
+                    fomentando la colaboración y el intercambio de
+                    conocimientos.
+                  </p>
                 </section>
                 <div className="font-sans"></div>
               </div>
@@ -141,38 +127,17 @@ Yasound
                   Nuestra Visión
                 </h2>
 
-                <ul className="my-2">
-                  <li className="my-2">
-                    <strong>Punto de Encuentro Global:</strong> Aspiramos a ser
-                    un lugar donde músicos y productores de todas partes puedan
-                    conectarse, colaborar y encontrar inspiración. Queremos
-                    superar las barreras geográficas y culturales para crear una
-                    comunidad diversa y global.
-                  </li>
-                  <li className="my-2">
-                    <strong>Catalizador de Comunidad:</strong> No solo queremos
-                    ser un lugar de reunión, sino también un catalizador para
-                    una comunidad en constante crecimiento. Buscamos fomentar la
-                    colaboración, la creatividad y el apoyo mutuo entre nuestros
-                    miembros, impulsando el crecimiento y la innovación en la
-                    industria musical.
-                  </li>
-                  <li className="my-2">
-                    <strong>Trascender Fronteras:</strong> Nos esforzamos por
-                    trascender las limitaciones geográficas y culturales,
-                    buscando expandir nuestra influencia y alcance más allá de
-                    las fronteras nacionales o regionales. Queremos ser un
-                    puente que conecte a personas de diferentes partes del mundo
-                    a través de la música.
-                  </li>
-                  <li className="my-2">
-                    <strong>Libertad Creativa:</strong> En YASOUND, creemos en
-                    la importancia de la libertad creativa. Queremos ser un
-                    espacio donde los artistas tengan la libertad de expresarse
-                    sin restricciones, explorando nuevas ideas y experimentando
-                    con diferentes estilos y géneros musicales.
-                  </li>
-                </ul>
+                <p>
+                  Convertirnos en la plataforma virtual líder para la venta de
+                  beats, instrumentales y sonidos musicales, consolidándonos
+                  como la comunidad musical más grande de Latinoamérica. Nos
+                  esforzamos por ser un Punto de Encuentro Global, buscando
+                  trascender fronteras, superando limitaciones geográficas y
+                  culturales, donde músicos y productores de todas partes pueden
+                  conectarse, colaborar y encontrar inspiración, impulsando la
+                  creatividad y el apoyo mutuo para fomentar el crecimiento y la
+                  innovación en la industria musical.
+                </p>
               </section>
             </div>
           </div>
