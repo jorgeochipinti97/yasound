@@ -27,18 +27,10 @@ const Page = () => {
   const [beats, setBeats] = useState([]);
 
   const chargeBeats = async () => {
-    const data = await axios.get("/api/beats");
-    setBeats(data.data.data.filter((e) => e.autor == __id));
-    console.log(data);
-  };
-
-  useEffect(() => {
-    __id && chargeBeats();
-  }, [__id]);
-
-  useEffect(() => {
-    if (usuarios) {
-      const usuarioEncontrado = usuarios.find((u) => u.username === nickname);
+    const response = await axios.get("/api/user");
+    const usuarios_ = response.data.data;
+    if (response.data.data) {
+      const usuarioEncontrado = usuarios_.find((u) => u.username === nickname);
       if (usuarioEncontrado) {
         const pais_ = paises.filter((e) => e.code == usuarioEncontrado.pais);
         setUsername(usuarioEncontrado.username);
@@ -52,6 +44,33 @@ const Page = () => {
         setPais(pais_[0].emoji || []);
       }
     }
+    const data = await axios.get("/api/beats");
+    setBeats(data.data.data.filter((e) => e.autor == __id));
+    console.log(data);
+  };
+
+  useEffect(() => {
+    __id && chargeBeats();
+  }, [__id]);
+
+  useEffect(() => {
+    // if (usuarios) {
+    //   const usuarioEncontrado = usuarios.find((u) => u.username === nickname);
+    //   if (usuarioEncontrado) {
+    //     const pais_ = paises.filter((e) => e.code == usuarioEncontrado.pais);
+    //     setUsername(usuarioEncontrado.username);
+    //     setColors(usuarioEncontrado.colors || []);
+    //     setGeneros(usuarioEncontrado.generos || []);
+    //     setImages(usuarioEncontrado.imagenes || []);
+    //     setId(usuarioEncontrado._id || []);
+
+    //     setDescripcion(usuarioEncontrado.descripcion);
+    //     setProfileImg(usuarioEncontrado.profileimg);
+    //     setPais(pais_[0].emoji || []);
+    //   }
+    // }
+    // console.log(usuarios, nickname);
+    chargeBeats();
   }, [usuarios, nickname]);
 
   return (
@@ -84,7 +103,13 @@ const Page = () => {
                   </span>
                 ))}
               </div>
-              <p className="text-center text-xl font-bold  degradado-texto w-9/12 md:w-6/12 mt-10">
+              <p
+                style={{
+                  textShadow:
+                    " 1px 1px 2px black,0 0 1em blue, 0 0 0.2em blue;",mixBlendMode:'difference'
+                }}
+                className="text-center text-xl opacity-[.8] font-bold  degradado-texto w-9/12 md:w-6/12 mt-20 md:mt-10"
+              >
                 {descripcion}
               </p>
             </section>
@@ -161,7 +186,7 @@ const Page = () => {
               </a>
             </div> */}
             <div className="w-full flex justify-center mt-5">
-              <div className="flex w-9/12 flex-wrap justify-around">
+              <div className="md:flex w-9/12 grid grid-cols-4 flex-wrap justify-around">
                 <div className="w-fit rounded-full border-black  p-2 border-2">
                   <svg
                     width={30}
@@ -231,7 +256,7 @@ const Page = () => {
                   </svg>
                 </div>
                 <div className="w-fit rounded-full border-black  p-2 border-2">
-                  <img src="/x.png" width={30}/>
+                  <img src="/x.png" width={30} />
                 </div>
                 <div className="w-fit rounded-full border-black  p-2 border-2">
                   <svg
@@ -307,7 +332,7 @@ const Page = () => {
 
                   <div className="flex justify-center w-full mt-10 h-2/6">
                     <textarea
-                      className="w-10/12  rounded-xl  border-2 px-2 pt-1 "
+                      className="w-10/12  rounded-xl  border-2 px-2 py-5 md:py-0 pt-1 "
                       placeholder="Hola! Me interesaria coordinar una llamada..."
                     />
                   </div>
