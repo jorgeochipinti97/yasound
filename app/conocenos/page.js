@@ -1,3 +1,4 @@
+import { BackgroundGradient } from "@/components/BackgroundGradient";
 import React from "react";
 
 const Page = () => {
@@ -5,44 +6,227 @@ const Page = () => {
     <div className="min-h-screen">
       <div className="pt-20">
         <div className="flex w-full flex-col items-center justify-center">
-          <div class="shadowSeparator bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[10vh]   w-screen my-2"></div>
+
           <p
             style={{ letterSpacing: -2 }}
             className="font-semibold    font-sans text-start  capitalize text-7xl degradado-texto"
           >
             Sobre nosotros
           </p>
+          <div class="shadowSeparator bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[1vh]   w-6/12 rounded-full my-2"></div>
         </div>
 
-        <div className="flex justify-center rounded-b-xl flex-col items-center  ">
-          <p
-            style={{ letterSpacing: -1 }}
-            className="font-semibold    flex items-center  font-sans text-start mt-20  capitalize text-4xl "
-          >
-            ¿Qué es Yasound?
-          </p>
-          <p
-            style={{ letterSpacing: -0.5 }}
-            className="text-justify font-mono mt-5 w-10/12 "
-          >
-            Es una plataforma digital en habla hispana que se especializa en la
-            compra y venta de beats e instrumentales, así como en la creación de
-            una comunidad de profesionales de la industria musical, como
-            músicos, productores, managers musicales, beatmakers y filmmakers,
-            entre otros. Además, ofrece servicios para difundir música en
-            plataformas digitales y la posibilidad de grabar y crear canciones
-            utilizando su estudio de grabación propio. Los productores de música
-            pueden crear perfiles en YASOUND para mostrar y vender sus
-            creaciones, mientras que los artistas pueden buscar y adquirir
-            instrumentales para usar en sus proyectos. Además de la función de
-            venta de beats, YASOUND también ofrece herramientas y servicios para
-            ayudar a los productores y artistas a colaborar, promocionar su
-            música y gestionar su carrera en la industria musical Formando así
-            una gran comunidad.
-          </p>
+        <div className="grid grid-cols-1 mt-10">
+          <div className="my-2 grid grid-cols-2">
+            <BackgroundGradient className="rounded-[22px]  bg-slate-800">
+              <div
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, .5)), url('./fondoconocenos.jpeg')",
+
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                className="bg-black rounded-[22px] h-[100vh]  flex flex-col items-center justify-center  border-white "
+              >
+                <p
+                  style={{ letterSpacing: -1 }}
+                  className="font-semibold text-white text-4xl my-5 text-center flex items-center  font-sans  capitalize  "
+                >
+                  ¿Qué es Yasound?
+                </p>
+              </div>
+            </BackgroundGradient>
+            <div className="flex justify-center items-center flex-col">
+            <h2 className="font-sans my-2 text-2xl font-bold">
+Yasound
+                  </h2>
+              <p
+                style={{ letterSpacing: -0.5 }}
+                className="text-center font-sans py-5 font-semibold  text-black w-10/12  "
+              >
+                Es una plataforma digital en habla hispana que se especializa en
+                la compra y venta de beats e instrumentales, así como en la
+                creación de una comunidad de profesionales de la industria
+                musical, como músicos, productores, managers musicales,
+                beatmakers y filmmakers, entre otros. Además, ofrece servicios
+                para difundir música en plataformas digitales y la posibilidad
+                de grabar y crear canciones utilizando su estudio de grabación
+                propio. Los productores de música pueden crear perfiles en
+                YASOUND para mostrar y vender sus creaciones, mientras que los
+                artistas pueden buscar y adquirir instrumentales para usar en
+                sus proyectos. Además de la función de venta de beats, YASOUND
+                también ofrece herramientas y servicios para ayudar a los
+                productores y artistas a colaborar, promocionar su música y
+                gestionar su carrera en la industria musical Formando así una
+                gran comunidad.
+              </p>
+            </div>
+          </div>
+
+          <div className=" my-2 grid grid-cols-2">
+            <div className="flex items-center flex-col justify-center">
+              <div className="w-10/12">
+                <section className="font-sans my-2">
+                  <h2 className="font-sans my-2 text-2xl font-bold">
+                    Nuestra Misión
+                  </h2>
+                  <ul className="font-sans my-2">
+                    <li className="font-sans my-2">
+                      Queremos ser líderes en la venta, distribución y
+                      colaboración musical en línea, centrándonos en:
+                    </li>
+                    <li className="font-sans my-2">
+                      <strong>Herramientas para Artistas:</strong>{" "}
+                      Proporcionamos herramientas para que los artistas expresen
+                      su creatividad y alcancen nuevas audiencias.
+                    </li>
+                    <li className="font-sans my-2">
+                      <strong>Monetización del Talento:</strong> Ayudamos a los
+                      artistas a monetizar su música a través de la venta de
+                      producciones y colaboraciones.
+                    </li>
+                    <li className="font-sans my-2">
+                      <strong>Conexión Global:</strong> Conectamos a nuestra
+                      comunidad con otros apasionados por la música, fomentando
+                      la colaboración y el intercambio de conocimientos.
+                    </li>
+                  </ul>
+                </section>
+                <div className="font-sans"></div>
+              </div>
+            </div>
+            <BackgroundGradient className="rounded-[22px] ">
+              <div
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, .5)), url('./fotobscura.jpeg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                className="bg-black rounded-[22px]  h-[100vh]  flex flex-col items-center justify-center  border-white "
+              >
+                <p
+                  style={{ letterSpacing: -1 }}
+                  className="font-semibold text-white text-4xl my-5 text-center h-full   flex items-center  font-sans  capitalize  "
+                >
+                  Misión
+                </p>
+              </div>
+            </BackgroundGradient>
+          </div>
+          <div className="my-2 grid grid-cols-2">
+            <BackgroundGradient className="rounded-[22px]  bg-slate-800">
+              <div
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, .5)), url('./visio.jpeg')",
+
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                className="bg-black rounded-[22px] h-[100vh]    flex flex-col items-center justify-center  border-white "
+              >
+                <p
+                  style={{ letterSpacing: -1 }}
+                  className="font-semibold text-white text-4xl my-5 text-center flex items-center  font-sans  capitalize  "
+                >
+                  Visión
+                </p>
+              </div>
+            </BackgroundGradient>
+            <div className="flex justify-center items-center">
+              <section className="mt-10 w-10/12">
+                <h2 className="font-sans my-2 text-2xl font-bold">
+                  Nuestra Visión
+                </h2>
+
+                <ul className="my-2">
+                  <li className="my-2">
+                    <strong>Punto de Encuentro Global:</strong> Aspiramos a ser
+                    un lugar donde músicos y productores de todas partes puedan
+                    conectarse, colaborar y encontrar inspiración. Queremos
+                    superar las barreras geográficas y culturales para crear una
+                    comunidad diversa y global.
+                  </li>
+                  <li className="my-2">
+                    <strong>Catalizador de Comunidad:</strong> No solo queremos
+                    ser un lugar de reunión, sino también un catalizador para
+                    una comunidad en constante crecimiento. Buscamos fomentar la
+                    colaboración, la creatividad y el apoyo mutuo entre nuestros
+                    miembros, impulsando el crecimiento y la innovación en la
+                    industria musical.
+                  </li>
+                  <li className="my-2">
+                    <strong>Trascender Fronteras:</strong> Nos esforzamos por
+                    trascender las limitaciones geográficas y culturales,
+                    buscando expandir nuestra influencia y alcance más allá de
+                    las fronteras nacionales o regionales. Queremos ser un
+                    puente que conecte a personas de diferentes partes del mundo
+                    a través de la música.
+                  </li>
+                  <li className="my-2">
+                    <strong>Libertad Creativa:</strong> En YASOUND, creemos en
+                    la importancia de la libertad creativa. Queremos ser un
+                    espacio donde los artistas tengan la libertad de expresarse
+                    sin restricciones, explorando nuevas ideas y experimentando
+                    con diferentes estilos y géneros musicales.
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+          <div className="my-2 grid grid-cols-2 ">
+            <div className="flex justify-center items-center">
+              <section className="font-sans my-2 w-10/12">
+                <h2 className="font-sans my-2 text-2xl font-bold">
+                  Valores Fundamentales
+                </h2>
+                <ul className="font-sans my-2">
+                  <li>
+                    <strong>Diversidad:</strong> Celebramos la diversidad en la
+                    música y en nuestra comunidad, valorando diferentes
+                    culturas, géneros y estilos musicales para promover un
+                    ambiente inclusivo.
+                  </li>
+                  <li className="font-sans my-2">
+                    <strong>Colaboración:</strong> Creemos en el poder de la
+                    colaboración entre artistas, productores y profesionales de
+                    la industria musical para impulsar el crecimiento y el éxito
+                    de nuestros miembros.
+                  </li>
+                  <li className="font-sans my-2">
+                    <strong>Calidad:</strong> Nos comprometemos a ofrecer
+                    productos y servicios de alta calidad, superando las
+                    expectativas de nuestros usuarios en cada paso.
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <BackgroundGradient className="rounded-[22px] ">
+              <div
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, .5)), url('./valores.jpeg')",
+
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                className=" rounded-[22px]  h-[100vh]  flex flex-col items-center justify-center  border-white "
+              >
+                <p
+                  style={{ letterSpacing: -1 }}
+                  className="font-semibold text-white text-4xl my-5 text-center h-full   flex items-center  font-sans  capitalize  "
+                >
+                  Valores
+                </p>
+              </div>
+            </BackgroundGradient>
+          </div>
         </div>
-        <div className="flex mt-10 items-center justify-center">
-          <div>
+
+        <div className="flex mt-10 items-start text-start flex-col justify-center">
+          <div className="flex items-center">
             <svg
               width={60}
               xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +242,9 @@ const Page = () => {
                 d="M4 7l6.94 4.338a2 2 0 002.12 0L20 7M5 18h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
               ></path>
             </svg>
+            <p>contacto@yasound.site</p>
           </div>
-          <div>
+          <div className="flex items-center">
             <svg
               width={50}
               className=" hover:scale-[1.2]   grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
@@ -76,6 +261,7 @@ const Page = () => {
                 ></path>
               </g>
             </svg>
+            <p>113344556677</p>
           </div>
         </div>
       </div>

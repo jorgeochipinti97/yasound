@@ -72,10 +72,10 @@ export default function Home() {
     }, 500); // Ajusta este tiempo según necesites
   }, []);
   return (
-    <div className="h-fit">
+    <div className="">
       {/* <BackgroundGradientAnimation> */}
       <div className=" indexz ">
-        <div className="h-fit md:min-h-fit flex flex-col items-center">
+        <div className="  flex flex-col items-center">
           <div className=" flex items-center flex-col justiyf-center">
             <p className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto">
               Yasound
@@ -85,7 +85,7 @@ export default function Home() {
             </p>
 
             <p className="text-center text-2xl md:text-3xl uppercase w-10/12  mt-10 font-sans  font-semibold ">
-              La tienda virutal de instrumentales NUMERO 1 de habla hispana.
+              La tienda virtual de instrumentales NUMERO 1° de habla hispana.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 md:mt-10 indexz">
@@ -152,7 +152,7 @@ export default function Home() {
           <p
             className="text-center indexz  text-5xl md:text-7xl mt-10  md:mt-28 mb-0 md:mb-10 font-bold text-black"
             style={{
-              mixBlendMode: "saturation",
+              // mixBlendMode: "saturation",
               opacity: 0.4,
               letterSpacing: -4,
             }}
@@ -170,7 +170,7 @@ export default function Home() {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className=" rounded-t-3xl mt-10 flex w-screen  justify-center py-10  md:mt-28  min-h-[70vh]"
+        className=" rounded-t-3xl mt-10 flex w-screen  justify-center py-10  md:mt-28`  "
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-10/12">
           <div className="flex flex-col items-center justify-center">
@@ -240,7 +240,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full rounded-xl  flex justify-center flex-col items-center   h-full ">
+          <div className="w-full rounded-xl  flex justify-center flex-col items-center    ">
             <p
               className="font-extrabold mb-5 mt-10 md:mb-20 font-sans  text-white text-5xl md:text-7xl"
               style={{ letterSpacing: -3 }}
@@ -300,6 +300,9 @@ export default function Home() {
         </div>
         <div className="flexitems-center justify-c ">
           <img src="/lider2.jpeg " className=" w-[200px] mx-2 " />
+        </div>
+        <div className="flexitems-center justify-c ">
+          <img src="/logocup.png " className=" w-[200px] mx-2 " />
         </div>
       </Marquee>
     </div>
