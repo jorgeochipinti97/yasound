@@ -232,9 +232,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full rounded-xl  flex justify-center flex-col items-center    ">
+          <div className="w-full rounded-xl  flex justify-start border-2 flex-col items-center    ">
             <p
-              className="font-extrabold mb-5 mt-10 md:mb-10 font-sans text-center  text-white text-5xl md:text-7xl"
+              className="font-extrabold mb-5 mt-10 md:mt-0 md:mb-10 font-sans text-center  text-white text-5xl md:text-7xl"
               style={{ letterSpacing: -3 }}
             >
               Contactanos
