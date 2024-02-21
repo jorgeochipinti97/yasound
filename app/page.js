@@ -16,14 +16,7 @@ import { CardPricing } from "@/components/CardPricing";
 import { useAuth0 } from "@auth0/auth0-react";
 import useUsuarios from "./hook/useUsers";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 
 export default function Home() {
   const featureData = [

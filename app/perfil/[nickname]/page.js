@@ -30,8 +30,10 @@ const Page = () => {
     const response = await axios.get("/api/user");
     const usuarios_ = response.data.data;
     if (response.data.data) {
-      const usuarioEncontrado = usuarios_.find((u) => u.username === nickname);
-      if (usuarioEncontrado) {
+      const usuarioEncontrado = usuarios_.find(
+        (u) => u.username.toLowerCas() === nickname.toLowerCas()
+      );
+      if (usuarioEncontrado) { 
         const pais_ = paises.filter((e) => e.code == usuarioEncontrado.pais);
         setUsername(usuarioEncontrado.username);
         setColors(usuarioEncontrado.colors || []);
@@ -106,7 +108,8 @@ const Page = () => {
               <p
                 style={{
                   textShadow:
-                    " 1px 1px 2px black,0 0 1em blue, 0 0 0.2em blue;",mixBlendMode:'difference'
+                    " 1px 1px 2px black,0 0 1em blue, 0 0 0.2em blue;",
+                  mixBlendMode: "difference",
                 }}
                 className="text-center text-xl opacity-[.8] font-bold  degradado-texto w-9/12 md:w-6/12 mt-20 md:mt-10"
               >
