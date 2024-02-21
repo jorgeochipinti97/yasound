@@ -12,9 +12,9 @@ import {
   DrawerHeader,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { CardPricing } from "@/components/CardPricing";
-import { useAuth0 } from "@auth0/auth0-react";
-import useUsuarios from "./hook/useUsers";
+
+
+
 
 
 
@@ -55,8 +55,7 @@ export default function Home() {
       description: "",
     },
   ];
-  const { user } = useAuth0();
-  const { usuario } = useUsuarios();
+
   useEffect(() => {
     const div3d = document.querySelector(".div-3d");
 

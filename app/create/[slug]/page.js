@@ -74,6 +74,7 @@ const Page = () => {
     if (!isCreatingNew && usuarios) {
       const usuarioEncontrado = usuarios.find((u) => u.username === slug);
       if (usuarioEncontrado) {
+        console.log(usuarioEncontrado)
         setUsurio(usuarioEncontrado._id);
         setRedirect(usuarioEncontrado.username);
         reset({
@@ -96,6 +97,8 @@ const Page = () => {
         setImages(usuarioEncontrado.imagenes);
       }
     }
+
+
   }, [usuarios, isCreatingNew, slug, reset]);
 
   const onSubmit = async (data) => {
@@ -122,7 +125,9 @@ const Page = () => {
         data: formData,
       });
 
+      const username = watch("username");
       response && setMostrarAlerta(true);
+      method == "post" && isCreatingNew && push(`/${username}`);
 
       response &&
         setTimeout(() => {
@@ -186,7 +191,6 @@ const Page = () => {
           <AlertDescription>¡Gracias por confiar en nosotros!</AlertDescription>
         </Alert>
       </div>
-
 
       <div className="flex justify-center w-screen ">
         <form
@@ -351,11 +355,11 @@ const Page = () => {
                       className=" bg-red-500 hover:bg-red-700 text-xs text-white font-bold py-1 px-2 rounded"
                       onClick={() => removeColor(index)}
                     >
-                X
+                      X
                     </button>
                   </div>
                 </div>
-              ))} 
+              ))}
             </div>
             {/* Campos para los links */}
             <div className="flex flex-wrap  justify-center mt-10 ">

@@ -12,7 +12,8 @@ export function Providers({ children }) {
           domain="dev-riznzze6yi6ku6jc.us.auth0.com"
           clientId="TXqeIBPouYLYDrIcpxuujQCMx1R4PcTM"
           authorizationParams={{
-            redirect_uri: 'https://yasound.vercel.app/',
+            // redirect_uri: 'https://yasound.vercel.app/',
+            redirect_uri: 'http://localhost:3000/',
           }}
         >
           {children}
