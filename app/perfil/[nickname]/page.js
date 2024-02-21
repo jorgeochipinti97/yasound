@@ -31,9 +31,10 @@ const Page = () => {
     const usuarios_ = response.data.data;
     if (response.data.data) {
       const usuarioEncontrado = usuarios_.find(
-        (u) => u.username.toLowerCas() === nickname.toLowerCas()
+        (u) => u.username.toLowerCase() === nickname.toLowerCase()
       );
-      if (usuarioEncontrado) { 
+      console.log(usuarioEncontrado.username);
+      if (usuarioEncontrado) {
         const pais_ = paises.filter((e) => e.code == usuarioEncontrado.pais);
         setUsername(usuarioEncontrado.username);
         setColors(usuarioEncontrado.colors || []);
@@ -52,8 +53,8 @@ const Page = () => {
   };
 
   useEffect(() => {
-    __id && chargeBeats();
-  }, [__id]);
+    chargeBeats();
+  }, []);
 
   useEffect(() => {
     // if (usuarios) {
