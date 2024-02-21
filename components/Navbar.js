@@ -74,9 +74,9 @@ export const Navbar = () => {
 
   return (
     <div>
-      <div className=" indexz_ items-center fixed bottom-1 left-1  ">
+      <div className=" indexz_ items-center fixed bottom-1 left-1 md:hidden  block">
         {user && (
-          <DropdownMenu className='indexz_'>
+          <DropdownMenu className='indexz_ '>
             <DropdownMenuTrigger>
               <div className="flex justify-center items-center flex-col">
                 <svg
