@@ -1,14 +1,69 @@
-'use client'
-import { usePathname } from "next/navigation";
+"use client";
+
 import React from "react";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 export const FooterComponent = () => {
-// const pathname = usePathname()
+  // const pathname = usePathname()
   return (
     <footer
       // style={{ display: pathname.includes("perfil") ? "none" : "auto" }}
-      className="bg-slate-800 py-10 flex justify-center pt-10"
+      className="bg-slate-800 py-10  justify-center pt-10 px-4 md:px-6 flex flex-col items-center text-center"
     >
+      <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl/none text-white">
+        Estemos conectados.
+      </h2>
+      <p className="mx-auto max-w-[700px] text-zinc-100 md:text-lg dark:text-zinc-800">
+        Suscribete a nuestro newsletter para mantenerte informado.
+      </p>
+      <div className="w-full max-w-md space-y-2 my-4">
+        <form className="flex space-x-2">
+          <Input
+            className="max-w-lg flex-1 text-zinc-900 bg-white"
+            placeholder="Enter your email"
+            type="email"
+          />
+          <Button
+            className="text-black border-white"
+            type="submit"
+            variant="outline"
+          >
+            Subscribe
+          </Button>
+        </form>
+      </div>
+      <div className="h-fit mt-5 w-screen flex items-center justify-center flex-wrap">
+        <img
+          src="/twitter.png"
+          className=" rounded-full bg-black p-2 border-black w-[40px] md:w-[55px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+          alt=""
+        />
+        <img
+          src="/discord.png"
+          className=" rounded-full bg-violet-200 p-2 border-black w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+          alt=""
+        />
+        <img
+          src="/instagram.svg"
+          className="w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+          alt=""
+        />
+        <img
+          src="/wpp.svg"
+          className="w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+          alt=""
+        />
+        <img
+          src="/telegram.svg"
+          className="w-[45px] md:w-[60px]  hover:scale-[1.2] grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+          alt=""
+        />
+      </div>
+<div className="flex">
+  <a href="#" className="mx-2 text-white font-bold mt-5">Politicas de privacidad.</a>
+  <a href="#" className="mx-2 text-white font-bold mt-5">Términos y condiciones.</a>
+</div>
       {/* <div className="icons flex">
         <a href="#" className="icon instagram rounded-full mx-1">
           <svg
