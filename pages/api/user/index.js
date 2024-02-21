@@ -21,6 +21,7 @@ export default async function handler(req, res) {
         // Devuelve un mensaje de error más informativo
         res.status(400).json({ success: false, error: error.message });
       }
+      break
       case "PUT":
         try {
           const { id } = req.body; // Asume que el identificador del usuario viene en el cuerpo de la solicitud
