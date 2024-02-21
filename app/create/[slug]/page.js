@@ -42,7 +42,7 @@ const Page = () => {
 
   const [images, setImages] = useState([]);
   const { slug } = useParams();
-  const isCreatingNew = slug === "new";
+  const isCreatingNew = slug == "new";
   const handleUpload = useCallback(async (result) => {
     const newImageUrl = result.info.secure_url;
 
@@ -74,7 +74,7 @@ const Page = () => {
     if (!isCreatingNew && usuarios) {
       const usuarioEncontrado = usuarios.find((u) => u.username === slug);
       if (usuarioEncontrado) {
-        console.log(usuarioEncontrado)
+        console.log(usuarioEncontrado);
         setUsurio(usuarioEncontrado._id);
         setRedirect(usuarioEncontrado.username);
         reset({
@@ -97,8 +97,6 @@ const Page = () => {
         setImages(usuarioEncontrado.imagenes);
       }
     }
-
-
   }, [usuarios, isCreatingNew, slug, reset]);
 
   const onSubmit = async (data) => {
@@ -127,8 +125,8 @@ const Page = () => {
 
       const username = watch("username");
       response && setMostrarAlerta(true);
-      method == "post" && isCreatingNew && push(`/${username}`);
-
+      isCreatingNew && push(`/create/${username}`);
+      console.log(isCreatingNew);
       response &&
         setTimeout(() => {
           setMostrarAlerta(false);
