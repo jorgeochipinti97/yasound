@@ -234,12 +234,12 @@ export default function Home() {
           </div>
           <div className="w-full rounded-xl  flex justify-center flex-col items-center    ">
             <p
-              className="font-extrabold mb-5 mt-10 md:mb-20 font-sans  text-white text-5xl md:text-7xl"
+              className="font-extrabold mb-5 mt-10 md:mb-10 font-sans text-center  text-white text-5xl md:text-7xl"
               style={{ letterSpacing: -3 }}
             >
               Contactanos
             </p>
-            <form className="flex flex-col   w-full ">
+            <form className="flex flex-col items-center justify-start  w-full ">
               <input
                 className="my-2 p-2 rounded-xl w-[100%] md:w-[500px]"
                 type="text"
