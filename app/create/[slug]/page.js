@@ -27,7 +27,7 @@ const Page = () => {
   const { push } = useRouter();
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
-
+  const [isCreatingNew, setIscreatingNew] = useState(false);
   const handleSelectChange = (genre) => {
     if (selectedGenres.length >= 5) {
       // Opcional: Mostrar un mensaje de error o advertencia al usuario.
@@ -42,7 +42,8 @@ const Page = () => {
 
   const [images, setImages] = useState([]);
   const { slug } = useParams();
-  const isCreatingNew = slug == "new";
+
+
   const handleUpload = useCallback(async (result) => {
     const newImageUrl = result.info.secure_url;
 
@@ -68,15 +69,14 @@ const Page = () => {
   const [colors, setColors] = useState([]);
   const [usuario, setUsurio] = useState();
 
-  const [redirect, setRedirect] = useState();
-  const { usuarios, isLoading, isError } = useUsuarios();
+  const { usuarios } = useUsuarios();
   useEffect(() => {
     if (!isCreatingNew && usuarios) {
       const usuarioEncontrado = usuarios.find((u) => u.username === slug);
+      slug == "new" && setIscreatingNew(true);
       if (usuarioEncontrado) {
-        console.log(usuarioEncontrado);
+
         setUsurio(usuarioEncontrado._id);
-        setRedirect(usuarioEncontrado.username);
         reset({
           username: usuarioEncontrado.username,
           celular: usuarioEncontrado.celular,
@@ -100,7 +100,7 @@ const Page = () => {
   }, [usuarios, isCreatingNew, slug, reset]);
 
   const onSubmit = async (data) => {
-    const userId = isCreatingNew ? null : usuario;
+    const userId = isCreatingNew ? false : usuario;
 
     const formData = {
       ...data,
@@ -113,7 +113,7 @@ const Page = () => {
       ...(userId && { id: userId }),
     };
 
-    const endpoint = isCreatingNew ? "/api/user" : `/api/user`;
+    const endpoint = "/api/user";
     const method = isCreatingNew ? "post" : "put";
 
     try {
@@ -124,8 +124,9 @@ const Page = () => {
       });
 
       const username = watch("username");
+
       response && setMostrarAlerta(true);
-      isCreatingNew && push(`/create/${username}`);
+      username && isCreatingNew && push(`/create/${username.toLowerCase()}`);
       console.log(isCreatingNew);
       response &&
         setTimeout(() => {
