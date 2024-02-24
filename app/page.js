@@ -110,7 +110,7 @@ export default function Home() {
           className="top-[3%] left-0 md:left-60 md:-top-20"
           fill="#ef21aa"
         />
-        <p className="font-semibold font-geist  font-sans  text-center  capitalize text-7xl degradado-texto">
+        <p className="font-semibold font-geist mt-5 font-sans  text-center  capitalize text-7xl degradado-texto">
           Yasound
         </p>
         <p className="font-geist text-center font-bold text-md">
@@ -173,7 +173,7 @@ export default function Home() {
         <p className="font-geist font-bold mt-5 w-9/12 text-center md:w-12/12">
           Apoya el Nacimiento de una Comunidad Musical
         </p>
-        <p className="font-geist w-9/12 md:text-start text-center md:w-6/12 mt-2">
+        <p className="font-geist w-11/12 md:text-start text-center md:w-6/12 mt-2">
           Cada donación nos acerca a realizar nuestra visión. Con tu ayuda,
           podemos construir una plataforma que celebre y promueva el talento
           musical en toda su diversidad.
