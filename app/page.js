@@ -3,8 +3,10 @@ import { BackgroundGradientAnimation } from "@/components/Background";
 import { BackgroundGradient } from "@/components/BackgroundGradient";
 import { FeaturedCard } from "@/components/cards/FeaturedCard";
 import { SliderCoverFlow } from "@/components/sliders/CoverflowSlider";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 import {
   Drawer,
   DrawerContent,
@@ -12,13 +14,51 @@ import {
   DrawerHeader,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Spotlight } from "@/components/ui/Spotlight";
+import { useRouter } from "next/navigation";
 
-
-
-
-
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import axios from "axios";
+import gsap, { Power1 } from "gsap";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [phone, setPhone] = useState("");
+  const [rol, setRol] = useState("");
+
+  const postWaitlist = async () => {
+    const data = await axios.post("/api/waitlist", {
+      nombre: nombre || "",
+      email: email || "",
+      rol: rol || "",
+      celular: phone || "",
+    });
+    data &&
+      gsap.to(".shownoti", {
+        opacity: 1,
+        ease: Power1.easeIn,
+      });
+
+    data &&
+      setTimeout(() => {
+        gsap.to(".shownoti", {
+          opacity: 0,
+          ease: Power1.easeIn,
+        });
+      }, 3000);
+  };
+
+  const { push } = useRouter();
   const featureData = [
     {
       title: "Conexiones Musicales",
@@ -56,17 +96,146 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {
-    const div3d = document.querySelector(".div-3d");
+  // useEffect(() => {
+  //   const div3d = document.querySelector(".div-3d");
 
-    setTimeout(() => {
-      div3d.style.transform = "perspective(1000px) rotateX(0deg)";
-    }, 500); // Ajusta este tiempo según necesites
-  }, []);
+  //   setTimeout(() => {
+  //     div3d.style.transform = "perspective(1000px) rotateX(0deg)";
+  //   }, 500); // Ajusta este tiempo según necesites
+  // }, []);
   return (
-    <div className="">
-      {/* <BackgroundGradientAnimation> */}
-      <div className=" indexz ">
+    <>
+      <div className="min-h-screen flex justify-center items-center flex-col w-screen">
+        <Spotlight
+          className="top-[3%] left-0 md:left-60 md:-top-20"
+          fill="#ef21aa"
+        />
+        <p className="font-semibold font-geist  font-sans  text-center  capitalize text-7xl degradado-texto">
+          Yasound
+        </p>
+        <p className="font-geist text-center font-bold text-md">
+          Próximamente, la plataforma digital líder en Latinoamérica.
+        </p>
+        <div className="mt-5">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                variant="outline"
+                className="bg-black hover:border-2 border-black text-white"
+              >
+                Conocenos
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px] bg-white/80">
+              <div className="flex justify-center">
+                <img src="/logo.png" alt="" className="w-6/12" />
+              </div>
+              <p className="w-12/12 md:w-12/12  text-start  mt-2">
+                Visualizamos una plataforma donde los productores puedan mostrar
+                sus beats, y los artistas encuentren la inspiración para sus
+                próximos proyectos. Aunque todavía estamos en desarrollo,
+                nuestra meta es facilitar la colaboración y la innovación
+                musical en un ambiente inclusivo y accesible.
+              </p>
+            </DialogContent>
+          </Dialog>
+        </div>
+        <div className="flex justify-center items-center w-screen flex-col">
+          <Input
+            className="w-9/12 md:w-6/12 mt-5"
+            placeHolder="Nombre"
+            onChangeCapture={(e) => setNombre(e.target.value)}
+            value={nombre}
+          />
+          <Input
+            className="w-9/12 md:w-6/12 mt-5"
+            placeHolder="Email"
+            onChangeCapture={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <Input
+            className="w-9/12 md:w-6/12 mt-5"
+            placeHolder="Celular"
+            onChangeCapture={(e) => setPhone(e.target.value)}
+            value={phone}
+          />
+          <Input
+            className="w-9/12 md:w-6/12 mt-5"
+            placeHolder="Rol"
+            onChangeCapture={(e) => setRol(e.target.value)}
+            value={rol}
+          />
+          <Button className="md:ml-5 mt-5" onClick={() => postWaitlist()}>
+            Enviar
+          </Button>
+        </div>
+
+        <p className="font-geist font-bold mt-5 w-9/12 text-center md:w-12/12">
+          Apoya el Nacimiento de una Comunidad Musical
+        </p>
+        <p className="font-geist w-9/12 md:text-start text-center md:w-6/12 mt-2">
+          Cada donación nos acerca a realizar nuestra visión. Con tu ayuda,
+          podemos construir una plataforma que celebre y promueva el talento
+          musical en toda su diversidad.
+        </p>
+        <div className="my-5 flex items-center justify-center">
+          <Button
+            className="bg-white text-black hover:bg-[#f5f5f7] mx-2 "
+            onClick={() => push("https://www.paypal.me/yasound")}
+          >
+            {" "}
+            <svg
+              width={20}
+              className="mr-5 "
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="-3.5 0 48 48"
+            >
+              <g>
+                <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
+                  <g fill="#022B87" transform="translate(-804 -660)">
+                    <path d="M838.912 663.62c-2.241-2.534-6.29-3.62-11.472-3.62h-15.035a2.15 2.15 0 00-2.128 1.801l-6.26 39.393a1.284 1.284 0 001.275 1.48h9.282l2.332-14.67-.073.46a2.143 2.143 0 012.12-1.802h4.41c8.668 0 15.452-3.492 17.434-13.593.06-.3.154-.874.154-.874.563-3.738-.004-6.275-2.04-8.576zm4.389 10.488c-2.156 9.945-9.03 15.208-19.937 15.208h-3.956L816.458 708h6.416c.927 0 1.714-.669 1.86-1.576l.075-.396 1.476-9.273.095-.512a1.877 1.877 0 011.858-1.576h1.172c7.58 0 13.516-3.056 15.25-11.89.696-3.547.362-6.52-1.359-8.669z"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            Aportá
+          </Button>
+          <Button
+            className="bg-white text-black hover:bg-[#f5f5f7] mx-2 "
+            onClick={() => push("https://link.mercadopago.com.ar/yasound")}
+          >
+            <svg
+              width={30}
+              className="mr-5 "
+              xmlns="http://www.w3.org/2000/svg"
+              version="1"
+              viewBox="0 0 270 187"
+            >
+              <path
+                d="M1210 1863c-292-17-598-114-825-261-110-72-252-221-302-317-66-128-78-180-77-335 1-247 73-412 255-585C527 113 952-17 1443 4c579 25 1017 253 1188 619 50 109 63 178 63 332 0 126-2 148-26 216-37 104-88 188-166 272-276 292-763 451-1292 420zm435-69c171-25 362-82 490-146 76-38 195-111 195-119 0-12-111-49-198-65-159-30-229-17-527 94-62 24-84 27-200 26-143 0-190-12-280-74-24-17-53-30-65-30s-71-12-132-27l-110-26-88 16c-80 16-340 93-340 101s140 87 210 119c175 79 407 136 620 151 92 6 319-4 425-20zm-50-287c39-14 98-37 133-52 194-81 409-71 644 29 12 6 32-8 76-53 94-96 169-222 188-319 6-29 6-29-68-47-115-28-273-78-390-124l-107-42-153 133c-198 172-325 278-380 316-106 73-185 62-324-44-122-93-142-104-196-104-47 0-98 16-98 31 0 5 45 55 99 111 156 162 240 201 411 194 69-3 114-11 165-29zm-960-97c128-33 197-35 292-11 45 12 84 21 88 21s-27-37-69-82c-81-87-91-113-57-147 40-40 144-53 208-26 20 8 75 44 123 80 99 74 143 95 198 95 62 0 107-34 482-359 194-168 204-184 154-235-19-18-37-26-63-26-32 0-50 12-149 100-62 55-117 100-122 100-25 0-3-31 90-125 66-67 100-110 100-124 0-33-17-59-50-76-56-29-75-21-171 71-77 74-109 94-109 66 0-4 34-45 75-92 41-46 75-92 75-102 0-24-48-58-82-58-23 0-47 16-101 65-68 62-97 78-97 53 0-6 25-37 55-69s55-62 55-69c0-29-86-35-144-9-20 9-22 16-19 67 3 45 0 64-16 90-24 37-76 72-107 72-23 0-34 17-34 54 0 53-70 106-141 106-32 0-49 7-75 29-42 37-106 49-156 28-33-14-37-14-55 5-30 30-95 35-136 11l-34-20-39 23c-65 40-231 100-384 139-80 20-148 40-152 43-11 11 36 136 73 195 18 28 68 89 112 133l78 82 112-39c62-21 148-47 192-59zM375 955c61-20 137-50 170-68l60-32v-50c1-80 51-135 125-135 20 0 30-5 30-15 0-8 16-33 36-55 34-38 83-58 125-52 8 2 20-8 26-21 15-32 95-71 132-64 23 5 31 1 41-19 35-64 144-89 210-47 32 20 32 20 84 1 62-24 125-20 167 11 17 13 43 21 66 21 46 0 98 30 121 70 12 21 25 30 44 30 65 0 134 51 144 107 6 30 9 33 43 33 81 0 144 76 125 150-9 33-8 40 5 46 134 54 461 154 504 154 19 0 19-4 13-69-35-385-436-691-1017-775-135-20-419-21-556-1-409 58-749 237-912 481-61 90-89 165-103 270-16 119-19 117 104 88 57-13 153-40 213-59zm404-85c10-5 24-23 31-40l13-31 27 26c55 53 154 38 167-25 6-35 9-35 52-14 25 13 37 13 66 4 48-16 69-57 60-121l-7-48 33 9c41 12 66 5 101-28 35-32 43-71 24-116-18-43-71-71-116-61-34 7-76 51-85 88-8 31-12 32-39 12-25-19-40-19-82 1-29 14-45 36-50 69-1 6-2 13-3 17 0 4-16 1-34-7-61-25-129 24-131 95 0 32-4 39-16 34-58-25-104-15-126 27-37 73 42 149 115 109z"
+                transform="matrix(.1 0 0 -.1 0 187)"
+              ></path>
+            </svg>
+            Aportá
+          </Button>
+        </div>
+        <div>
+          <div className="h-fit mt-5 w-screen flex items-center justify-center flex-wrap">
+            <img
+              src="/twitter.png"
+              className=" rounded-full bg-black p-2 border-black w-[40px] md:w-[55px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+              alt=""
+            />
+
+            <img
+              src="/instagram.svg"
+              className="w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+              alt=""
+            />
+          </div>
+        </div>
+        {/* <BackgroundGradientAnimation> */}
+        {/* <div className=" indexz ">
         <div className="  flex flex-col items-center">
           <div className=" flex items-center flex-col justiyf-center">
             <p className="font-semibold pt-20 font-sans  text-center  capitalize text-7xl degradado-texto">
@@ -153,9 +322,9 @@ export default function Home() {
           </p>
           <SliderCoverFlow />
         </div>
-      </div>
-      {/* </BackgroundGradientAnimation> */}
-      <div
+      </div> */}
+        {/* </BackgroundGradientAnimation> */}
+        {/* <div
         style={{
           backgroundImage:
             "linear-gradient(to bottom, transparent 30%, black),linear-gradient(to bottom,rgba(0, 0, 0, 0.9),rgba(239, 33, 170, .5)), url('./party.jpg')",
@@ -187,9 +356,9 @@ export default function Home() {
                 <button className="  md:mt-5 md:mb-0 mt-2 mb-5 flex items-center font-bold uppercase bg-white text-black p-3 rounded-xl text-2xl hover:bg-violet-200 hover:scale-[1.1] transition-all duration-200  hover:text-slate-1000 ">
                   <img src="/diversity.svg" className="mr-2 w-[35px]" alt="" />
                   ¡Únete!
-                </button>
+                </button> */}
 
-                {/* <Drawer className="w-full ">
+        {/* <Drawer className="w-full ">
                   <DrawerTrigger asChild>
                     <div className="flex items-center">
                       <div className="h-fit  ">
@@ -229,7 +398,7 @@ export default function Home() {
                     </div>
                   </DrawerContent>
                 </Drawer> */}
-              </div>
+        {/* </div>
             </div>
           </div>
           <div className="w-full rounded-xl  flex justify-start  flex-col items-center    ">
@@ -282,8 +451,8 @@ export default function Home() {
             </form>
           </div>
         </div>
-      </div>
-      <Marquee className="  py-20" direction="right" autoFill>
+      </div> */}
+        {/* <Marquee className="  py-10" direction="right" autoFill>
         <div className="flex items-center justify-c">
           <img src="/redbull.svg" className=" w-[200px] mx-2 " />
         </div>
@@ -296,7 +465,42 @@ export default function Home() {
         <div className="flexitems-center justify-c ">
           <img src="/logocup.png " className=" w-[200px] mx-2 " />
         </div>
-      </Marquee>
-    </div>
+      </Marquee> */}
+      </div>
+      <div
+        className={`h-fit z-50 w-fit fixed bottom-5 right-5 shownoti`}
+        style={{ opacity: 0 }}
+      >
+        <Alert>
+          <svg
+            height={20}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 48 48"
+          >
+            <g>
+              <path fill="#fff" fillOpacity="0.01" d="M0 0H48V48H0z"></path>
+              <path
+                fill="#000"
+                stroke="#000"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="4"
+                d="M24 4l5.253 3.832 6.503-.012 1.997 6.188 5.268 3.812L41 24l2.021 6.18-5.268 3.812-1.997 6.188-6.503-.012L24 44l-5.253-3.832-6.503.012-1.997-6.188-5.268-3.812L7 24l-2.021-6.18 5.268-3.812 1.997-6.188 6.503.012L24 4z"
+              ></path>
+              <path
+                stroke="#fff"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="4"
+                d="M17 24l5 5 10-10"
+              ></path>
+            </g>
+          </svg>
+          <AlertTitle>Enviado con éxito.</AlertTitle>
+          <AlertDescription>¡Gracias por confiar en nosotros!</AlertDescription>
+        </Alert>
+      </div>
+    </>
   );
 }

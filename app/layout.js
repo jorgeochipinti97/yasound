@@ -19,12 +19,12 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <Providers>
-          <div className="indexz">
+          {/* <div className="indexz">
             <Navbar />
-          </div>
+          </div> */}
 
           {children}
-          <FooterComponent />
+          {/* <FooterComponent /> */}
         </Providers>
       </body>
     </html>

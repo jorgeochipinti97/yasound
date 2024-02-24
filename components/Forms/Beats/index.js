@@ -161,7 +161,7 @@ export const BeatForm = ({ autor }) => {
               <Select
                 onValueChange={(value) => handleSelectChange(value)}
                 defaultValue={""}
-                className='border-2'
+                className="border-2"
               >
                 <SelectTrigger className="w-[180px] my-4">
                   <SelectValue placeholder={`Elige el tuyo `} />
@@ -178,13 +178,13 @@ export const BeatForm = ({ autor }) => {
           </div>
         </div>
       </div>
-      <div>
-        <button
-          className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
+      <div class='my-2'>
+        <span
+          className="bg-slate-200 my-5 p-2 rounded-xl font-bold"
           onClick={() => refImage.current.click()}
         >
           Subir Imagen
-        </button>
+        </span>
         <input
           type="file"
           className="hidden"
@@ -193,36 +193,44 @@ export const BeatForm = ({ autor }) => {
           onChange={handleImageUpload}
         />
       </div>
-      <div>
-        <button
-          className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
-          onClick={() => refAudio.current.click()}
-        >
-          Subir Audio MP3
-        </button>
-        <input
-          type="file"
-          className="hidden"
-          ref={refAudio}
-          accept="audio/mp3"
-          onChange={handleMp3Upload}
-        />
-      </div>
-      <div>
-        <button
-          className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
-          onClick={() => refAudioWav.current.click()}
-        >
-          Subir Audio WAV
-        </button>
-        <input
-          type="file"
-          className="hidden"
-          ref={refAudioWav}
-          accept="audio/mp3"
-          onChange={handlewavUpload}
-        />
-      </div>
+      {mp3Link.length <4 ? (
+        <div >
+          <span
+            className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
+            onClick={() => refAudio.current.click()}
+          >
+            Subir Audio MP3
+          </span>
+          <input
+            type="file"
+            className="hidden"
+            ref={refAudio}
+            accept="audio/mp3"
+            onChange={handleMp3Upload}
+          />
+        </div>
+      ) : (
+        <>Okey</>
+      )}
+      {wavLink.length <4 ? (
+        <div>
+          <span
+            className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
+            onClick={() => refAudioWav.current.click()}
+          >
+            Subir Audio WAV
+          </span>
+          <input
+            type="file"
+            className="hidden"
+            ref={refAudioWav}
+            accept="audio/mp3"
+            onChange={handlewavUpload}
+          />
+        </div>
+      ) : (
+        <p>okey</p>
+      )}
 
       {licenses.map((license, index) => (
         <div key={index} className="flex flex-col">
@@ -273,10 +281,7 @@ export const BeatForm = ({ autor }) => {
         Agregar Licencia
       </button>
       <br />
-      <Button
-        className="mt-10"
-        type="submit"
-      >
+      <Button className="mt-10" type="submit">
         Enviar
       </Button>
     </form>

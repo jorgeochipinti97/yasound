@@ -97,59 +97,9 @@ const Page = () => {
     }
   };
 
-  const actualizarDatosLicencia = async (beat) => {
-    try {
-      const response = await axios.put("/api/license", {
-        ...beat,
-        precio: precioLicencia,
-        nombre: nombreLincencia,
-      });
-      response && setMostrarAlerta(true);
 
-      response &&
-        setTimeout(() => {
-          setMostrarAlerta(false);
-        }, 6000);
-    } catch (error) {
-      console.error("Error al actualizar los datos", error);
-    }
-  };
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm();
 
-  const onSubmit = (data) => {
-    const form = {
-      link: data.link,
-      image: data.image,
-      nombre: data.nombre,
-      autor: usuario.username,
-      precio: parseFloat(data.precio),
-    };
-
-    uploadBeat(form);
-  };
-
-  const handleUploadBeat = useCallback(async (result) => {
-    const newImageUrl = result.info.secure_url;
-    setValue("link", newImageUrl);
-    newImageUrl && setIsBeatUpdate(true);
-  }, []);
-
-  const handleUploadImage = useCallback(async (result) => {
-    const newImageUrl = result.info.secure_url;
-    newImageUrl && setIsImageUpload(true);
-
-    setValue("image", newImageUrl);
-  }, []);
-
-  const uploadBeat = async (formData) => {
-    const data = await axios.post("/api/beats", formData);
-  };
 
   const onDeleteBeat = async (e) => {
     try {
@@ -165,7 +115,7 @@ const Page = () => {
   return (
     <div className="min-h-screen max-w-screen  bg-slate-200  py-28">
       <div className="flex justify-center">
-        <Tabs defaultValue="beats" className="w-[500px] bg-white rounded-xl p-3">
+        <Tabs defaultValue="beats" className="w-[500px] bg-white rounded-xl p-3 h-screen">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="crearbeats">Subir Beat</TabsTrigger>
             <TabsTrigger value="beats">Beats</TabsTrigger>

@@ -10,10 +10,10 @@ const beatSchema = new mongoose.Schema(
     genero: [{ type: String, required: true }],
     autor: { type: String, required: true },
     licenses:[{
-      titulo:{ type: String, required: true },
-      precio:{ type: Number, required: true },
-      descripcion:{ type: String, required: true },
-      formatos:{ type: String, required: true },
+      titulo:{ type: String },
+      precio:{ type: Number },
+      descripcion:{ type: String },
+      formatos:{ type: String },
     }]
   },
   { timestamps: true }
