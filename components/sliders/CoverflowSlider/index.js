@@ -24,29 +24,15 @@ export const SliderCoverFlow = () => {
 
   useEffect(() => {
     chargeBeats();
-
-    const verificarSiEsMovil = () => {
-      const ancho = window.innerWidth;
-      setEsMovil(ancho < 768);
-    };
-
-    verificarSiEsMovil();
-    window.addEventListener("resize", verificarSiEsMovil);
-
-    return () => window.removeEventListener("resize", verificarSiEsMovil);
   }, []);
 
-  useEffect(() => {
-    console.log(esMovil);
-  }, [esMovil]);
 
   return (
-    <div>
+    <div className=" max-w-[100vw]">
       <Swiper
         effect={"coverflow"}
         centeredSlides={true}
-        initialSlide={3}
-        slidesPerView={esMovil ? 1.5 : 3.5}
+        slidesPerView={3.2}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -55,16 +41,13 @@ export const SliderCoverFlow = () => {
           slideShadows: false,
         }}
         modules={[EffectCoverflow]}
-        className="mySwiper indexz"
+        className="mySwiper "
         style={{ zIndex: 500 }}
       >
         {beats &&
           beats.map((e) => (
-            <SwiperSlide                 key={`${e.precio}-${e.nombre}-${e.autor}`}
-            >
-              <div
-                className="w-full flex  md:flex-row flex-col justify-center items-start py-10  md:justify-around "
-              >
+            <SwiperSlide key={`${e.precio}-${e.nombre}-${e.autor}`}>
+              <div className=" w-[500px] ">
                 <ReproductorComponent
                   precio={e.precio}
                   img={e.image}
@@ -73,9 +56,11 @@ export const SliderCoverFlow = () => {
                   audio={e.link}
                   licenses={e.licenses}
                 />
+
               </div>
             </SwiperSlide>
           ))}
+
       </Swiper>
     </div>
   );

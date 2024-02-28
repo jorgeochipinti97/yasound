@@ -72,7 +72,7 @@ export const ReproductorComponent = ({
   }, [isPlay]);
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex w-[300px] justify-center">
       <div
         className={`flex p-4 w-10/12 rounded-xl glowElement-${artist
           .replace(/\s+/g, "-")

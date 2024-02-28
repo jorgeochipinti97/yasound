@@ -526,26 +526,6 @@ button {
   }
 }
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: violet !important;
-  border: 0.1px solid rgba(0, 0, 0, 0.5);
-}
-.swiper-pagination-bullet {
-  opacity: 0.9 !important;
-}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -603,22 +583,6 @@ top: 0;
   z-index: 1000;
 }
 
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: fit-content;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 500px;
-}
 
 .pack-container {
   
