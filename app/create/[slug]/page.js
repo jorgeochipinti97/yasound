@@ -5,13 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
@@ -22,6 +16,9 @@ import { useParams, useRouter } from "next/navigation";
 import { generosList } from "@/utils/generos";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@radix-ui/react-dropdown-menu";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const Page = () => {
   const { push } = useRouter();
@@ -42,7 +39,6 @@ const Page = () => {
 
   const [images, setImages] = useState([]);
   const { slug } = useParams();
-
 
   const handleUpload = useCallback(async (result) => {
     const newImageUrl = result.info.secure_url;
@@ -75,7 +71,6 @@ const Page = () => {
       const usuarioEncontrado = usuarios.find((u) => u.username === slug);
       slug == "new" && setIscreatingNew(true);
       if (usuarioEncontrado) {
-
         setUsurio(usuarioEncontrado._id);
         reset({
           username: usuarioEncontrado.username,
@@ -194,8 +189,11 @@ const Page = () => {
       <div className="flex justify-center w-screen ">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className=" bg-white p-8 rounded-xl border-2 w-11/12 md:w-6/12 "
+          className=" bg-white p-8 rounded-xl w-11/12 md:w-6/12 "
         >
+          <p className="mt-10  mb-5 font-bold font-geist text-4xl  tracking-tighter ">
+            Información personal
+          </p>
           <div className=" grid grid-cols-1 md:grid-cols-2 ">
             <div className="flex flex-col  h-full  items-center justify-center">
               <div className="w-full justify-start">
@@ -252,13 +250,15 @@ const Page = () => {
             </div>
 
             <div className="flex flex-col  h-full  items-center justify-center">
-              <div className="flex flex-col items-start justify-start">
-                <div className="w-full mt-10 justify-start">
+              <div className="flex flex-col items-start justify-start w-full">
+                <div className="mt-10 justify-start  w-full">
+
+
                   <Label className="mt-5">Descripción</Label>
 
-                  <textarea
+                  <Textarea
                     placeholder="Descripción"
-                    className=" p-2 border-2 border-200-gray w-full  rounded-xl"
+
                     {...register("descripcion", {
                       required: "Este campo es obligatorio",
                       maxLength: {
@@ -286,7 +286,7 @@ const Page = () => {
                       style={{ opacity: selectedGenres.length >= 5 ? 0.2 : 1 }}
                       disabled={selectedGenres.length >= 5 ? true : false}
                       onChange={(e) => handleSelectChange(e.target.value)}
-                      className="border-2 border-gray-300 p-2 w-11/12 rounded-lg"
+                      className="border-gray-300 p-2 w-11/12 rounded-lg"
                     >
                       <option value="">Selecciona los géneros</option>
                       {generosList.map((genre) => (
@@ -318,7 +318,14 @@ const Page = () => {
                 ))}
               </ul>
             </div>
-            <div className="flex mt-10  flex-col w-fit justify-around">
+            <div>
+
+              <p className="mt-10  mb-5 font-bold font-geist text-4xl  tracking-tighter ">
+                Tu perfil.
+              </p>
+            </div>
+            <div></div>
+            <div className="flex   flex-col w-fit justify-around">
               <div className="flex flex-col   ">
                 <label className="mt-5  font-semibold text-xl">
                   Personalizá tus ondas
@@ -326,14 +333,13 @@ const Page = () => {
                 <p>Máximo 5 </p>
 
                 <div>
-                  <button
+                  <Button
                     type="button"
                     onClick={addColor}
                     disabled={colors.length == 5 ? true : false}
-                    className="px-2 py-1 text-white mt-5 bg-blue-500 rounded hover:bg-blue-700 transition duration-150 ease-in-out"
                   >
                     Agregar Color
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -360,8 +366,13 @@ const Page = () => {
                 </div>
               ))}
             </div>
-            {/* Campos para los links */}
-            <div className="flex flex-wrap  justify-center mt-10 ">
+            <div>
+              <p className="mt-10  mb-5 font-bold font-geist text-4xl  tracking-tighter ">
+                Tus redes.
+              </p>
+            </div>
+            <div></div>
+            <div className="flex flex-wrap  justify-center  ">
               <InputField
                 label="Instagram"
                 name="linkInstagram"
@@ -384,7 +395,7 @@ const Page = () => {
               />
             </div>
 
-            <div className="flex flex-col justify-center  mt-10">
+            <div className="flex flex-col justify-center  ">
               <InputField label="Web" name="linkWeb" register={register} />
               <InputField
                 label="Twitter"
@@ -426,18 +437,18 @@ const Page = () => {
                 </CldUploadButton>
               </div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 mt-5">
+            <div className="grid grid-cols-2 md:grid-cols-5 mt-5">
               {images.length > 0 &&
                 images.map((e) => (
                   <div
                     key={e}
-                    className="flex justify-start items-center flex-col border-2 m-2 p-2 rounded-xl"
+                    className="flex justify-start items-center flex-col m-2 p-2 rounded-xl"
                   >
-                    <img src={e} alt="" width={200} height={200} />
+                    <img src={e} alt="" width={50} height={50} />
 
-                    <div className="rounded-xl hover:bg-red-200 border-2 mt-5 border-black hover:border-red-500 cursor-pointer hover:scale-[1.1] transition-all duration-400 hover:opacity-[.9] w-fit flex p-1 justify-center">
+                    <div className="rounded-xl hover:bg-red-200 mt-5 border-black hover:border-red-500 cursor-pointer hover:scale-[1.1] transition-all duration-400 hover:opacity-[.9] w-fit flex p-1 justify-center">
                       <button
-                        className="border-2   rounded-xl"
+                        className="  rounded-xl"
                         onClick={() => removeImage(e)}
                       >
                         <svg

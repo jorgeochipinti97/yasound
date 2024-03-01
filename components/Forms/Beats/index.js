@@ -9,6 +9,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+
 export const BeatForm = ({ autor }) => {
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
@@ -78,7 +81,7 @@ export const BeatForm = ({ autor }) => {
     const file = event.target.files[0];
 
     // Validación del tipo MIME del archivo
-    if (file.type !== "audio/wav") {
+    if (file.type !== "audio/mpeg") {
       alert("El archivo debe ser un MP3.");
       return; // Detiene la ejecución si el archivo no es un MP3
     }
@@ -116,6 +119,11 @@ export const BeatForm = ({ autor }) => {
     ]);
   };
 
+  const removeLicense = (indexToRemove) => {
+    licenses.length > 1 &&
+      setLicenses(licenses.filter((_, index) => index !== indexToRemove));
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -124,20 +132,25 @@ export const BeatForm = ({ autor }) => {
       precio,
       genero,
       image,
-      linkmp3: mp3Link,
-      linkwav: wavLink,
+      linkmp3: mp3Link || "",
+      linkwav: wavLink || "",
       autor,
       licenses,
     });
+
     console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit} className="mx-5">
+      <p className="mt-10 font-bold font-geist text-4xl  tracking-tighter ">
+        Información
+      </p>
+
       <div>
-        <input
+        <Input
           type="text"
-          className="border-2 rounded-md my-2 p-1"
+          className="my-2"
           placeholder="Nombre"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
@@ -145,25 +158,28 @@ export const BeatForm = ({ autor }) => {
         />
       </div>
       <div>
-        <input
+        <Input
           type="number"
-          className="border-2 rounded-md my-2 p-1"
+          className="my-2"
           placeholder="Precio"
           value={precio}
           onChange={(e) => setPrecio(e.target.value)}
           required
         />
       </div>
+      <Separator className="my-5" />
+
+      <p className="font-bold font-geist text-4xl  tracking-tighter ">Música</p>
+
       <div>
         <div className="mt-2 flex justify-start flex-wrap">
           <div className="flex">
-            <div className="mx-2">
+            <div className="border-2 rounded-xl border-black">
               <Select
                 onValueChange={(value) => handleSelectChange(value)}
                 defaultValue={""}
-                className="border-2"
               >
-                <SelectTrigger className="w-[180px] my-4">
+                <SelectTrigger className="w-[200px]">
                   <SelectValue placeholder={`Elige el tuyo `} />
                 </SelectTrigger>
                 <SelectContent>
@@ -178,112 +194,127 @@ export const BeatForm = ({ autor }) => {
           </div>
         </div>
       </div>
-      <div class='my-2'>
-        <span
-          className="bg-slate-200 my-5 p-2 rounded-xl font-bold"
-          onClick={() => refImage.current.click()}
-        >
-          Subir Imagen
-        </span>
-        <input
-          type="file"
-          className="hidden"
-          ref={refImage}
-          accept="image/*"
-          onChange={handleImageUpload}
-        />
+      <div class="my-2">
+        {image < 4 ? (
+          <div>
+            <Button type="button" onClick={() => refImage.current.click()}>
+              Subir Imagen
+            </Button>
+            <Input
+              type="file"
+              className="hidden"
+              ref={refImage}
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+          </div>
+        ) : (
+          <span>Imagen subida exitosamente</span>
+        )}
       </div>
-      {mp3Link.length <4 ? (
-        <div >
-          <span
-            className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
-            onClick={() => refAudio.current.click()}
-          >
-            Subir Audio MP3
-          </span>
-          <input
-            type="file"
-            className="hidden"
-            ref={refAudio}
-            accept="audio/mp3"
-            onChange={handleMp3Upload}
-          />
-        </div>
-      ) : (
-        <>Okey</>
-      )}
-      {wavLink.length <4 ? (
-        <div>
-          <span
-            className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
-            onClick={() => refAudioWav.current.click()}
-          >
-            Subir Audio WAV
-          </span>
-          <input
-            type="file"
-            className="hidden"
-            ref={refAudioWav}
-            accept="audio/mp3"
-            onChange={handlewavUpload}
-          />
-        </div>
-      ) : (
-        <p>okey</p>
-      )}
+      <div class="my-2">
+        {mp3Link.length < 4 ? (
+          <div>
+            <Button type="button" onClick={() => refAudio.current.click()}>
+              Subir Audio MP3
+            </Button>
+            <Input
+              type="file"
+              className="hidden"
+              ref={refAudio}
+              accept="audio/mp3"
+              onChange={handleMp3Upload}
+            />
+          </div>
+        ) : (
+          <>Mp3 subido exisotsamente</>
+        )}
+      </div>
+      <div class="my-2">
+        {/* { wavLink.length < 4 ? ( */}
+          <div>
+            <Button type="button" onClick={() => refAudioWav.current.click()}>
+              Subir Audio WAV
+            </Button>
+            <Input
+              type="file"
+              className="hidden"
+              ref={refAudioWav}
+              accept="audio/mp3"
+              onChange={handlewavUpload}
+            />
+          </div>
+        {/* ) : (
+          <>Wav subido exisotsamente</>
+        )} */}
+      </div>
+      <Separator className="my-5" />
 
+      <p className="font-bold font-geist text-4xl  tracking-tighter ">
+        Licencias
+      </p>
       {licenses.map((license, index) => (
-        <div key={index} className="flex flex-col">
-          <input
+        <div key={index} className="flex flex-col ">
+          <Input
             type="text"
             name="titulo"
             value={license.titulo}
-            className="border-2 rounded-md my-2 p-1"
+            className="my-2"
             onChange={(e) => handleLicenseChange(e, index)}
-            required
             placeholder="Titulo"
           />
-          <input
+          <Input
             type="number"
             name="precio"
-            className="border-2 rounded-md my-2 p-1"
+            className="my-2"
             value={license.precio}
             placeholder="Precio de Licencia"
             onChange={(e) => handleLicenseChange(e, index)}
-            required
           />
 
-          <input
+          <Input
             type="text"
-            className="border-2 rounded-md my-2 p-1"
+            className="my-2"
             name="descripcion"
             placeholder="Descripción"
             value={license.descripcion}
             onChange={(e) => handleLicenseChange(e, index)}
-            required
           />
-          <input
-            className="border-2 rounded-md my-2 p-1"
+          <Input
+            className="my-2"
             placeholder="Formatos"
             type="text"
             name="formatos"
             value={license.formatos}
             onChange={(e) => handleLicenseChange(e, index)}
-            required
           />
+          <div
+            className="flex justify-end"
+            style={{ display: licenses.length > 1 ? "auto" : "none" }}
+          >
+            <Button
+              variant="destructive"
+              type="button"
+              onClick={() => removeLicense(index)} // Llama a removeLicense con el índice de la licencia
+              className="my-2"
+            >
+              Eliminar Licencia
+            </Button>
+          </div>
+          <Separator className="mb-10" />
         </div>
       ))}
-      <button
-        type="button"
-        className="bg-slate-200 my-2 p-2 rounded-xl font-bold"
-        onClick={addLicense}
-      >
-        Agregar Licencia
-      </button>
-      <br />
-      <Button className="mt-10" type="submit">
-        Enviar
-      </Button>
+      <div className="">
+        <Button type="button" onClick={addLicense}>
+          Agregar Licencia
+        </Button>
+      </div>
+
+      <div className="flex justify-end">
+        <Button variant="secondary" className="mt-10" type="submit">
+          Enviar
+        </Button>
+      </div>
     </form>
   );
 };

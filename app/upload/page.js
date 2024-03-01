@@ -40,6 +40,7 @@ import {
 import useLicenses from "../hook/useLicenses";
 import { BeatForm } from "@/components/Forms/Beats";
 import { LincenseForm } from "@/components/Forms/Licences";
+import { Input } from "@/components/ui/input";
 
 const Page = () => {
   const { licencias } = useLicenses();
@@ -115,7 +116,7 @@ const Page = () => {
   return (
     <div className="min-h-screen max-w-screen  bg-slate-200  py-28">
       <div className="flex justify-center">
-        <Tabs defaultValue="beats" className="w-[500px] bg-white rounded-xl p-3 h-screen">
+        <Tabs defaultValue="beats" className="w-[500px] bg-white rounded-xl p-3 min-h-screen">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="crearbeats">Subir Beat</TabsTrigger>
             <TabsTrigger value="beats">Beats</TabsTrigger>
@@ -170,9 +171,9 @@ const Page = () => {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                               <DropdownMenuLabel>Nombre</DropdownMenuLabel>
-                              <input
+                              <Input
                                 value={nombre}
-                                className="border-2 p-2 rounded-xl"
+                               
                                 onChange={(event) =>
                                   setNombre(event.target.value)
                                 }
@@ -180,8 +181,8 @@ const Page = () => {
                               />
                               <DropdownMenuSeparator />
                               <DropdownMenuLabel>Precio</DropdownMenuLabel>
-                              <input
-                                className="border-2 p-2 rounded-xl"
+                              <Input
+                               
                                 value={precio}
                                 type="number"
                                 onChange={(event) =>
@@ -205,9 +206,9 @@ const Page = () => {
                                     <DropdownMenuLabel>
                                       Nombre
                                     </DropdownMenuLabel>
-                                    <input
+                                    <Input
                                       value={l.titulo}
-                                      className="border-2 p-2 rounded-xl"
+                                     
                                       // onChange={(event) =>
                                       //   setNombre(event.target.value)
                                       // }
@@ -217,8 +218,8 @@ const Page = () => {
                                     <DropdownMenuLabel>
                                       Precio
                                     </DropdownMenuLabel>
-                                    <input
-                                      className="border-2 p-2 rounded-xl"
+                                    <Input
+                                     
                                       value={l.precio}
                                       type="number"
                                       // onChange={(event) =>
@@ -229,8 +230,8 @@ const Page = () => {
                                     <DropdownMenuLabel>
                                       Descripción
                                     </DropdownMenuLabel>
-                                    <input
-                                      className="border-2 p-2 rounded-xl"
+                                    <Input
+                                     
                                       value={l.descripcion}
                                       type="number"
                                       // onChange={(event) =>
@@ -241,8 +242,8 @@ const Page = () => {
                                     <DropdownMenuLabel>
                                       Formatos
                                     </DropdownMenuLabel>
-                                    <input
-                                      className="border-2 p-2 rounded-xl"
+                                    <Input
+                                     
                                       value={l.formatos}
                                       type="number"
                                       // onChange={(event) =>

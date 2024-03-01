@@ -5,6 +5,7 @@ import { ReproductorComponent } from "@/components/cards/reproductorCard";
 import { SliderFlipComponent } from "@/components/sliders/Flip";
 import { LicenseSlider } from "@/components/sliders/LincenseSlider";
 import { WavyBackground } from "@/components/ui/Wavy";
+import { Textarea } from "@/components/ui/textarea";
 import { paises } from "@/utils/paises";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
@@ -12,7 +13,15 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 const Page = () => {
   const { nickname } = useParams();
   const { usuarios } = useUsuarios();
@@ -100,22 +109,23 @@ const Page = () => {
                 {generos.map((e) => (
                   <span
                     key={e}
-                    className="text-md mr-2 bg-gray-200 text-black border border-black  p-2  rounded-xl font-bold mt-5"
+                    className="text-md mr-2 bg-black text-white   p-2  rounded-xl font-bold mt-5"
                   >
                     {e}
                   </span>
                 ))}
               </div>
-              <p
-                style={{
-                  textShadow:
-                    " 1px 1px 2px black,0 0 1em blue, 0 0 0.2em blue;",
-                  mixBlendMode: "difference",
-                }}
-                className="text-center text-xl opacity-[.8] font-bold  degradado-texto w-9/12 md:w-6/12 mt-20 md:mt-10"
-              >
-                {descripcion}
-              </p>
+              <div className="w-full flex justify-center mt-10 ">
+                <Card className='bg-black/90 flex items-center justify-center w-10/12 pt-5' >
+                  <CardContent className="">
+                    <p
+                      className="text-white tracking-tighter text-xl"
+                    >
+                      {descripcion}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             </section>
             {/* <div className="icons w-full flex   p-5 items-center justify-center">
               <a
@@ -329,15 +339,15 @@ const Page = () => {
                     <SliderFlipComponent imgs={images} />
                   </div>
                 </div>
-                <div className=" flex h-full flex-col md:mt-0 my-0 md:my-10 py-5  items-center ml-0 md:ml-1 justify-center  bg-slate-800/50 rounded-xl w-[100%]  ">
-                  <p className="text-center font-sans text-black font-extrabold text-5xl">
+                <div className=" flex h-full flex-col md:mt-0 my-0 md:my-10 py-5  items-center ml-0 md:ml-1 justify-center  bg-green-900/20 rounded-xl w-[100%]  ">
+                  <p className="text-center tracking-tighter font-sans text-black font-extrabold text-5xl">
                     Contacto
                   </p>
 
                   <div className="flex justify-center w-full mt-10 h-2/6">
-                    <textarea
-                      className="w-10/12  rounded-xl  border-2 px-2 py-5 md:py-0 pt-1 "
-                      placeholder="Hola! Me interesaria coordinar una llamada..."
+                    <Textarea
+                      placeholder="Enviame tu mensaje."
+                      className="w-10/12 bg-white"
                     />
                   </div>
                   <button className="border-2 mt-5 flex items-center hover:opacity-[0.7] transition-all duration-500 bg-black text-white text-xl rounded-xl px-2 py-1  ">
