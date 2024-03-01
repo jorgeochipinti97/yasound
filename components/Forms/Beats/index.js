@@ -126,14 +126,18 @@ export const BeatForm = ({ autor }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
+    if (!nombre || !precio || !genero || !image || !mp3Link || !wavLink) {
+      alert("Todos los campos son requeridos.");
+      return;
+    }
     const data = await axios.post("/api/beats", {
       nombre,
       precio,
       genero,
       image,
-      linkmp3: mp3Link || "",
-      linkwav: wavLink || "",
+      linkmp3: mp3Link ,
+      linkwav: wavLink ,
       autor,
       licenses,
     });
@@ -231,7 +235,7 @@ export const BeatForm = ({ autor }) => {
         )}
       </div>
       <div class="my-2">
-        {/* { wavLink.length < 4 ? ( */}
+        {wavLink.length < 4 ? (
           <div>
             <Button type="button" onClick={() => refAudioWav.current.click()}>
               Subir Audio WAV
@@ -244,9 +248,9 @@ export const BeatForm = ({ autor }) => {
               onChange={handlewavUpload}
             />
           </div>
-        {/* ) : (
+        ) : (
           <>Wav subido exisotsamente</>
-        )} */}
+        )}
       </div>
       <Separator className="my-5" />
 
