@@ -13,7 +13,8 @@ export function Providers({ children }) {
           clientId="TXqeIBPouYLYDrIcpxuujQCMx1R4PcTM"
           authorizationParams={{
             // redirect_uri: 'https://yasound.vercel.app/',
-            redirect_uri: 'http://localhost:3000/',
+            redirect_uri: 'https://yasound-git-test-royer.vercel.app/',
+            // redirect_uri: 'http://localhost:3000/',
           }}
         >
           {children}
