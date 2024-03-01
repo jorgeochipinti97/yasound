@@ -173,17 +173,17 @@ export default function Home() {
           className="top-[3%] left-0 md:left-60 md:-top-20"
           fill="#ef21aa"
         />
-        <p className="font-semibold  font-geist mt-5 font-sans  text-center  capitalize text-7xl degradado-texto">
+        <p className="font-semibold  font-geist mt-5 font-sans  text-center tracking-tighter  capitalize text-7xl degradado-texto">
           Yasound
         </p>
-        <p className="font-geist text-center font-bold text-md">
+        <p className="font-geist tracking-tighter text-center font-bold text-md">
           La plataforma destinada a ser la número uno en Latinoamérica para
           comercializacion de beats.
         </p>
         <div className="mt-5">
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="bg-black/80 text-white transition-all duration-100 ">
+              <Button>
                 Conocenos
               </Button>
             </DialogTrigger>
