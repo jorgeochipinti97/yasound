@@ -384,7 +384,7 @@ const Page = () => {
                           img={e.image}
                           artist={e.autor}
                           title={e.nombre}
-                          audio={e.link}
+                          audio={e.linkmp3}
                           licenses={e.licenses}
                         />
                       </div>
