@@ -42,7 +42,7 @@ export default function Home() {
       if (!email || !nombre || !phone || !rol) {
         gsap.to(".completedatos", {
           opacity: 1,
-          ease:Power1.easeIn
+          ease: Power1.easeIn,
         });
         setTimeout(() => {
           gsap.to(".completedatos", {
@@ -125,11 +125,10 @@ export default function Home() {
   //   }, 500); // Ajusta este tiempo según necesites
   // }, []);
 
-
   return (
     <>
       <Alert
-      variant='destructive'
+        variant="destructive"
         className="completedatos h-fit z-50 w-fit fixed bottom-5 right-5"
         style={{ opacity: 0 }}
       >
@@ -178,7 +177,8 @@ export default function Home() {
           Yasound
         </p>
         <p className="font-geist text-center font-bold text-md">
- La plataforma destinada a ser la número uno en Latinoamérica para comercializacion de  beats.
+          La plataforma destinada a ser la número uno en Latinoamérica para
+          comercializacion de beats.
         </p>
         <div className="mt-5">
           <Dialog>
@@ -285,17 +285,20 @@ export default function Home() {
         </div>
         <div>
           <div className="h-fit mt-5 w-screen flex items-center justify-center flex-wrap">
-            <img
-              src="/twitter.png"
-              className=" rounded-full bg-black p-2 border-black w-[40px] md:w-[55px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
-              alt=""
-            />
-
-            <img
-              src="/instagram.svg"
-              className="w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
-              alt=""
-            />
+            <a href="https://twitter.com/YasoundSite">
+              <img
+                src="/twitter.png"
+                className=" rounded-full bg-black p-2 border-black w-[40px] md:w-[55px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+                alt=""
+              />
+            </a>
+            <a href="https://www.instagram.com/yasound.beat/">
+              <img
+                src="/instagram.svg"
+                className="w-[45px] md:w-[60px] hover:scale-[1.2]  grayscale-[100%] hover:grayscale-0 transition-all duration-100 cursor-pointer  mx-2"
+                alt=""
+              />
+            </a>
           </div>
         </div>
         {/* <BackgroundGradientAnimation> */}
