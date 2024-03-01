@@ -200,7 +200,7 @@ export default function Home() {
           />
           <Input
             className="w-9/12 md:w-6/12 mt-5"
-            placeHolder="Rol"
+            placeHolder="Rol (Productor, Artista, otros)"
             onChangeCapture={(e) => setRol(e.target.value)}
             value={rol}
           />
