@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/dialog";
 import axios from "axios";
 import gsap, { Power1 } from "gsap";
+import CountdownTimer from "@/components/Countdown";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -179,6 +180,10 @@ export default function Home() {
             </DialogContent>
           </Dialog>
         </div>
+
+
+        <CountdownTimer />
+
         <div className="flex justify-center items-center w-screen flex-col">
           <Input
             className="w-9/12 md:w-6/12 mt-5"
