@@ -153,7 +153,6 @@ export const BeatForm = ({ autor }) => {
       data && setMp3Link("");
       data && setLicenses([]);
 
-
       data &&
         gsap.to(".alertaCreate", {
           opacity: 1,
@@ -174,9 +173,11 @@ export const BeatForm = ({ autor }) => {
 
   return (
     <>
-
-        <Alert     className={`h-fit z-50 w-fit fixed bottom-5 right-5 alertaCreate`}
-        style={{ opacity: 0 }}>
+      <div
+        className={`h-fit z-50 w-fit fixed bottom-5 right-5 alertaCreate`}
+        style={{ opacity: 0 }}
+      >
+        <Alert>
           <svg
             height={20}
             xmlns="http://www.w3.org/2000/svg"
@@ -202,10 +203,10 @@ export const BeatForm = ({ autor }) => {
               ></path>
             </g>
           </svg>
-          <AlertTitle>Creado con éxito</AlertTitle>
+          <AlertTitle>Creado con éxito.</AlertTitle>
           <AlertDescription>¡Gracias por confiar en nosotros!</AlertDescription>
         </Alert>
-
+      </div>
 
       <form onSubmit={handleSubmit} className="mx-5">
         <p className="mt-10 font-bold font-geist text-4xl  tracking-tighter ">
