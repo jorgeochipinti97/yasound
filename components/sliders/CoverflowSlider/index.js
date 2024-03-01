@@ -33,6 +33,7 @@ export const SliderCoverFlow = () => {
         effect={"coverflow"}
         centeredSlides={true}
         slidesPerView={3.2}
+        initialSlide={3}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
