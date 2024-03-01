@@ -38,29 +38,45 @@ export default function Home() {
   const [rol, setRol] = useState("");
 
   const postWaitlist = async () => {
-    const data = await axios.post("/api/waitlist", {
-      nombre: nombre || "",
-      email: email || "",
-      rol: rol || "",
-      celular: phone || "",
-    });
-    data &&
-      gsap.to(".shownoti", {
-        opacity: 1,
-        ease: Power1.easeIn,
+    try {
+      if (!email || !nombre || !phone || !rol) {
+        gsap.to(".completedatos", {
+          opacity: 1,
+          ease:Power1.easeIn
+        });
+        setTimeout(() => {
+          gsap.to(".completedatos", {
+            opacity: 0,
+            ease: Power1.easeIn,
+          });
+        }, 3000);
+      }
+      const data = await axios.post("/api/waitlist", {
+        nombre: nombre || "",
+        email: email || "",
+        rol: rol || "",
+        celular: phone || "",
       });
-    data && setEmail("");
-    data && setNombre("");
-    data && setPhone("");
-    data && setRol("");
-
-    data &&
-      setTimeout(() => {
+      data &&
         gsap.to(".shownoti", {
-          opacity: 0,
+          opacity: 1,
           ease: Power1.easeIn,
         });
-      }, 3000);
+      data && setEmail("");
+      data && setNombre("");
+      data && setPhone("");
+      data && setRol("");
+
+      data &&
+        setTimeout(() => {
+          gsap.to(".shownoti", {
+            opacity: 0,
+            ease: Power1.easeIn,
+          });
+        }, 3000);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const { push } = useRouter();
@@ -113,6 +129,14 @@ export default function Home() {
   return (
     <>
       <Alert
+      variant='destructive'
+        className="completedatos h-fit z-50 w-fit fixed bottom-5 right-5"
+        style={{ opacity: 0 }}
+      >
+        <AlertTitle>Completa todos los campos por favor.</AlertTitle>
+        <AlertDescription>¡Gracias por tu comprensión!</AlertDescription>
+      </Alert>
+      <Alert
         className="shownoti h-fit z-50 w-fit fixed bottom-5 right-5"
         style={{ opacity: 0 }}
       >
@@ -159,10 +183,7 @@ export default function Home() {
         <div className="mt-5">
           <Dialog>
             <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                className="bg-black hover:border-2 border-black text-white"
-              >
+              <Button className="bg-black/80 text-white transition-all duration-100 ">
                 Conocenos
               </Button>
             </DialogTrigger>
@@ -180,7 +201,6 @@ export default function Home() {
             </DialogContent>
           </Dialog>
         </div>
-
 
         <CountdownTimer />
 
@@ -214,10 +234,10 @@ export default function Home() {
           </Button>
         </div>
 
-        <p className="font-geist font-bold mt-5 w-9/12 text-center md:w-12/12">
+        <p className="font-geist font-bold tracking-tighter mt-5 w-9/12 text-center md:w-12/12">
           Apoya el Nacimiento de una Comunidad Musical
         </p>
-        <p className="font-geist w-11/12 md:text-start text-center md:w-6/12 mt-2">
+        <p className="font-geist w-11/12 md:text-start  tracking-tighter text-center md:w-6/12 mt-2">
           Cada donación nos acerca a realizar nuestra visión. Con tu ayuda,
           podemos construir una plataforma que celebre y promueva el talento
           musical en toda su diversidad.
