@@ -124,7 +124,7 @@ export default function Home() {
   //     div3d.style.transform = "perspective(1000px) rotateX(0deg)";
   //   }, 500); // Ajusta este tiempo según necesites
   // }, []);
-  useEffect(() => {}, []);
+
 
   return (
     <>
@@ -178,7 +178,7 @@ export default function Home() {
           Yasound
         </p>
         <p className="font-geist text-center font-bold text-md">
-          Próximamente, la plataforma digital líder en Latinoamérica.
+ La plataforma destinada a ser la número uno en Latinoamérica para comercializacion de  beats.
         </p>
         <div className="mt-5">
           <Dialog>
