@@ -356,7 +356,7 @@ const Page = () => {
               ></path>
             </g>
           </svg>
-          <AlertTitle>ctualizado con éxito</AlertTitle>
+          <AlertTitle>Actualizado con éxito</AlertTitle>
           <AlertDescription>¡Gracias por confiar en nosotros!</AlertDescription>
         </Alert>
       </div>

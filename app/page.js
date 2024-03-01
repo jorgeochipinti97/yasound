@@ -48,6 +48,10 @@ export default function Home() {
         opacity: 1,
         ease: Power1.easeIn,
       });
+    data && setEmail("");
+    data && setNombre("");
+    data && setPhone("");
+    data && setRol("");
 
     data &&
       setTimeout(() => {
@@ -103,14 +107,49 @@ export default function Home() {
   //     div3d.style.transform = "perspective(1000px) rotateX(0deg)";
   //   }, 500); // Ajusta este tiempo según necesites
   // }, []);
+  useEffect(() => {}, []);
+
   return (
     <>
+      <Alert
+        className="shownoti h-fit z-50 w-fit fixed bottom-5 right-5"
+        style={{ opacity: 0 }}
+      >
+        <svg
+          height={20}
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 48 48"
+        >
+          <g>
+            <path fill="#fff" fillOpacity="0.01" d="M0 0H48V48H0z"></path>
+            <path
+              fill="#000"
+              stroke="#000"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="4"
+              d="M24 4l5.253 3.832 6.503-.012 1.997 6.188 5.268 3.812L41 24l2.021 6.18-5.268 3.812-1.997 6.188-6.503-.012L24 44l-5.253-3.832-6.503.012-1.997-6.188-5.268-3.812L7 24l-2.021-6.18 5.268-3.812 1.997-6.188 6.503.012L24 4z"
+            ></path>
+            <path
+              stroke="#fff"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="4"
+              d="M17 24l5 5 10-10"
+            ></path>
+          </g>
+        </svg>
+        <AlertTitle>Enviado con éxito.</AlertTitle>
+        <AlertDescription>¡Gracias por confiar en nosotros!</AlertDescription>
+      </Alert>
+
       <div className="min-h-screen flex justify-center items-center flex-col w-screen">
         <Spotlight
           className="top-[3%] left-0 md:left-60 md:-top-20"
           fill="#ef21aa"
         />
-        <p className="font-semibold font-geist mt-5 font-sans  text-center  capitalize text-7xl degradado-texto">
+        <p className="font-semibold  font-geist mt-5 font-sans  text-center  capitalize text-7xl degradado-texto">
           Yasound
         </p>
         <p className="font-geist text-center font-bold text-md">
