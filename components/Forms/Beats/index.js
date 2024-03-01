@@ -125,24 +125,38 @@ export const BeatForm = ({ autor }) => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    try {
+      event.preventDefault();
 
-    if (!nombre || !precio || !genero || !image || !mp3Link || !wavLink) {
-      alert("Todos los campos son requeridos.");
-      return;
+      if (!nombre || !precio || !genero || !image || !mp3Link || !wavLink) {
+        alert("Todos los campos son requeridos.");
+        return;
+      }
+      const data = await axios.post("/api/beats", {
+        nombre: nombre,
+        precio: precio,
+        genero: genero,
+        image: image,
+        linkmp3: mp3Link,
+        linkwav: wavLink,
+        autor: autor,
+        licenses: licenses,
+      });
+
+      console.log({
+        nombre: nombre,
+        precio: precio,
+        genero: genero,
+        image: image,
+        linkmp3: mp3Link,
+        linkwav: wavLink,
+        autor: autor,
+        licenses: licenses,
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err);
     }
-    const data = await axios.post("/api/beats", {
-      nombre: nombre,
-      precio: precio,
-      genero: genero,
-      image: image,
-      linkmp3: mp3Link,
-      linkwav: wavLink,
-      autor: autor,
-      licenses: licenses,
-    });
-
-    console.log(data);
   };
 
   return (
