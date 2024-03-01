@@ -126,20 +126,20 @@ export const BeatForm = ({ autor }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     if (!nombre || !precio || !genero || !image || !mp3Link || !wavLink) {
       alert("Todos los campos son requeridos.");
       return;
     }
     const data = await axios.post("/api/beats", {
-      nombre,
-      precio,
-      genero,
-      image,
-      linkmp3: mp3Link ,
-      linkwav: wavLink ,
-      autor,
-      licenses,
+      nombre: nombre,
+      precio: precio,
+      genero: genero,
+      image: image,
+      linkmp3: mp3Link,
+      linkwav: wavLink,
+      autor: autor,
+      licenses: licenses,
     });
 
     console.log(data);

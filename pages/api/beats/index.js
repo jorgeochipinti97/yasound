@@ -71,7 +71,7 @@ export default async function handler(req, res) {
         }
         break;
     default:
-      // Maneja correctamente los métodos no permitidos
+
       console.warn(`Método no permitido: ${req.method}`);
       res.status(405).json({ success: false, error: `Método ${req.method} no permitido` });
       break;
