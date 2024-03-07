@@ -207,7 +207,17 @@ export default function Home() {
             Los primeros 500 registros contaran con perfil premium
           </p>
         </div>
-        <p className="my-5 text-6xl md:text-7xl font-bold tracking-tighter">{waitlist.length + 150 } / 500</p>
+          <p className="my-5 text-6xl md:text-7xl font-bold tracking-tighter">
+            {waitlist.length + 150} / 500
+          </p>
+        <div className="my-5  flex justify-around">
+          <a className="mx-5" href="/premium.pdf" download="premium.pdf">
+            <Button type="button">Usuario Premium</Button>
+          </a>
+          <a className="mx-5" href="/free.pdf" download="free.pdf">
+            <Button type="button">Usuario Free</Button>
+          </a>
+        </div>
         <div className="flex justify-center items-center w-screen flex-col">
           <Input
             className="w-9/12 md:w-6/12 mt-5"
