@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from 'react';
 
 const CountdownTimer = () => {
+  // Indicador para saber si estamos en el cliente
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // Se activa solo en el cliente
+    setIsClient(true);
+  }, []);
+
   // Fecha objetivo
   const countDownDate = new Date('2024-03-21').getTime();
 
-  // Calcular la diferencia de tiempo inicial
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(countDownDate));
+  // Calcular la diferencia de tiempo inicial solo si isClient es true
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    // Actualizar el contador cada segundo
+    if (!isClient) {
+      return;
+    }
+
+    // Actualizar el contador cada segundo solo si estamos en el cliente
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(countDownDate));
     }, 1000);
 
     return () => clearTimeout(timer);
-  });
+  }, [isClient, timeLeft]); // Dependencias actualizadas para incluir timeLeft
 
   // Función para calcular el tiempo restante
   function calculateTimeLeft(countDownDate) {
@@ -45,10 +57,17 @@ const CountdownTimer = () => {
     };
   }
 
+  // Renderizado condicional basado en isClient para evitar la renderización en el servidor
   return (
     <div className='mt-5'>
-
-      <p className='text-center font-semibold opacity-[.8] text-3xl tracking-tighter '>{timeLeft.days} Días {timeLeft.hours} Horas {timeLeft.minutes} Minutos {timeLeft.seconds} Segundos</p>
+      {isClient ? (
+        <p className='text-center font-semibold opacity-[.8] text-3xl tracking-tighter'>
+          {timeLeft.days} Días {timeLeft.hours} Horas {timeLeft.minutes} Minutos {timeLeft.seconds} Segundos
+        </p>
+      ) : (
+        // Se puede mostrar un placeholder o nada mientras se carga el componente en el cliente
+        <p className='text-center font-semibold opacity-[.8] text-3xl tracking-tighter'>Cargando...</p>
+      )}
     </div>
   );
 };

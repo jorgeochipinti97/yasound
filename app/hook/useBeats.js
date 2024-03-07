@@ -14,7 +14,7 @@ const useBeatsFromUser = (user) => {
       console.log(error);
     }
 
-    setIsLoading(false);
+
   }
 
   

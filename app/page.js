@@ -30,8 +30,10 @@ import {
 import axios from "axios";
 import gsap, { Power1 } from "gsap";
 import CountdownTimer from "@/components/Countdown";
+import useWaitList from "./hook/useWaitlist";
 
 export default function Home() {
+  const { waitlist } = useWaitList();
   const [email, setEmail] = useState("");
   const [nombre, setNombre] = useState("");
   const [phone, setPhone] = useState("");
@@ -183,9 +185,7 @@ export default function Home() {
         <div className="mt-5">
           <Dialog>
             <DialogTrigger asChild>
-              <Button>
-                Conocenos
-              </Button>
+              <Button>Conocenos</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] bg-white/80">
               <div className="flex justify-center">
@@ -201,9 +201,13 @@ export default function Home() {
             </DialogContent>
           </Dialog>
         </div>
-
         <CountdownTimer />
-
+        <div className="mt-5 mx-2">
+          <p className="font-geist tracking-tighter text-3xl text-center  md:text-4xl font-bold">
+            Los primeros 500 registros contaran con perfil premium
+          </p>
+        </div>
+        <p className="my-5 text-6xl md:text-7xl font-bold tracking-tighter">{waitlist.length + 150 } / 500</p>
         <div className="flex justify-center items-center w-screen flex-col">
           <Input
             className="w-9/12 md:w-6/12 mt-5"

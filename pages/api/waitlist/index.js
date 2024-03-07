@@ -23,6 +23,15 @@ export default async function handler(req, res) {
         res.status(400).json({ success: false, error: error.message });
       }
       break;
+      case "GET":
+        try {
+          const waitlistEntries = await Waitlist.find();
+          res.status(200).json({ success: true, data: waitlistEntries });
+        } catch (error) {
+          console.error("Error en GET /api/waitlist:", error);
+          res.status(400).json({ success: false, error: error.message });
+        }
+        break;
 
       try {
         // Busca todos los usuarios y los devuelve
