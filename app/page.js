@@ -119,6 +119,16 @@ export default function Home() {
     },
   ];
 
+
+  useEffect(()=>{
+
+    gsap.to('.cantidad',{
+      opacity:1,
+      delay:.5,
+      ease:Power1.easeIn
+    })
+  },[])
+
   // useEffect(() => {
   //   const div3d = document.querySelector(".div-3d");
 
@@ -207,8 +217,8 @@ export default function Home() {
             Los primeros 500 registros contaran con perfil premium
           </p>
         </div>
-          <p className="my-5 text-6xl md:text-7xl font-bold tracking-tighter">
-            {waitlist.length + 150} / 500
+          <p className="cantidad my-5 text-6xl md:text-7xl font-bold tracking-tighter" style={{opacity:0}}>
+            {waitlist.length + 250} / 500
           </p>
         <div className="my-5  flex justify-around">
           <a className="mx-5" href="/premium.pdf" download="premium.pdf">
