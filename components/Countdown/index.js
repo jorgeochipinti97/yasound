@@ -66,7 +66,7 @@ const CountdownTimer = () => {
 
   // Renderizado condicional basado en isClient para evitar la renderización en el servidor
   return (
-    <div className="mt-5">
+    <div className="mt-5 cantidad" style={{opacity:0}}>
       {isClient ? (
         <p className="text-center font-semibold opacity-[.8] text-3xl tracking-tighter">
           {timeLeft.days} Días {timeLeft.hours} Horas {timeLeft.minutes} Minutos{" "}

@@ -51,7 +51,7 @@ export default function Home() {
             opacity: 0,
             ease: Power1.easeIn,
           });
-        }, 3000);
+        }, 4000);
       }
       const data = await axios.post("/api/waitlist", {
         nombre: nombre || "",
@@ -124,7 +124,7 @@ export default function Home() {
 
     gsap.to('.cantidad',{
       opacity:1,
-      delay:.5,
+      delay:.9,
       ease:Power1.easeIn
     })
   },[])
