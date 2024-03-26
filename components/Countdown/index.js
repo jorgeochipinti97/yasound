@@ -10,7 +10,7 @@ const CountdownTimer = () => {
   }, []);
 
   // Fecha objetivo
-  const countDownDate = new Date("2024-04-30").getTime();
+  const countDownDate = new Date("2024-03-30").getTime();
 
   // Calcular la diferencia de tiempo inicial solo si isClient es true
   const [timeLeft, setTimeLeft] = useState({
