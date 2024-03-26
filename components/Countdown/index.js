@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const CountdownTimer = () => {
   // Indicador para saber si estamos en el cliente
@@ -10,10 +10,15 @@ const CountdownTimer = () => {
   }, []);
 
   // Fecha objetivo
-  const countDownDate = new Date('2024-03-21').getTime();
+  const countDownDate = new Date("2024-04-30").getTime();
 
   // Calcular la diferencia de tiempo inicial solo si isClient es true
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     if (!isClient) {
@@ -35,7 +40,9 @@ const CountdownTimer = () => {
 
     // Cálculos para días, horas, minutos y segundos
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -59,14 +66,17 @@ const CountdownTimer = () => {
 
   // Renderizado condicional basado en isClient para evitar la renderización en el servidor
   return (
-    <div className='mt-5'>
+    <div className="mt-5">
       {isClient ? (
-        <p className='text-center font-semibold opacity-[.8] text-3xl tracking-tighter'>
-          {timeLeft.days} Días {timeLeft.hours} Horas {timeLeft.minutes} Minutos {timeLeft.seconds} Segundos
+        <p className="text-center font-semibold opacity-[.8] text-3xl tracking-tighter">
+          {timeLeft.days} Días {timeLeft.hours} Horas {timeLeft.minutes} Minutos{" "}
+          {timeLeft.seconds} Segundos
         </p>
       ) : (
         // Se puede mostrar un placeholder o nada mientras se carga el componente en el cliente
-        <p className='text-center font-semibold opacity-[.8] text-3xl tracking-tighter'>Cargando...</p>
+        <p className="text-center font-semibold opacity-[.8] text-3xl tracking-tighter">
+          Cargando...
+        </p>
       )}
     </div>
   );
